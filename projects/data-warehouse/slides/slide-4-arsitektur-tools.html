@@ -7,11 +7,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       width: 1080px;
@@ -19,7 +19,15 @@
       overflow: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    .mono { font-family: 'JetBrains Mono', monospace; }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+    .mono {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
   </style>
 </head>
 
@@ -65,16 +73,16 @@
         <!-- STAGE 1: SOURCES -->
         <g transform="translate(30, 30)">
           <rect x="0" y="0" width="170" height="220" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-          <text x="20" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#475569">01. SOURCES</text>
+          <text x="20" y="30" font-family="Poppins" font-size="12" font-weight="800" fill="#475569">01. SOURCES</text>
           
           <rect x="15" y="50" width="140" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-          <text x="25" y="75" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#1e293b">PostgreSQL / App</text>
+          <text x="25" y="75" font-family="Inter" font-size="12" font-weight="700" fill="#1e293b">PostgreSQL / App</text>
 
           <rect x="15" y="100" width="140" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-          <text x="25" y="125" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#1e293b">Stripe / Payment</text>
+          <text x="25" y="125" font-family="Inter" font-size="12" font-weight="700" fill="#1e293b">Stripe / Payment</text>
 
           <rect x="15" y="150" width="140" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-          <text x="25" y="175" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#1e293b">Ads &amp; CRM Events</text>
+          <text x="25" y="175" font-family="Inter" font-size="12" font-weight="700" fill="#1e293b">Ads &amp; CRM Events</text>
         </g>
 
         <!-- ARROW 1 -->
@@ -84,14 +92,14 @@
         <!-- STAGE 2: INGESTION & SYNC -->
         <g transform="translate(270, 30)">
           <rect x="0" y="0" width="160" height="220" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
-          <text x="20" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#1d4ed8">02. EXTRACT</text>
+          <text x="20" y="30" font-family="Poppins" font-size="12" font-weight="800" fill="#1d4ed8">02. EXTRACT</text>
           
           <rect x="15" y="65" width="130" height="60" rx="8" fill="#ffffff" stroke="#bfdbfe"/>
-          <text x="25" y="95" font-family="JetBrains Mono" font-size="13" font-weight="800" fill="#1e40af">Airbyte</text>
-          <text x="25" y="115" font-family="Plus Jakarta Sans" font-size="11" fill="#64748b">Fivetran / Debezium</text>
+          <text x="25" y="95" font-family="Poppins" font-size="13" font-weight="800" fill="#1e40af">Airbyte</text>
+          <text x="25" y="115" font-family="Inter" font-size="11" fill="#64748b">Fivetran / Debezium</text>
 
-          <text x="18" y="165" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#3b82f6">Jadwal Sinkronisasi:</text>
-          <text x="18" y="185" font-family="JetBrains Mono" font-size="11" fill="#1e40af">Tiap 1 Jam / Realtime</text>
+          <text x="18" y="165" font-family="Inter" font-size="11" font-weight="600" fill="#3b82f6">Jadwal Sinkronisasi:</text>
+          <text x="18" y="185" font-family="Inter" font-size="11" font-weight="700" fill="#1e40af">Tiap 1 Jam / Realtime</text>
         </g>
 
         <!-- ARROW 2 -->
@@ -101,17 +109,17 @@
         <!-- STAGE 3: DATA WAREHOUSE & DBT -->
         <g transform="translate(500, 30)">
           <rect x="0" y="0" width="200" height="220" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
-          <text x="20" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#c2410c">03. DATA WAREHOUSE</text>
+          <text x="20" y="30" font-family="Poppins" font-size="12" font-weight="800" fill="#c2410c">03. DATA WAREHOUSE</text>
 
           <rect x="15" y="50" width="170" height="50" rx="8" fill="#ffffff" stroke="#fed7aa"/>
-          <text x="25" y="75" font-family="JetBrains Mono" font-size="13" font-weight="800" fill="#9a3412">BigQuery / Snowflake</text>
-          <text x="25" y="92" font-family="Plus Jakarta Sans" font-size="10" fill="#64748b">ClickHouse (Real-Time)</text>
+          <text x="25" y="75" font-family="Poppins" font-size="12" font-weight="800" fill="#9a3412">BigQuery / Snowflake</text>
+          <text x="25" y="92" font-family="Inter" font-size="10" fill="#64748b">ClickHouse (Real-Time)</text>
 
           <rect x="15" y="115" width="170" height="45" rx="8" fill="#ffffff" stroke="#fed7aa"/>
-          <text x="25" y="138" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#c2410c">dbt (Data Build Tool)</text>
-          <text x="25" y="152" font-family="Plus Jakarta Sans" font-size="10" fill="#64748b">Transformasi SQL Otomatis</text>
+          <text x="25" y="138" font-family="Poppins" font-size="12" font-weight="800" fill="#c2410c">dbt (Data Build Tool)</text>
+          <text x="25" y="152" font-family="Inter" font-size="10" fill="#64748b">Transformasi SQL Otomatis</text>
 
-          <text x="20" y="195" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#9a3412">⚡ MPP Columnar Storage</text>
+          <text x="20" y="195" font-family="Inter" font-size="11" font-weight="700" fill="#9a3412">⚡ MPP Columnar Storage</text>
         </g>
 
         <!-- ARROW 3 -->
@@ -121,13 +129,13 @@
         <!-- STAGE 4: BI & DASHBOARD -->
         <g transform="translate(770, 30)">
           <rect x="0" y="0" width="120" height="220" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
-          <text x="15" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#047857">04. BI</text>
+          <text x="15" y="30" font-family="Poppins" font-size="12" font-weight="800" fill="#047857">04. BI</text>
 
           <rect x="10" y="65" width="100" height="50" rx="8" fill="#ffffff" stroke="#a7f3d0"/>
-          <text x="18" y="95" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#065f46">Metabase</text>
+          <text x="18" y="95" font-family="Poppins" font-size="12" font-weight="800" fill="#065f46">Metabase</text>
 
           <rect x="10" y="130" width="100" height="50" rx="8" fill="#ffffff" stroke="#a7f3d0"/>
-          <text x="18" y="160" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#065f46">Tableau</text>
+          <text x="18" y="160" font-family="Poppins" font-size="12" font-weight="800" fill="#065f46">Tableau</text>
         </g>
       </svg>
     </div>

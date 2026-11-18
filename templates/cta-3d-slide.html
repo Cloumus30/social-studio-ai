@@ -7,13 +7,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       width: 1080px;
@@ -21,7 +21,15 @@
       overflow: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    .mono { font-family: 'JetBrains Mono', monospace; }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+    .mono {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
   </style>
 </head>
 
@@ -238,13 +246,13 @@
       }
 
       // Tech Sub-badge (Top)
-      ctx.font = 'bold 36px "JetBrains Mono", monospace';
+      ctx.font = 'bold 36px "Inter", sans-serif';
       ctx.fillStyle = '#0891b2';
       ctx.textAlign = 'center';
       ctx.fillText('ENGINEERING & SYSTEM ARCHITECTURE', 1024, 250);
 
       // Brand Title "Logikanya.Tech"
-      ctx.font = '900 134px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '900 134px "Poppins", sans-serif';
       ctx.fillStyle = '#ffffff';
       ctx.fillText('Logikanya', 880, 480);
 
@@ -252,12 +260,12 @@
       ctx.fillText('.Tech', 1400, 480);
 
       // Slogan Subtitle
-      ctx.font = '600 44px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '600 44px "Poppins", sans-serif';
       ctx.fillStyle = '#94a3b8';
       ctx.fillText('CATATAN TEKNIK INDEPENDEN', 1024, 600);
 
       // Spec Tags
-      ctx.font = '500 32px "JetBrains Mono", monospace';
+      ctx.font = '500 32px "Inter", sans-serif';
       ctx.fillStyle = '#64748b';
       ctx.fillText('@logikanyatech  •  DEEP TECH INSIGHTS', 1024, 760);
 

@@ -38,12 +38,24 @@ Setiap slide dan teaser wajib menyertakan layer grid kotak tipis di belakang kon
 
 ## 🔤 3. Tipografi (Typography)
 
-* **Font Utama (Headings & Body):** `Plus Jakarta Sans`
-  - Judul Cover (Slide 1): `font-black text-5xl tracking-tight leading-[1.14]`
-  - Judul Slide Isi (2–6): `font-extrabold text-4xl tracking-tight`
-  - Body / Penjelas: `text-xl text-slate-600 leading-relaxed font-normal`
-* **Font Teknis (Monospace):** `JetBrains Mono`
-  - Digunakan untuk penomoran slide (`SLIDE 01 / 06`), badge teknis, parameter angka, kode script, dan handle (`@logikanyatech`).
+Menggunakan kombinasi 2 font family resmi: **Poppins** (Headings & Display) dan **Inter** (Body & Data Teknis).
+
+* **Font Judul / Display (Headings):** `Poppins`
+  - Karakter: Geometris, tebal, memikat (*punchy*), dan sangat tegas di feed media sosial.
+  - Judul Cover (Slide 1): `font-black text-5xl tracking-tight leading-[1.14]` (Weight 900)
+  - Judul Slide Isi (2–7): `font-extrabold text-4xl tracking-tight` (Weight 800)
+  - Nama Brand Logo: `font-extrabold text-2xl`
+* **Font Konten & Data Teknis (Body & Technical):** `Inter`
+  - Karakter: Tajam, netral, sangat mudah dibaca (*ultra-readable*) di layar smartphone pada ukuran kecil hingga menengah.
+  - Body / Penjelas: `text-xl text-slate-600 leading-relaxed font-normal` (Weight 400 / 500)
+  - Elemen Teknis (`.mono`): Penomoran slide (`SLIDE 01 / 07`), badge teknis, kode query SQL, parameter angka, dan handle (`@logikanyatech`) menggunakan **Inter dengan Tabular Numbers** (`font-feature-settings: 'tnum'; font-variant-numeric: tabular-nums`).
+
+---
+
+### Snippet Google Fonts CDN:
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+```
 
 ---
 

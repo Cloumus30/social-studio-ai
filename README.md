@@ -104,8 +104,8 @@ social-graphic-studio/
   * Surface Card: Slate 50 (`#f8fafc`)
 * **Grid Texture:** Blueprint Square Grid 40x40px (`opacity: 0.6`).
 * **Tipografi:**
-  * Utama: `Plus Jakarta Sans`
-  * Monospace / Teknis: `JetBrains Mono`
+  * Judul & Display: `Poppins`
+  * Body, Penjelas & Data Teknis: `Inter` (dengan Tabular Numbers untuk angka/badge)
 * **Ikon:** Lucide Icons (`<script src="https://unpkg.com/lucide@latest"></script>`).
 
 Untuk aturan detail dan pustaka kode komponen siap pakai, baca [STYLE_GUIDE.md](STYLE_GUIDE.md).
