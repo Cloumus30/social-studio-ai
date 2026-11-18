@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Slide CTA 3D - Logikanya.Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-16 relative">
+  <!-- Blueprint Square Line Grid Pattern (40x40px, opacity 0.6) -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mt-16 pt-16">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center font-black text-xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-2xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-xs text-slate-500 mono font-medium">@logikanyatech</p>
+      </div>
+    </div>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-xs font-bold tracking-wider uppercase text-[#c2410c]">
+      <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+      <span>CATATAN TEKNIK INDEPENDEN</span>
+    </div>
+  </header>
+
+  <!-- BODY CONTENT -->
+  <main class="relative z-10 my-auto flex flex-col gap-5 py-1">
+    <!-- Top Text Section (<35 words) -->
+    <div class="space-y-2">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-slate-100 border border-slate-200 text-slate-800 rounded-lg text-xs font-bold uppercase tracking-wider mono">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#c2410c]"></i>
+        <span>CATATAN REKAYASA &amp; ARSITEKTUR</span>
+      </div>
+      <h1 class="text-4xl font-black leading-tight tracking-tight text-[#18181b]">
+        Bangun Sistem yang Tangguh, <br/>
+        <span class="text-[#c2410c]">Bukan Sekadar Jalan.</span>
+      </h1>
+      <p class="text-lg text-slate-600 font-normal leading-relaxed">
+        Kupas tuntas arsitektur perangkat lunak, database, dan rekayasa data skala besar. Bebas teori klise, fokus pada logika sistem nyata.
+      </p>
+    </div>
+
+    <!-- 3D THREE.JS SHOWCASE CONTAINER -->
+    <div class="relative w-full h-[470px] rounded-3xl overflow-hidden border border-slate-800 shadow-xl bg-[#090d16] flex items-center justify-center">
+      <!-- Background Radial Glow -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(194,65,12,0.18),transparent_65%)] pointer-events-none"></div>
+      
+      <!-- Top Badges inside 3D Window -->
+      <div class="absolute top-5 left-6 right-6 flex items-center justify-between z-20 pointer-events-none">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-500"></div>
+          <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+          <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+          <span class="ml-2 mono text-[11px] text-slate-400 font-bold uppercase tracking-wider">3D ENGINE • WEBGL</span>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700/80 text-orange-400 mono text-[11px] font-bold">
+          RENDER: THREE.JS
+        </span>
+      </div>
+
+      <!-- Canvas for Three.js -->
+      <canvas id="three-canvas" class="w-full h-full block relative z-10"></canvas>
+
+      <!-- Bottom Status Bar inside 3D Window -->
+      <div class="absolute bottom-4 left-6 right-6 flex items-center justify-between z-20 pointer-events-none">
+        <span class="mono text-[11px] text-slate-400 font-semibold">IDENTITY MESH: EXTRUDED MONOLITH</span>
+        <span class="mono text-[11px] text-cyan-400 font-bold">PHYSICAL STUDIO SHADING</span>
+      </div>
+    </div>
+
+    <!-- 3 ACTION HUB CARDS -->
+    <div class="grid grid-cols-3 gap-4 pt-1">
+      <!-- Action 1 -->
+      <div class="p-4 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between shadow-xs">
+        <div class="flex items-center justify-between mb-2">
+          <span class="p-2 rounded-xl bg-orange-100 text-[#c2410c]">
+            <i data-lucide="bookmark" class="w-5 h-5"></i>
+          </span>
+          <span class="mono text-[10px] font-bold text-orange-700 bg-orange-50 px-2 py-0.5 rounded">ARSIP</span>
+        </div>
+        <div>
+          <h4 class="font-extrabold text-sm text-[#18181b]">Simpan Postingan</h4>
+          <p class="text-[11px] text-slate-600 mt-1 leading-snug">
+            Biar gampang dibuka lagi saat butuh referensi arsitektur data.
+          </p>
+        </div>
+      </div>
+
+      <!-- Action 2 -->
+      <div class="p-4 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between shadow-xs">
+        <div class="flex items-center justify-between mb-2">
+          <span class="p-2 rounded-xl bg-cyan-100 text-[#0891b2]">
+            <i data-lucide="share-2" class="w-5 h-5"></i>
+          </span>
+          <span class="mono text-[10px] font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">DISKUSI</span>
+        </div>
+        <div>
+          <h4 class="font-extrabold text-sm text-[#18181b]">Bagikan ke Tim</h4>
+          <p class="text-[11px] text-slate-600 mt-1 leading-snug">
+            Ajak diskusi rekan software engineer dan data team di kantor.
+          </p>
+        </div>
+      </div>
+
+      <!-- Action 3 -->
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-white flex flex-col justify-between shadow-sm">
+        <div class="flex items-center justify-between mb-2">
+          <span class="p-2 rounded-xl bg-orange-600 text-white">
+            <i data-lucide="user-plus" class="w-5 h-5"></i>
+          </span>
+          <span class="mono text-[10px] font-bold text-amber-300 bg-slate-800 px-2 py-0.5 rounded">KOMUNITAS</span>
+        </div>
+        <div>
+          <h4 class="font-extrabold text-sm text-white">Follow @logikanyatech</h4>
+          <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+            Update rutin bahasan sistem, backend, dan deep tech setiap minggu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200/90 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
+    <div class="mono text-sm font-semibold text-slate-500">
+      SLIDE <span class="text-[#18181b] font-bold">07</span> / 07
+    </div>
+    <div class="flex items-center gap-2 text-sm font-bold text-white bg-[#c2410c] px-6 py-2.5 rounded-xl shadow-sm">
+      <i data-lucide="check-check" class="w-4 h-4"></i>
+      <span>Terima kasih sudah membaca</span>
+    </div>
+  </footer>
+
+  <!-- THREE.JS 3D SCRIPT -->
+  <script>
+    (function init3D() {
+      const container = document.getElementById('three-canvas');
+      const width = container.parentElement.clientWidth;
+      const height = container.parentElement.clientHeight;
+
+      // 1. Scene & Camera
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 1000);
+      camera.position.set(0, 0, 15);
+
+      // 2. WebGL Renderer
+      const renderer = new THREE.WebGLRenderer({
+        canvas: container,
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance"
+      });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 2, 2));
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.25;
+
+      // 3. Lighting (Studio Setup)
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+      scene.add(ambientLight);
+
+      // Key Light (Warm White)
+      const keyLight = new THREE.DirectionalLight(0xfff5eb, 2.8);
+      keyLight.position.set(7, 10, 10);
+      scene.add(keyLight);
+
+      // Fill Light (Cyan)
+      const fillLight = new THREE.DirectionalLight(0x06b6d4, 1.4);
+      fillLight.position.set(-8, -4, 6);
+      scene.add(fillLight);
+
+      // Rim Light (Terracotta Orange)
+      const rimLight = new THREE.DirectionalLight(0xc2410c, 3.2);
+      rimLight.position.set(2, -8, -5);
+      scene.add(rimLight);
+
+      // Center Point Glow
+      const centerPoint = new THREE.PointLight(0xc2410c, 2.0, 15);
+      centerPoint.position.set(0, 0, 3);
+      scene.add(centerPoint);
+
+      // 4. Main 3D Floating Studio Monolith Group
+      const mainGroup = new THREE.Group();
+      scene.add(mainGroup);
+
+      // A. Monolith Base Plate (Dark Anodized Titanium)
+      function createRoundedRectShape(w, h, r) {
+        const shape = new THREE.Shape();
+        const x = -w / 2;
+        const y = -h / 2;
+        shape.moveTo(x + r, y);
+        shape.lineTo(x + w - r, y);
+        shape.quadraticCurveTo(x + w, y, x + w, y + r);
+        shape.lineTo(x + w, y + h - r);
+        shape.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        shape.lineTo(x + r, y + h);
+        shape.quadraticCurveTo(x, y + h, x, y + h - r);
+        shape.lineTo(x, y + r);
+        shape.quadraticCurveTo(x, y, x + r, y);
+        return shape;
+      }
+
+      const plateShape = createRoundedRectShape(10.2, 5.0, 0.45);
+      const plateGeom = new THREE.ExtrudeGeometry(plateShape, {
+        depth: 0.65,
+        bevelEnabled: true,
+        bevelSegments: 4,
+        steps: 1,
+        bevelSize: 0.12,
+        bevelThickness: 0.12
+      });
+      plateGeom.center();
+
+      const plateMat = new THREE.MeshStandardMaterial({
+        color: 0x111622,
+        roughness: 0.22,
+        metalness: 0.88,
+        wireframe: false
+      });
+      const monolithPlate = new THREE.Mesh(plateGeom, plateMat);
+      mainGroup.add(monolithPlate);
+
+      // B. Beveled Border Frame (Accent Orange & Cyan Edge)
+      const innerPlateShape = createRoundedRectShape(9.8, 4.6, 0.35);
+      const innerPlateGeom = new THREE.ExtrudeGeometry(innerPlateShape, {
+        depth: 0.1,
+        bevelEnabled: false
+      });
+      innerPlateGeom.center();
+      const innerPlateMat = new THREE.MeshStandardMaterial({
+        color: 0x0a0f1d,
+        roughness: 0.35,
+        metalness: 0.6
+      });
+      const innerPlate = new THREE.Mesh(innerPlateGeom, innerPlateMat);
+      innerPlate.position.z = 0.45;
+      mainGroup.add(innerPlate);
+
+      // C. High-Resolution Texture Canvas for Branding & Typography
+      const textCanvas = document.createElement('canvas');
+      textCanvas.width = 2048;
+      textCanvas.height = 1024;
+      const ctx = textCanvas.getContext('2d');
+
+      // Draw Texture Surface
+      ctx.fillStyle = '#0a0f1d';
+      ctx.fillRect(0, 0, 2048, 1024);
+
+      // Grid Pattern on texture
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.lineWidth = 2;
+      const step = 40;
+      for (let x = 0; x < 2048; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, 1024);
+        ctx.stroke();
+      }
+      for (let y = 0; y < 1024; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(2048, y);
+        ctx.stroke();
+      }
+
+      // Tech Sub-badge (Top)
+      ctx.font = 'bold 36px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#0891b2';
+      ctx.textAlign = 'center';
+      ctx.fillText('ENGINEERING & SYSTEM ARCHITECTURE', 1024, 260);
+
+      // Brand Title "Logikanya.Tech"
+      ctx.font = '900 130px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('Logikanya', 880, 480);
+
+      ctx.fillStyle = '#c2410c';
+      ctx.fillText('.Tech', 1400, 480);
+
+      // Subtitle / Slogan
+      ctx.font = '600 44px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('CATATAN TEKNIK INDEPENDEN', 1024, 600);
+
+      // Spec Tags
+      ctx.font = '500 32px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('@logikanyatech  •  EST. 2026  •  DEEP TECH INSIGHTS', 1024, 760);
+
+      const texture = new THREE.CanvasTexture(textCanvas);
+      texture.anisotropy = 8;
+      const textMat = new THREE.MeshStandardMaterial({
+        map: texture,
+        transparent: true,
+        roughness: 0.3,
+        metalness: 0.4
+      });
+      const textPlaneGeom = new THREE.PlaneGeometry(9.6, 4.4);
+      const textPlane = new THREE.Mesh(textPlaneGeom, textMat);
+      textPlane.position.z = 0.52;
+      mainGroup.add(textPlane);
+
+      // D. Extruded 3D Curly Braces "{ }" in Front
+      function createBraceShape(isLeft = true) {
+        const s = new THREE.Shape();
+        const flip = isLeft ? 1 : -1;
+        // Vector path for stylized architectural curly brace
+        s.moveTo(0.4 * flip, 1.4);
+        s.lineTo(0.15 * flip, 1.4);
+        s.quadraticCurveTo(0, 1.4, 0, 1.15);
+        s.lineTo(0, 0.3);
+        s.quadraticCurveTo(0, 0.05, -0.25 * flip, 0);
+        s.quadraticCurveTo(0, -0.05, 0, -0.3);
+        s.lineTo(0, -1.15);
+        s.quadraticCurveTo(0, -1.4, 0.15 * flip, -1.4);
+        s.lineTo(0.4 * flip, -1.4);
+        s.lineTo(0.4 * flip, -1.2);
+        s.lineTo(0.22 * flip, -1.2);
+        s.quadraticCurveTo(0.12 * flip, -1.2, 0.12 * flip, -1.05);
+        s.lineTo(0.12 * flip, -0.25);
+        s.quadraticCurveTo(0.12 * flip, 0, -0.08 * flip, 0);
+        s.quadraticCurveTo(0.12 * flip, 0, 0.12 * flip, 0.25);
+        s.lineTo(0.12 * flip, 1.05);
+        s.quadraticCurveTo(0.12 * flip, 1.2, 0.22 * flip, 1.2);
+        s.lineTo(0.4 * flip, 1.2);
+        s.closePath();
+        return s;
+      }
+
+      const braceSettings = {
+        depth: 0.35,
+        bevelEnabled: true,
+        bevelSegments: 3,
+        steps: 1,
+        bevelSize: 0.05,
+        bevelThickness: 0.05
+      };
+
+      const orangeMaterial = new THREE.MeshStandardMaterial({
+        color: 0xc2410c,
+        roughness: 0.25,
+        metalness: 0.65,
+        emissive: 0xc2410c,
+        emissiveIntensity: 0.35
+      });
+
+      // Left 3D Brace
+      const leftBraceGeom = new THREE.ExtrudeGeometry(createBraceShape(true), braceSettings);
+      leftBraceGeom.center();
+      const leftBrace = new THREE.Mesh(leftBraceGeom, orangeMaterial);
+      leftBrace.scale.set(1.1, 1.1, 1.1);
+      leftBrace.position.set(-3.7, 0.1, 0.7);
+      mainGroup.add(leftBrace);
+
+      // Right 3D Brace
+      const rightBraceGeom = new THREE.ExtrudeGeometry(createBraceShape(false), braceSettings);
+      rightBraceGeom.center();
+      const rightBrace = new THREE.Mesh(rightBraceGeom, orangeMaterial);
+      rightBrace.scale.set(1.1, 1.1, 1.1);
+      rightBrace.position.set(3.7, 0.1, 0.7);
+      mainGroup.add(rightBrace);
+
+      // E. Floating 3D Data Cubes & Tech Artifacts around Monolith
+      const cubes = [];
+      const cubeMatCyan = new THREE.MeshStandardMaterial({
+        color: 0x0891b2,
+        roughness: 0.2,
+        metalness: 0.7,
+        emissive: 0x0891b2,
+        emissiveIntensity: 0.35
+      });
+      const cubeMatOrange = new THREE.MeshStandardMaterial({
+        color: 0xc2410c,
+        roughness: 0.2,
+        metalness: 0.8,
+        emissive: 0xc2410c,
+        emissiveIntensity: 0.45
+      });
+      const cubeMatDark = new THREE.MeshStandardMaterial({
+        color: 0x334155,
+        roughness: 0.3,
+        metalness: 0.8
+      });
+
+      // Cube 1 (Orange, Top Left)
+      const c1 = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.75, 0.75), cubeMatOrange);
+      c1.position.set(-5.6, 2.2, 1.2);
+      c1.rotation.set(0.4, 0.6, 0.2);
+      scene.add(c1);
+      cubes.push({ mesh: c1, speed: 0.015, rotSpeed: 0.02 });
+
+      // Cube 2 (Cyan, Bottom Right)
+      const c2 = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.65, 0.65), cubeMatCyan);
+      c2.position.set(5.7, -2.0, 1.5);
+      c2.rotation.set(-0.3, 0.5, 0.4);
+      scene.add(c2);
+      cubes.push({ mesh: c2, speed: 0.012, rotSpeed: -0.015 });
+
+      // Cube 3 (Dark Metal, Bottom Left)
+      const c3 = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), cubeMatDark);
+      c3.position.set(-5.2, -1.8, 0.8);
+      c3.rotation.set(0.2, -0.3, 0.5);
+      scene.add(c3);
+      cubes.push({ mesh: c3, speed: 0.01, rotSpeed: 0.01 });
+
+      // Torus Ring (Cyan, Top Right)
+      const ringGeom = new THREE.TorusGeometry(0.55, 0.08, 16, 32);
+      const ringMat = new THREE.MeshStandardMaterial({
+        color: 0x06b6d4,
+        roughness: 0.2,
+        metalness: 0.8,
+        emissive: 0x06b6d4,
+        emissiveIntensity: 0.4
+      });
+      const ring = new THREE.Mesh(ringGeom, ringMat);
+      ring.position.set(5.5, 2.0, 1.0);
+      ring.rotation.set(0.8, 0.3, 0);
+      scene.add(ring);
+      cubes.push({ mesh: ring, speed: 0.018, rotSpeed: 0.025 });
+
+      // 5. Initial Static Isometric Rotation (Tilted Tangible 3D Look)
+      mainGroup.rotation.x = 0.16;
+      mainGroup.rotation.y = -0.26;
+      mainGroup.rotation.z = 0.04;
+      mainGroup.position.y = 0.0;
+
+      // Render First Frame Immediately for Headless Playwright
+      renderer.render(scene, camera);
+      window.__THREE_READY = true;
+
+      // 6. Smooth Animation Loop for Interactive Viewing
+      let clock = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        clock += 0.018;
+
+        // Gentle floating oscillation
+        mainGroup.position.y = Math.sin(clock) * 0.18;
+        mainGroup.rotation.y = -0.26 + Math.sin(clock * 0.7) * 0.06;
+        mainGroup.rotation.x = 0.16 + Math.cos(clock * 0.5) * 0.03;
+
+        // Animate floating cubes
+        cubes.forEach((item, idx) => {
+          item.mesh.rotation.x += item.rotSpeed;
+          item.mesh.rotation.y += item.rotSpeed * 1.2;
+          item.mesh.position.y += Math.sin(clock + idx) * 0.003;
+        });
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
