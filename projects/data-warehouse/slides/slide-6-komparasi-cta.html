@@ -44,14 +44,14 @@
     </div>
   </header>
 
-  <!-- BODY CONTENT (50/50 SPLIT: MATRIKS KOMPARASI + CTA) -->
+  <!-- BODY CONTENT (MATRIKS KOMPARASI + PRINSIP ARSITEKTUR) -->
   <main class="relative z-10 my-auto flex flex-col gap-6 py-2">
     <div>
       <h2 class="text-4xl font-extrabold tracking-tight text-[#18181b]">
-        Rangkuman Simpel: Siapa Pakai Apa?
+        Matriks Komparasi: Transaksi vs Analitik
       </h2>
       <p class="text-lg text-slate-600 mt-1">
-        Biar gampang kebayang perbedaannya di level arsitektur engineering:
+        Perbandingan karakteristik arsitektur antara database transaksi aplikasi dan gudang data:
       </p>
     </div>
 
@@ -98,30 +98,30 @@
       </div>
     </div>
 
-    <!-- CTA & DISCUSSION CARD -->
-    <div class="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-sm space-y-4">
-      <div class="flex items-center gap-3">
-        <div class="p-2.5 rounded-xl bg-orange-50 text-[#c2410c] border border-orange-100">
-          <i data-lucide="message-square" class="w-6 h-6"></i>
+    <!-- KESIMPULAN ARSITEKTUR (PENGGANTI KARTU PERTANYAAN) -->
+    <div class="grid grid-cols-2 gap-4">
+      <div class="p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between shadow-xs">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="p-2 rounded-xl bg-orange-100 text-[#c2410c]">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </span>
+          <h4 class="font-bold text-sm text-[#18181b]">Prinsip Isolasi Beban</h4>
         </div>
-        <div>
-          <h3 class="text-xl font-extrabold text-[#18181b]">Ngobrol Santai:</h3>
-          <p class="text-sm text-slate-600">Di project kalian saat ini, reporting bisnis udah dipisah ke DW atau masih nembak DB prod?</p>
-        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Memisahkan jalur analitik dari operasional aplikasi menjamin kestabilan transaksi user tetap 100% responsif tanpa risiko lock database.
+        </p>
       </div>
 
-      <div class="grid grid-cols-2 gap-3">
-        <div class="p-3.5 rounded-xl bg-white border border-slate-200 text-center font-bold text-sm text-[#c2410c] shadow-sm">
-          A. Sudah Pisah ke Data Warehouse
+      <div class="p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between shadow-xs">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="p-2 rounded-xl bg-cyan-100 text-[#0891b2]">
+            <i data-lucide="trending-up" class="w-5 h-5"></i>
+          </span>
+          <h4 class="font-bold text-sm text-[#18181b]">Skalabilitas Berkelanjutan</h4>
         </div>
-        <div class="p-3.5 rounded-xl bg-white border border-slate-200 text-center font-bold text-sm text-slate-700 shadow-sm">
-          B. Masih Nembak DB Operasional
-        </div>
-      </div>
-
-      <div class="border-t border-slate-200 pt-3 flex items-center justify-between text-xs text-slate-500 font-semibold">
-        <span class="flex items-center gap-1.5"><i data-lucide="bookmark" class="w-4 h-4 text-[#c2410c]"></i> Save biar nggak hilang</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="share-2" class="w-4 h-4 text-slate-700"></i> Share ke temen engineer lo</span>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Data Warehouse memungkinkan tim bisnis menganalisis pertumbuhan data bertahun-tahun secara mandiri tanpa membebani tim engineering.
+        </p>
       </div>
     </div>
   </main>
