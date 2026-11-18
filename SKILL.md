@@ -23,10 +23,11 @@ Ketika pengguna meminta dibuatkan konten media sosial (Carousel atau Story), iku
 
 ### Tahap 1: Pilih Arsitektur Narasi Slide (5–7 Slide)
 * **Slide 1 (Cover):** Scroll-stopper headline + Micro-subjudul + 50/50 visual split (Foto wafer/hardware + Skematik inti).
-* **Slide 2 (Akar Masalah):** Analisis kendala teknologi lama menggunakan diagram SVG fungsional.
-* **Slide 3 & 4 (Pilar Solusi):** Foto hardware nyata dengan CSS frame mockup + Diagram mekanisme kerja.
-* **Slide 5 (Sinergi / Masa Depan):** Diagram arsitektur hibrida atau skenario nyata implementasi.
-* **Slide 6 (Rangkuman & CTA):** Matriks komparasi tabel + Pertanyaan diskusi interaktif komunitas.
+* **Slide 2 (Akar Masalah & Glosarium):** Analisis kendala sistem lama via diagram SVG + Kotak glosarium analogi awam (tanpa singkatan mentah).
+* **Slide 3 & 4 (Pilar Solusi & Pipeline):** Foto hardware nyata dengan CSS frame mockup + Diagram mekanisme kerja/pipeline data.
+* **Slide 5 (Kapan Wajib Pakai):** Kriteria kesiapan teknis atau skenario nyata implementasi.
+* **Slide 6 (Matriks Komparasi - Slide Sebelum CTA):** Tabel komparasi + 2 kesimpulan arsitektur padat (**DILARANG MEMBERI PERTANYAAN DI SLIDE INI**).
+* **Slide 7 (Slide Penutup / CTA 3D Three.js):** Objek 3D Monolit Logikanya.Tech di kanvas transparan murni + headline ramah tanpa overclaim + 1 bar horizontal CTA lapang.
 * **Story Teaser (9:16):** Teaser layar penuh dengan layout **Dua Foto Berdampingan** (*Dual Real Photo Split*).
 
 ---

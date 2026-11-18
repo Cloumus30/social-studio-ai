@@ -91,7 +91,47 @@ Merujuk langsung pada protokol [anti-slop](file:///Users/lcgoesinternational/Des
 
 ---
 
-## 💻 8. Code Snippet Library (Siap Salin-Tempel)
+## 🚀 8. Standar Khusus Slide Penutup (CTA 3D Three.js)
+
+Slide penutup (Slide 7 atau slide terakhir) wajib menggunakan template `templates/cta-3d-slide.html` dengan aturan ketat:
+1. **Kanvas 3D Transparan Murni (*Seamless / Pure Transparent*):**
+   * Objek 3D Three.js (Monolit Logikanya.Tech `{ }`) melayang langsung di atas kanvas putih dan grid blueprint slide.
+   * ❌ **DILARANG** membuat kartu wadah gelap tebal atau bingkai jendela program macOS (tanpa titik merah/kuning/hijau).
+   * ❌ **DILARANG** menambahkan teks overlay teknis di pojok-pojok viewport 3D (*no corner overlays*).
+2. **Headline Ramah & Bebas Overclaim:**
+   * ❌ **DILARANG** memakai headline bombastis/overclaim (misal: *"Bangun Sistem yang Tangguh, Bukan Sekadar Jalan"*).
+   * ✅ **WAJIB** memakai nada santai, hangat, dan mengajak berdiskusi (contoh: *"Suka Bahasan Teknis Praktis Kayak Gini? / Yuk Konek di @logikanyatech"*).
+   * ❌ **DILARANG** menaruh *eyebrow pill/badge* di atas headline CTA agar area atas tetap bersih dan lapang.
+3. **1 Bar CTA Horizontal Elegan:**
+   * ❌ **DILARANG** membuat tumpukan 3 kotak kartu aksi kecil yang membuat slide terasa sesak/ramai.
+   * ✅ **WAJIB** menggunakan 1 baris horizontal lapang: Tombol utama *Follow @logikanyatech* (oranye terakota) diapit tombol ringan *Simpan* & *Bagikan*.
+
+---
+
+## 🚫 9. Standar Slide Sebelum CTA (Slide n-1)
+
+Slide tepat sebelum slide penutup (misal: Slide 6 pada carousel 7 slide) memiliki aturan ketat:
+1. ❌ **DILARANG KERAS MEMBERI PERTANYAAN:**
+   * Jangan menaruh pertanyaan diskusi (*"Ngobrol Santai: ...?"*), polling A/B, atau ajakan komentar prematur di slide sebelum CTA.
+2. ✅ **Murni Konten & Kesimpulan Teknis (*Architectural Takeaways*):**
+   * Gunakan slide ini murni untuk tabel komparasi, cheatsheet, atau 2 kartu kesimpulan arsitektur yang berbobot edukatif.
+3. ✅ **Arahkan ke Slide Penutup:**
+   * Tombol aksi footer cukup bertuliskan `Slide Penutup ➔` untuk mengalirkan audiens secara alami ke slide CTA Three.js.
+
+---
+
+## 💡 10. Standar Istilah Ramah Pemula (*Layman-First Architecture*)
+
+1. **Gunakan Nama Fungsi Sehari-hari Sebagai Sebutan Utama:**
+   * Gunakan *"Database Transaksi (Kasir)"* alih-alih hanya *"OLTP"*.
+   * Gunakan *"Gudang Data Analitik"* alih-alih hanya *"OLAP"*.
+2. **Edukasi Singkatan Melalui Kartu Glosarium:**
+   * Jika ingin memperkenalkan singkatan teknis (seperti OLTP & OLAP), buatkan 1 kartu info box glosarium khusus di Slide 2 dengan analogi kasir toko vs ruang arsip rekap tahunan.
+   * Dilarang mencantumkan singkatan teknis mentah yang membingungkan di judul cover atau badge utama.
+
+---
+
+## 💻 11. Code Snippet Library (Siap Salin-Tempel)
 
 ### Snippet A: Blueprint Grid Texture
 ```html

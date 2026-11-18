@@ -40,12 +40,13 @@ social-graphic-studio/
 ```
 
 ### Tahap 1: Riset & Arsitektur Narasi
-Tentukan struktur konten (biasanya 5–7 slide):
+Tentukan struktur konten (standar 7 slide):
 * **Slide 1 (Cover):** Hook kuat penahan scroll + Subjudul ringkas + Visual split (Foto nyata wafer/hardware + Skematik inti).
-* **Slide 2 (Akar Masalah):** Bedah batas/kendala sistem lama dengan diagram alur SVG fungsional.
-* **Slide 3 & 4 (Pilar Solusi):** Foto hardware nyata dengan CSS frame mockup + Diagram mekanisme kerja.
-* **Slide 5 (Sinergi / Masa Depan):** Diagram arsitektur hibrida atau skenario nyata implementasi.
-* **Slide 6 (Rangkuman & CTA):** Matriks komparasi tabel + Pertanyaan diskusi interaktif komunitas.
+* **Slide 2 (Akar Masalah & Glosarium):** Bedah kendala sistem lama dengan diagram alur SVG fungsional + Box info glosarium istilah ramah pemula.
+* **Slide 3 & 4 (Pilar Solusi & Pipeline):** Foto hardware nyata dengan CSS frame mockup + Diagram mekanisme kerja/pipeline.
+* **Slide 5 (Kapan Wajib Pakai):** Kriteria kesiapan teknis atau skenario nyata implementasi di lapangan.
+* **Slide 6 (Matriks Komparasi - Slide Sebelum CTA):** Tabel perbandingan parameter + 2 poin kesimpulan arsitektur padat (**DILARANG MEMBERI PERTANYAAN DI SLIDE INI**).
+* **Slide 7 (Slide Penutup / CTA 3D Three.js):** Monolit 3D Logikanya.Tech melayang di atas kanvas transparan murni + headline ramah tanpa overclaim + 1 bar CTA horizontal lapang.
 * **Story Teaser (9:16):** Teaser pemicu penasaran dengan layout **Dua Foto Berdampingan** (*Dual Real Photo Split*).
 
 ---
@@ -56,6 +57,9 @@ Tentukan struktur konten (biasanya 5–7 slide):
 Tulis naskah teks dengan aturan:
 * **Maksimal 30–45 kata per slide** agar nyaman dibaca di smartphone.
 * **Tone:** Santai khas obrolan engineer lokal (*"udah mulai mentok"*, *"nggak pakai kabel tembaga lagi"*, *"kalian"*, *"duet maut"*).
+* **Layman-First Architecture:** Gunakan nama fungsi bahasa sehari-hari sebagai sebutan utama (contoh: *"Database Transaksi (Kasir)"* dan *"Gudang Data Analitik"*). Hindari singkatan mentah (OLTP/OLAP) di judul/badge utama.
+* **Aturan Slide Sebelum CTA:** DILARANG menaruh pertanyaan diskusi atau polling di slide tepat sebelum slide CTA. Murni gunakan untuk kesimpulan teknis.
+* **Aturan Headline CTA:** Wajib bersahabat, santai, dan bebas overclaim (contoh: *"Suka Bahasan Teknis Praktis Kayak Gini? / Yuk Konek di @logikanyatech"*). Dilarang memasang eyebrow pill di atas headline CTA.
 * **Filter Slop Bahasa Indonesia:** Hapus pola terjemahan calque (*"yang mana"*, *"di mana"* sebagai sambung), hindari pembuka definisi istilah, pertanyaan retoris pengisi (*"Lalu apa solusinya?"*), dan kontras biner klise (*"bukan X melainkan Y"*).
 * **Akurasi:** Pertahankan nama teknis resmi secara presisi (*Quantum Tunneling, Dilution Cryostat, Waveguide, Qubit*).
 
@@ -112,3 +116,6 @@ Berikut adalah rekap perbandingan antara **Workflow Versi Awal** saat studio per
 | **Gaya Bahasa (Tone)** | Bahasa baku kaku / textbook | **Smart-Casual Tech Indonesian** (santai, mengalir, tanpa AI slop) |
 | **Standar Eksternal** | Tidak terikat standar luar | Terikat wajib dengan **Hallmark** (desain) & **Anti-Slop** (copy) |
 | **Kualitas Render** | Resolusi 1080p standar | **Retina 4K (deviceScaleFactor: 2)** via Google Chrome lokal |
+| **Slide Penutup (CTA)** | Tumpukan 3 kotak kartu ramai | **3D Three.js Seamless Transparent** + 1 bar horizontal CTA lapang |
+| **Slide Sebelum CTA** | Pertanyaan diskusi & polling prematur | **Murni Kesimpulan Teknis** (Dilarang ada pertanyaan) |
+| **Terminologi Teknis** | Singkatan mentah (OLTP / OLAP) | **Layman-First Architecture** (nama fungsi harian + glosarium analogi) |
