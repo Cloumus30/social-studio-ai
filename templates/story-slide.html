@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1920, initial-scale=1.0">
+  <title>Starter Story Teaser (Logikanya.Tech Dual-Photo Standard)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-20 relative">
+  <!-- Blueprint Square Line Grid Pattern (40x40px) -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- TOP HEADER -->
+  <header class="relative z-10 pt-12 flex items-center justify-between border-b border-slate-200/90 pb-8 bg-white/80 backdrop-blur-sm -mx-20 px-20 -mt-20 pt-20">
+    <div class="flex items-center gap-5">
+      <div class="w-16 h-16 rounded-2xl bg-slate-900 flex items-center justify-center font-black text-2xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-3xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-base text-slate-500 mono font-medium">CATATAN TEKNIK INDEPENDEN</p>
+      </div>
+    </div>
+    <span class="px-5 py-2.5 rounded-full bg-orange-50 border border-orange-200 text-[#c2410c] text-sm font-bold tracking-wider uppercase">
+      NEW CAROUSEL IN FEED
+    </span>
+  </header>
+
+  <!-- BODY CONTENT (HOOK + DUAL PHOTO SPLIT) -->
+  <main class="relative z-10 flex flex-col gap-8 my-auto">
+    <div class="space-y-4">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-extrabold uppercase tracking-wider">
+        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+        <span>HOOK TOPIK UTAMA</span>
+      </span>
+      <h1 class="text-6xl font-black leading-[1.15] tracking-tight text-[#18181b]">
+        Judul Teaser Besar, <br/>
+        <span class="text-[#c2410c]">Dua Inovasi Ini</span> <br/>
+        Ubah Standar Industri
+      </h1>
+      <p class="text-xl text-slate-600 font-normal leading-relaxed">
+        Penjelasan 1-2 baris yang menggugah rasa ingin tahu audiens untuk membaca slide lengkap di feed.
+      </p>
+    </div>
+
+    <!-- DUAL REAL HARDWARE PHOTOS BERDAMPINGAN -->
+    <div class="grid grid-cols-2 gap-6">
+      <!-- Foto Kiri: Hardware / Komponen 1 -->
+      <div class="relative rounded-[28px] overflow-hidden border border-slate-200 shadow-sm bg-slate-900 h-[560px] flex flex-col justify-between">
+        <img 
+          src="./assets/foto-kiri.jpg" 
+          alt="Foto Komponen Kiri" 
+          class="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] brightness-[0.95]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/40"></div>
+
+        <!-- Top Badge (Nama Komponen Teknis Resmi) -->
+        <div class="relative z-10 p-5">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-black/65 backdrop-blur-md text-white text-xs font-black mono border border-white/20">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 text-amber-400"></i>
+            KOMPONEN TEKNIS A
+          </span>
+        </div>
+
+        <!-- Bottom Caption -->
+        <div class="relative z-10 p-5 text-white space-y-1">
+          <h4 class="font-black text-xl text-white">Nama Inovasi A</h4>
+          <p class="text-xs text-slate-200 leading-relaxed">
+            Keterangan peran komponen ini dalam menyelesaikan masalah pokok.
+          </p>
+        </div>
+      </div>
+
+      <!-- Foto Kanan: Hardware / Komponen 2 -->
+      <div class="relative rounded-[28px] overflow-hidden border border-slate-200 shadow-sm bg-slate-900 h-[560px] flex flex-col justify-between">
+        <img 
+          src="./assets/foto-kanan.jpg" 
+          alt="Foto Komponen Kanan" 
+          class="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] brightness-[0.98]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/40"></div>
+
+        <!-- Top Badge (Nama Komponen Teknis Resmi) -->
+        <div class="relative z-10 p-5">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-black/65 backdrop-blur-md text-white text-xs font-black mono border border-white/20">
+            <i data-lucide="zap" class="w-3.5 h-3.5 text-cyan-400"></i>
+            KOMPONEN TEKNIS B
+          </span>
+        </div>
+
+        <!-- Bottom Caption -->
+        <div class="relative z-10 p-5 text-white space-y-1">
+          <h4 class="font-black text-xl text-white">Nama Inovasi B</h4>
+          <p class="text-xs text-slate-200 leading-relaxed">
+            Keterangan keunggulan komparatif dari teknologi pendamping kedua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BOTTOM CTA -->
+  <footer class="relative z-10 pb-12 flex flex-col items-center gap-5 bg-white/80 backdrop-blur-sm -mx-20 px-20 -mb-20 pb-20">
+    <div class="w-full p-6 rounded-2xl bg-[#c2410c] text-white font-extrabold text-2xl flex items-center justify-center gap-3 shadow-md shadow-orange-500/10">
+      <span>Buka Feed buat Baca 6 Slide Lengkapnya 👉</span>
+    </div>
+    <p class="text-slate-500 text-base mono font-semibold">@logikanyatech • Catatan Teknik &amp; Arsitektur Sistem</p>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

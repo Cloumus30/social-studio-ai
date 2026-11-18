@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Slide 4 - Photonic Chip (Logikanya.Tech)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-16 relative">
+  <!-- Square Line Grid Pattern -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mt-16 pt-16">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center font-black text-xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-2xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-xs text-slate-500 mono font-medium">@logikanyatech</p>
+      </div>
+    </div>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-xs font-bold tracking-wider uppercase text-[#c2410c]">
+      <i data-lucide="sun" class="w-3.5 h-3.5"></i>
+      <span>PILAR 02: OPTICAL SPEED</span>
+    </div>
+  </header>
+
+  <!-- BODY CONTENT (50/50 SPLIT: FOTO CHIP FOTONIK + DIAGRAM) -->
+  <main class="relative z-10 my-auto flex flex-col gap-6 py-2">
+    <div>
+      <div class="flex items-center gap-3 mb-2">
+        <span class="mono text-lg font-black text-white bg-[#c2410c] px-3 py-1 rounded-lg">03</span>
+        <h2 class="text-4xl font-extrabold tracking-tight text-[#18181b]">Photonic Chip: Komputasi Cahaya Kilat</h2>
+      </div>
+      <p class="text-xl text-slate-600 leading-relaxed">
+        Nggak pakai kabel tembaga lagi, datanya dikirim lewat laser cahaya. Bergerak secepat kilat dan adem di suhu kamar normal!
+      </p>
+    </div>
+
+    <!-- 50/50 SPLIT: FOTO & DIAGRAM GELOMBANG -->
+    <div class="grid grid-cols-2 gap-5">
+      <!-- Kiri: Foto Chip Fotonik Elektro-Optik -->
+      <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900 h-[460px] flex flex-col justify-between">
+        <img 
+          src="../assets/photonic-chip.jpg" 
+          alt="Chip Silikon Fotonik Lab" 
+          class="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] brightness-[0.98]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40"></div>
+
+        <!-- Top Badge (Technical Label Murni: Tanpa 'Foto Asli') -->
+        <div class="relative z-10 p-5">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-extrabold mono border border-white/20">
+            <i data-lucide="sun" class="w-3.5 h-3.5 text-cyan-400"></i>
+            INTEGRATED OPTICAL MODULATOR
+          </span>
+        </div>
+
+        <!-- Bottom Caption (Bahasa Santai) -->
+        <div class="relative z-10 p-5 text-white">
+          <h4 class="font-extrabold text-lg text-white">Modulator Elektro-Optik Terintegrasi</h4>
+          <p class="text-xs text-slate-200 mt-1 leading-relaxed">
+            Chip silikon mungil yang nembakin laser inframerah buat transfer data super cepat antar-prosesor tanpa bikin panas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kanan: Diagram Skematik Kecepatan Foton -->
+      <div class="rounded-3xl border border-slate-200 bg-[#f8fafc] p-6 shadow-sm flex flex-col justify-between h-[460px]">
+        <div>
+          <span class="font-bold text-sm text-[#18181b] flex items-center gap-2 mb-3">
+            <i data-lucide="zap" class="w-4 h-4 text-[#0891b2]"></i>
+            KENAPA FOTONIK NGEBUT?
+          </span>
+
+          <div class="space-y-3">
+            <!-- Metric 1 -->
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5 shadow-xs">
+              <div class="p-2 rounded-xl bg-cyan-50 text-[#0891b2] shrink-0 mt-0.5">
+                <i data-lucide="gauge" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm text-[#18181b]">300.000 km/detik (Bebas Lemot)</h5>
+                <p class="text-xs text-slate-600 mt-0.5">Ngebut tanpa hambatan fisik yang biasanya bikin kabel tembaga lemot.</p>
+              </div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5 shadow-xs">
+              <div class="p-2 rounded-xl bg-emerald-50 text-emerald-700 shrink-0 mt-0.5">
+                <i data-lucide="thermometer-snowflake" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm text-[#18181b]">Adem di Suhu Ruangan (25°C)</h5>
+                <p class="text-xs text-slate-600 mt-0.5">Nggak butuh kulkas khusus, bisa langsung dipasang di rak server biasa.</p>
+              </div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5 shadow-xs">
+              <div class="p-2 rounded-xl bg-orange-50 text-[#c2410c] shrink-0 mt-0.5">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm text-[#18181b]">WDM (Jalur Multi-Warna)</h5>
+                <p class="text-xs text-slate-600 mt-0.5">Ratusan berkas laser meluncur barengan dalam satu jalur pandu gelombang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Callout -->
+        <div class="p-3.5 rounded-xl bg-cyan-50 border border-cyan-200 text-xs text-cyan-900 font-medium flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-[#0891b2] shrink-0"></i>
+          <span>Bikin konsumsi listrik pendingin server AI hemat sampai 90%.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200/90 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
+    <div class="mono text-sm font-semibold text-slate-500">
+      SLIDE <span class="text-[#18181b] font-bold">04</span> / 06
+    </div>
+    <div class="flex items-center gap-2 text-sm font-bold text-slate-700 bg-slate-100 border border-slate-200 px-5 py-2.5 rounded-xl">
+      <span>Konvergensi AI ➔</span>
+      <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1920, initial-scale=1.0">
+  <title>Story Teaser - Data Warehouse (Logikanya.Tech)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-20 relative">
+  <!-- Square Line Grid Pattern (40x40px, opacity 0.6) -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- TOP HEADER -->
+  <header class="relative z-10 pt-12 flex items-center justify-between border-b border-slate-200/90 pb-8 bg-white/80 backdrop-blur-sm -mx-20 px-20 -mt-20 pt-20">
+    <div class="flex items-center gap-5">
+      <div class="w-16 h-16 rounded-2xl bg-slate-900 flex items-center justify-center font-black text-2xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-3xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-base text-slate-500 mono font-medium">CATATAN TEKNIK INDEPENDEN</p>
+      </div>
+    </div>
+    <span class="px-5 py-2.5 rounded-full bg-orange-50 border border-orange-200 text-[#c2410c] text-sm font-bold tracking-wider uppercase">
+      CAROUSEL BARU DI FEED
+    </span>
+  </header>
+
+  <!-- BODY CONTENT -->
+  <main class="relative z-10 flex flex-col gap-8 my-auto">
+    <div class="space-y-4">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-extrabold uppercase tracking-wider">
+        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+        <span>DATABASE PRODUKSI BISA CRASH!</span>
+      </span>
+      <h1 class="text-6xl font-black leading-[1.15] tracking-tight text-[#18181b]">
+        Aplikasi Lemot Pas Narik Laporan? <br/>
+        <span class="text-[#c2410c]">Saatnya Kenalan sama Data Warehouse</span>
+      </h1>
+      <p class="text-xl text-slate-600 font-normal leading-relaxed">
+        Jangan paksa PostgreSQL atau MySQL ngerjain kalkulasi bisnis raksasa. Pisahin jalur transaksi operasional dari analitik sebelum user aplikasi kena imbasnya.
+      </p>
+    </div>
+
+    <!-- DUAL TECH VISUAL SPLIT (560px Height) -->
+    <div class="grid grid-cols-2 gap-6">
+      <!-- Kiri: Terminal Crash Mockup (OLTP Overload) -->
+      <div class="relative rounded-[28px] overflow-hidden border border-slate-800 shadow-sm bg-slate-950 h-[560px] flex flex-col justify-between p-6">
+        <!-- Window Controls & Header -->
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-3.5 h-3.5 rounded-full bg-red-500"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-amber-500"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-emerald-500"></div>
+          </div>
+          <span class="mono text-xs font-bold text-red-400 flex items-center gap-1.5">
+            <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+            DB TRANSAKSI: CPU 100%
+          </span>
+        </div>
+
+        <!-- Terminal Body -->
+        <div class="mono text-xs leading-relaxed space-y-2 py-3 my-auto">
+          <p class="text-slate-500">// Production PostgreSQL Database</p>
+          <p class="text-pink-400 font-bold">SELECT <span class="text-slate-200">o.id, SUM(p.amount)</span></p>
+          <p class="text-pink-400 font-bold">FROM <span class="text-amber-300">orders o</span> JOIN ...</p>
+          <p class="text-pink-400 font-bold">GROUP BY <span class="text-slate-200">YEAR(o.created_at)</span></p>
+          
+          <div class="mt-4 p-3 rounded-xl bg-red-950/80 border border-red-800/90 text-red-200 space-y-1">
+            <p class="font-extrabold text-red-400 flex items-center gap-1.5">
+              <i data-lucide="x-circle" class="w-4 h-4 text-red-400"></i>
+              Query Timeout (600s)
+            </p>
+            <p class="text-[11px] text-slate-300">Lock: orders_table_exclusive</p>
+            <p class="text-[11px] text-amber-300">Checkout user lain terhenti!</p>
+          </div>
+        </div>
+
+        <!-- Bottom Tag -->
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-white flex items-center justify-between">
+          <span class="mono text-xs font-bold text-red-400">SISTEM KASIR OVERLOAD</span>
+          <span class="text-xs text-slate-400 mono">Full Table Scan</span>
+        </div>
+      </div>
+
+      <!-- Kanan: Modern Columnar DW Card (OLAP Solution) -->
+      <div class="relative rounded-[28px] overflow-hidden border border-cyan-800/60 shadow-sm bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 h-[560px] flex flex-col justify-between p-6">
+        <!-- Top Badge -->
+        <div class="flex items-center justify-between border-b border-cyan-900/60 pb-3">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-cyan-950 text-cyan-300 mono text-xs font-bold border border-cyan-700/50">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            MODERN DATA WAREHOUSE
+          </span>
+          <span class="mono text-xs font-bold text-emerald-400 flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+            1.4s
+          </span>
+        </div>
+
+        <!-- Architecture Flow -->
+        <div class="space-y-3.5 my-auto">
+          <!-- Step 1: Storage -->
+          <div class="p-3.5 rounded-2xl bg-slate-900/90 border border-cyan-900/50 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i data-lucide="hard-drive" class="w-5 h-5 text-cyan-400"></i>
+              <div>
+                <p class="text-xs font-bold text-white">Format Kolom (Columnar)</p>
+                <p class="text-[11px] text-slate-400">Scan cuma kolom total angka</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded mono border border-cyan-800">10x Kompres</span>
+          </div>
+
+          <!-- Step 2: Tools -->
+          <div class="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+              <div>
+                <p class="text-xs font-bold text-white">BigQuery / Snowflake / ClickHouse</p>
+                <p class="text-[11px] text-slate-400">Hitung 500jt baris paralel</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded mono border border-amber-800">MPP Engine</span>
+          </div>
+
+          <!-- Step 3: Zero Impact -->
+          <div class="p-3.5 rounded-2xl bg-emerald-950/40 border border-emerald-800/60 flex items-center gap-3 text-emerald-200">
+            <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+            <p class="text-xs font-semibold leading-snug">
+              Aplikasi produksi tetap 100% aman dan responsif tanpa interupsi.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom Tag -->
+        <div class="p-3.5 rounded-xl bg-cyan-950/60 border border-cyan-800/60 text-white flex items-center justify-between">
+          <span class="mono text-xs font-bold text-cyan-300">GUDANG ANALITIK TERPISAH</span>
+          <span class="text-xs text-slate-300 mono">Zero App Downtime</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BOTTOM CTA -->
+  <footer class="relative z-10 pb-12 flex flex-col items-center gap-5 bg-white/80 backdrop-blur-sm -mx-20 px-20 -mb-20 pb-20">
+    <div class="w-full p-6 rounded-2xl bg-[#c2410c] text-white font-extrabold text-2xl flex items-center justify-center gap-3 shadow-md shadow-orange-500/10">
+      <span>Buka Feed buat Baca 6 Slide Lengkapnya 👉</span>
+    </div>
+    <p class="text-slate-500 text-base mono font-semibold">@logikanyatech • Catatan Teknik &amp; Arsitektur Sistem</p>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

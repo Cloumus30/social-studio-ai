@@ -1,0 +1,21 @@
+Pernah nggak, aplikasi mendadak lemot parah pas tim bisnis lagi narik laporan akhir bulan? 📉
+
+Tersangkanya sering kali satu: ada query analitik raksasa yang ditembak langsung ke database produksi.
+
+Database transaksi aplikasi (PostgreSQL, MySQL) itu ibarat buku kasir toko—di dunia teknik biasa disebut OLTP (Online Transaction Processing). Tugas utamanya mencatat transaksi harian secepat mungkin satu per satu: user login, checkout keranjang, atau update status pesanan. Format penyimpanannya dirancang berbasis baris (row-store).
+
+Pas tim finance atau data nembak query agregasi tahunan dengan 10 JOIN dan GROUP BY jutaan baris, server langsung teriak: CPU tembus 100%, disk I/O jebol, dan tabel terkunci (table locking). Akibatnya, user beneran yang mau transaksi di aplikasi malah gagal bayar atau kena timeout.
+
+Di titik inilah kita butuh Data Warehouse—gudang data khusus analitik yang di dunia teknik dikenal sebagai sistem OLAP (Online Analytical Processing). 
+
+Data Warehouse didesain khusus buat nampung data historis dari berbagai sumber (database app, Stripe, CRM, iklan) dan menyimpannya secara columnar (berbasis kolom). Mau scan 500 juta baris data buat hitung tren penjualan 3 tahun terakhir? Selesai dalam hitungan detik tanpa ganggu kasir aplikasi yang lagi melayani user checkout.
+
+Slide di atas membedah glosarium simpelnya, cara kerja Data Warehouse, rekomendasi tools modern (BigQuery, Snowflake, ClickHouse, dbt), dan 4 tanda kapan tim kalian wajib mulai pisahin sistem analitik. 👉
+
+---
+💬 Di kantor atau project kalian saat ini, reporting bisnis udah dipisah ke Data Warehouse atau masih nembak langsung ke database operasional? Ceritain pengalaman kalian di kolom komentar!
+
+📌 Save postingan ini buat referensi arsitektur data tim engineering kalian.
+Follow @logikanyatech buat kupas tuntas arsitektur sistem perangkat lunak, database, dan rekayasa data lainnya.
+
+#LogikanyaTech #DataWarehouse #DataEngineering #PostgreSQL #BigQuery #Snowflake #ClickHouse #SoftwareArchitecture #SystemDesign #Database #TechInsight

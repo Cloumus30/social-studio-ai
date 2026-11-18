@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Slide 3 - Apa itu Data Warehouse? (Logikanya.Tech)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-16 relative">
+  <!-- Blueprint Square Line Grid Pattern (40x40px) -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mt-16 pt-16">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center font-black text-xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-2xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-xs text-slate-500 mono font-medium">@logikanyatech</p>
+      </div>
+    </div>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-bold tracking-wider uppercase text-[#0891b2]">
+      <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+      <span>CORE ARCHITECTURE</span>
+    </div>
+  </header>
+
+  <!-- BODY CONTENT (50/50 SPLIT) -->
+  <main class="relative z-10 my-auto flex flex-col gap-6 py-2">
+    <!-- Top Text -->
+    <div>
+      <div class="flex items-center gap-3 mb-2">
+        <span class="mono text-lg font-black text-white bg-[#c2410c] px-3 py-1 rounded-lg">02</span>
+        <h2 class="text-4xl font-extrabold tracking-tight text-[#18181b]">Apa itu Data Warehouse Sebenarnya?</h2>
+      </div>
+      <p class="text-xl text-slate-600 leading-relaxed">
+        Gudang data terpusat yang dirancang khusus untuk membaca dan mengagregasi jutaan data historis tanpa mengganggu operasional aplikasi.
+      </p>
+    </div>
+
+    <!-- 50/50 SPLIT: VISUAL CARD (KIRI) & 3 KARAKTERISTIK (KANAN) -->
+    <div class="grid grid-cols-2 gap-5">
+      <!-- Kiri: Mockup Visual Storage Arsitektur -->
+      <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-md bg-slate-950 h-[460px] flex flex-col justify-between p-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 mono text-xs font-bold">
+            <i data-lucide="hard-drive" class="w-3.5 h-3.5"></i>
+            GUDANG ANALITIK TERPUSAT
+          </span>
+          <span class="mono text-xs text-slate-400">MPP ENGINE</span>
+        </div>
+
+        <!-- Center Visual Storage Stack -->
+        <div class="space-y-3 my-auto">
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i data-lucide="archive" class="w-5 h-5 text-cyan-400"></i>
+              <div>
+                <p class="font-bold text-sm text-white">Immutable Raw Logs</p>
+                <p class="text-[11px] text-slate-400">Data historis permanen tanpa overwrite</p>
+              </div>
+            </div>
+            <span class="mono text-xs text-cyan-400 font-bold">COLD</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i data-lucide="table-2" class="w-5 h-5 text-[#c2410c]"></i>
+              <div>
+                <p class="font-bold text-sm text-white">Transformed Marts</p>
+                <p class="text-[11px] text-slate-400">Tabel bisnis siap pakai untuk reporting</p>
+              </div>
+            </div>
+            <span class="mono text-xs text-orange-400 font-bold">WARM</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+              <div>
+                <p class="font-bold text-sm text-white">BI Semantic Layer</p>
+                <p class="text-[11px] text-slate-400">Query kilat untuk Metabase / Tableau</p>
+              </div>
+            </div>
+            <span class="mono text-xs text-emerald-400 font-bold">HOT</span>
+          </div>
+        </div>
+
+        <!-- Bottom Tag -->
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center mono text-xs text-slate-400">
+          Scale: Terabytes to Petabytes Storage
+        </div>
+      </div>
+
+      <!-- Kanan: 3 Karakteristik Kunci -->
+      <div class="rounded-3xl border border-slate-200 bg-[#f8fafc] p-6 shadow-sm flex flex-col justify-between h-[460px]">
+        <div>
+          <span class="font-bold text-sm text-[#18181b] flex items-center gap-2 mb-3">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#c2410c]"></i>
+            3 KARAKTERISTIK UTAMA
+          </span>
+
+          <div class="space-y-3">
+            <!-- Box 1 -->
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+              <h5 class="font-black text-sm text-[#18181b] flex items-center gap-2">
+                <i data-lucide="history" class="w-4 h-4 text-[#c2410c]"></i>
+                1. Histori Permanen (Time-Variant)
+              </h5>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Menyimpan jejak data dari tahun ke tahun. Tidak ada data yang dihapus saat user update profil di aplikasi.
+              </p>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+              <h5 class="font-black text-sm text-[#18181b] flex items-center gap-2">
+                <i data-lucide="git-merge" class="w-4 h-4 text-[#0891b2]"></i>
+                2. Terkonsolidasi (Single Source of Truth)
+              </h5>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Menyatukan database transaksi, Stripe, Google Ads, dan CRM ke dalam satu skema terpadu.
+              </p>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+              <h5 class="font-black text-sm text-[#18181b] flex items-center gap-2">
+                <i data-lucide="zap" class="w-4 h-4 text-emerald-600"></i>
+                3. Teroptimasi Buat Baca (Read-Heavy)
+              </h5>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Didesain khusus untuk scanning jutaan baris sekaligus tanpa table lock.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Callout Bar -->
+        <div class="p-3 rounded-xl bg-cyan-50 border border-cyan-200 text-xs text-cyan-900 font-semibold flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-[#0891b2] shrink-0"></i>
+          <span>Database aplikasi bebas beban berat dan tetap stabil 24/7.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200/90 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
+    <div class="mono text-sm font-semibold text-slate-500">
+      SLIDE <span class="text-[#18181b] font-bold">03</span> / 06
+    </div>
+    <div class="flex items-center gap-2 text-sm font-bold text-slate-700 bg-slate-100 border border-slate-200 px-5 py-2.5 rounded-xl">
+      <span>Arsitektur &amp; Tools Populer ➔</span>
+      <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

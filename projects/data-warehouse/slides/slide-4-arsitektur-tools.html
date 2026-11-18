@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Slide 4 - Arsitektur & Rekomendasi Tools (Logikanya.Tech)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-16 relative">
+  <!-- Blueprint Square Line Grid Pattern (40x40px) -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mt-16 pt-16">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center font-black text-xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-2xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-xs text-slate-500 mono font-medium">@logikanyatech</p>
+      </div>
+    </div>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-bold tracking-wider uppercase text-[#0891b2]">
+      <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+      <span>MODERN DATA STACK</span>
+    </div>
+  </header>
+
+  <!-- BODY CONTENT (50/50 SPLIT) -->
+  <main class="relative z-10 my-auto flex flex-col gap-6 py-2">
+    <!-- Top Text -->
+    <div>
+      <div class="flex items-center gap-3 mb-2">
+        <span class="mono text-lg font-black text-white bg-[#c2410c] px-3 py-1 rounded-lg">03</span>
+        <h2 class="text-4xl font-extrabold tracking-tight text-[#18181b]">Arsitektur Pipeline &amp; Tools Modern</h2>
+      </div>
+      <p class="text-xl text-slate-600 leading-relaxed">
+        Data diekstrak secara otomatis dari berbagai sumber, ditransformasi di Data Warehouse, lalu disajikan ke dashboard visual.
+      </p>
+    </div>
+
+    <!-- 50% VISUAL PIPELINE DIAGRAM (SVG) -->
+    <div class="w-full bg-[#f8fafc] border border-slate-200 rounded-3xl p-6 shadow-sm">
+      <svg viewBox="0 0 920 280" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="910" height="270" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+
+        <!-- STAGE 1: SOURCES -->
+        <g transform="translate(30, 30)">
+          <rect x="0" y="0" width="170" height="220" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="20" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#475569">01. SOURCES</text>
+          
+          <rect x="15" y="50" width="140" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="25" y="75" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#1e293b">PostgreSQL / App</text>
+
+          <rect x="15" y="100" width="140" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="25" y="125" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#1e293b">Stripe / Payment</text>
+
+          <rect x="15" y="150" width="140" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="25" y="175" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#1e293b">Ads &amp; CRM Events</text>
+        </g>
+
+        <!-- ARROW 1 -->
+        <path d="M 215 140 L 255 140" stroke="#94a3b8" stroke-width="3" stroke-dasharray="4 4"/>
+        <polygon points="255,134 265,140 255,146" fill="#94a3b8"/>
+
+        <!-- STAGE 2: INGESTION & SYNC -->
+        <g transform="translate(270, 30)">
+          <rect x="0" y="0" width="160" height="220" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="20" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#1d4ed8">02. EXTRACT</text>
+          
+          <rect x="15" y="65" width="130" height="60" rx="8" fill="#ffffff" stroke="#bfdbfe"/>
+          <text x="25" y="95" font-family="JetBrains Mono" font-size="13" font-weight="800" fill="#1e40af">Airbyte</text>
+          <text x="25" y="115" font-family="Plus Jakarta Sans" font-size="11" fill="#64748b">Fivetran / Debezium</text>
+
+          <text x="18" y="165" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#3b82f6">Jadwal Sinkronisasi:</text>
+          <text x="18" y="185" font-family="JetBrains Mono" font-size="11" fill="#1e40af">Tiap 1 Jam / Realtime</text>
+        </g>
+
+        <!-- ARROW 2 -->
+        <path d="M 445 140 L 485 140" stroke="#0891b2" stroke-width="3"/>
+        <polygon points="485,134 495,140 485,146" fill="#0891b2"/>
+
+        <!-- STAGE 3: DATA WAREHOUSE & DBT -->
+        <g transform="translate(500, 30)">
+          <rect x="0" y="0" width="200" height="220" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+          <text x="20" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#c2410c">03. DATA WAREHOUSE</text>
+
+          <rect x="15" y="50" width="170" height="50" rx="8" fill="#ffffff" stroke="#fed7aa"/>
+          <text x="25" y="75" font-family="JetBrains Mono" font-size="13" font-weight="800" fill="#9a3412">BigQuery / Snowflake</text>
+          <text x="25" y="92" font-family="Plus Jakarta Sans" font-size="10" fill="#64748b">ClickHouse (Real-Time)</text>
+
+          <rect x="15" y="115" width="170" height="45" rx="8" fill="#ffffff" stroke="#fed7aa"/>
+          <text x="25" y="138" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#c2410c">dbt (Data Build Tool)</text>
+          <text x="25" y="152" font-family="Plus Jakarta Sans" font-size="10" fill="#64748b">Transformasi SQL Otomatis</text>
+
+          <text x="20" y="195" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#9a3412">⚡ MPP Columnar Storage</text>
+        </g>
+
+        <!-- ARROW 3 -->
+        <path d="M 715 140 L 755 140" stroke="#10b981" stroke-width="3"/>
+        <polygon points="755,134 765,140 755,146" fill="#10b981"/>
+
+        <!-- STAGE 4: BI & DASHBOARD -->
+        <g transform="translate(770, 30)">
+          <rect x="0" y="0" width="120" height="220" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+          <text x="15" y="30" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#047857">04. BI</text>
+
+          <rect x="10" y="65" width="100" height="50" rx="8" fill="#ffffff" stroke="#a7f3d0"/>
+          <text x="18" y="95" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#065f46">Metabase</text>
+
+          <rect x="10" y="130" width="100" height="50" rx="8" fill="#ffffff" stroke="#a7f3d0"/>
+          <text x="18" y="160" font-family="JetBrains Mono" font-size="12" font-weight="800" fill="#065f46">Tableau</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 3 KARTU REKOMENDASI TOOLS POPULER -->
+    <div class="grid grid-cols-3 gap-4">
+      <div class="p-4 rounded-2xl bg-[#f8fafc] border border-slate-200">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="cloud" class="w-4 h-4 text-[#0891b2]"></i>
+          <h4 class="font-bold text-sm text-[#18181b]">Google BigQuery</h4>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">Serverless, bayar sesuai ukuran query yang dijalankan, tanpa perlu setup server.</p>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-[#f8fafc] border border-slate-200">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="zap" class="w-4 h-4 text-[#c2410c]"></i>
+          <h4 class="font-bold text-sm text-[#18181b]">ClickHouse / Snowflake</h4>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">Pilihan ideal untuk query berkecepatan milidetik dan arsitektur multi-cloud.</p>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-[#f8fafc] border border-slate-200">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-600"></i>
+          <h4 class="font-bold text-sm text-[#18181b]">dbt + Metabase</h4>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">Standar industri untuk modeling SQL terstruktur dan dashboard self-service tim bisnis.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200/90 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
+    <div class="mono text-sm font-semibold text-slate-500">
+      SLIDE <span class="text-[#18181b] font-bold">04</span> / 06
+    </div>
+    <div class="flex items-center gap-2 text-sm font-bold text-slate-700 bg-slate-100 border border-slate-200 px-5 py-2.5 rounded-xl">
+      <span>Kapan waktu wajib punya? ➔</span>
+      <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Slide 5 - Kapan Wajib Bikin Data Warehouse? (Logikanya.Tech)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-16 relative">
+  <!-- Blueprint Square Line Grid Pattern (40x40px) -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mt-16 pt-16">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center font-black text-xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-2xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-xs text-slate-500 mono font-medium">@logikanyatech</p>
+      </div>
+    </div>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-xs font-bold tracking-wider uppercase text-red-600">
+      <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
+      <span>READINESS CHECKLIST</span>
+    </div>
+  </header>
+
+  <!-- BODY CONTENT (50/50 SPLIT) -->
+  <main class="relative z-10 my-auto flex flex-col gap-6 py-2">
+    <!-- Top Text -->
+    <div>
+      <div class="flex items-center gap-3 mb-2">
+        <span class="mono text-lg font-black text-white bg-[#c2410c] px-3 py-1 rounded-lg">04</span>
+        <h2 class="text-4xl font-extrabold tracking-tight text-[#18181b]">4 Tanda Tim Kalian Wajib Punya DW</h2>
+      </div>
+      <p class="text-xl text-slate-600 leading-relaxed">
+        Kalau 2 dari 4 kondisi di bawah ini sudah terjadi di sistem kalian, jangan tunda lagi: saatnya membangun Data Warehouse.
+      </p>
+    </div>
+
+    <!-- 4 TACTICAL CHECKLIST CARDS (GRID 2x2) -->
+    <div class="grid grid-cols-2 gap-5">
+      <!-- Card 1 -->
+      <div class="p-6 rounded-3xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between h-[210px] shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="p-2.5 rounded-xl bg-red-100 text-red-600">
+            <i data-lucide="timer-off" class="w-6 h-6"></i>
+          </span>
+          <span class="mono text-[11px] font-bold text-red-700 bg-red-50 px-2.5 py-1 rounded border border-red-200">
+            TIMEOUT > 30s
+          </span>
+        </div>
+        <div>
+          <h4 class="font-black text-lg text-[#18181b]">1. Query Dashboard Lemot</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Metabase atau dashboard internal sering loading berputar tanpa henti atau kena timeout saat membuka laporan bulanan.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-6 rounded-3xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between h-[210px] shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="p-2.5 rounded-xl bg-orange-100 text-[#c2410c]">
+            <i data-lucide="network" class="w-6 h-6"></i>
+          </span>
+          <span class="mono text-[11px] font-bold text-orange-700 bg-orange-50 px-2.5 py-1 rounded border border-orange-200">
+            DATA SILOS
+          </span>
+        </div>
+        <div>
+          <h4 class="font-black text-lg text-[#18181b]">2. Data Tercecer di Banyak Tempat</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Data transaksi ada di PostgreSQL, pembayaran di Stripe, dan leads di HubSpot. Tidak ada satu pintu data terpadu.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-6 rounded-3xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between h-[210px] shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="p-2.5 rounded-xl bg-cyan-100 text-[#0891b2]">
+            <i data-lucide="history" class="w-6 h-6"></i>
+          </span>
+          <span class="mono text-[11px] font-bold text-cyan-700 bg-cyan-50 px-2.5 py-1 rounded border border-cyan-200">
+            OVERWRITE ISSUE
+          </span>
+        </div>
+        <div>
+          <h4 class="font-black text-lg text-[#18181b]">3. Butuh Rekaman Riwayat Lampau</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Tim finance butuh data harga produk 6 bulan lalu, tapi di database operasional nilainya sudah ditimpa data terbaru.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="p-6 rounded-3xl bg-[#f8fafc] border border-slate-200 flex flex-col justify-between h-[210px] shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="p-2.5 rounded-xl bg-emerald-100 text-emerald-700">
+            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+          </span>
+          <span class="mono text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+            INCIDENT RISK
+          </span>
+        </div>
+        <div>
+          <h4 class="font-black text-lg text-[#18181b]">4. Laporan Ganggu Transaksi User</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Traffic query tim analitik berbarengan dengan jam ramai checkout user, memicu lonjakan latency aplikasi hingga komplain pelanggan.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Takeaway -->
+    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-center gap-3">
+      <i data-lucide="lightbulb" class="w-6 h-6 text-amber-700 shrink-0"></i>
+      <p class="text-sm text-amber-900 font-medium">
+        <strong>Aturan Praktis:</strong> Kalau volume data masih di bawah 100.000 baris, read-replica database cukup. Tapi kalau sudah tembus jutaan baris, Data Warehouse wajib dibangun.
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200/90 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
+    <div class="mono text-sm font-semibold text-slate-500">
+      SLIDE <span class="text-[#18181b] font-bold">05</span> / 06
+    </div>
+    <div class="flex items-center gap-2 text-sm font-bold text-slate-700 bg-slate-100 border border-slate-200 px-5 py-2.5 rounded-xl">
+      <span>Rangkuman &amp; Komparasi ➔</span>
+      <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Slide 3 - Superkonduktor Kuantum (Logikanya.Tech)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-white text-[#18181b] flex flex-col justify-between p-16 relative">
+  <!-- Square Line Grid Pattern -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mt-16 pt-16">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center font-black text-xl text-white shadow-sm mono">
+        { }
+      </div>
+      <div>
+        <h3 class="font-extrabold text-2xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
+        <p class="text-xs text-slate-500 mono font-medium">@logikanyatech</p>
+      </div>
+    </div>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-xs font-bold tracking-wider uppercase text-[#c2410c]">
+      <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+      <span>PILAR 01: HARDWARE REVOLUTION</span>
+    </div>
+  </header>
+
+  <!-- BODY CONTENT (50/50 SPLIT: FOTO CRYOSTAT + DIAGRAM QUBIT) -->
+  <main class="relative z-10 my-auto flex flex-col gap-6 py-2">
+    <div>
+      <div class="flex items-center gap-3 mb-2">
+        <span class="mono text-lg font-black text-white bg-[#c2410c] px-3 py-1 rounded-lg">02</span>
+        <h2 class="text-4xl font-extrabold tracking-tight text-[#18181b]">Superkonduktor: Komputasi Tanpa Hambatan</h2>
+      </div>
+      <p class="text-xl text-slate-600 leading-relaxed">
+        Pas didinginkan sampai minus 273°C, elektron bisa meluncur bebas tanpa gesekan atom sama sekali. Nol hambatan, nol panas!
+      </p>
+    </div>
+
+    <!-- 50/50 SPLIT: FOTO ASLI HARDWARE & DIAGRAM QUBIT -->
+    <div class="grid grid-cols-2 gap-5">
+      <!-- Kiri: Foto Mesin Kuantum (Dilution Refrigerator) -->
+      <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900 h-[460px] flex flex-col justify-between">
+        <img 
+          src="../assets/quantum-computer-cryostat.jpg" 
+          alt="Kulkas Kuantum Dilution Refrigerator" 
+          class="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] brightness-[0.95]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40"></div>
+
+        <!-- Top Badge (Technical Label Murni: Tanpa 'Foto Asli') -->
+        <div class="relative z-10 p-5">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-extrabold mono border border-white/20">
+            <i data-lucide="snowflake" class="w-3.5 h-3.5 text-amber-400"></i>
+            DILUTION REFRIGERATOR (-273°C)
+          </span>
+        </div>
+
+        <!-- Bottom Caption (Penjelasan Teknis Santai & Lugas) -->
+        <div class="relative z-10 p-5 text-white">
+          <h4 class="font-extrabold text-lg text-white">Kulkas Emas Pendingin Kuantum</h4>
+          <p class="text-xs text-slate-200 mt-1 leading-relaxed">
+            Tabung tembaga berlapis emas murni buat buang panas keluar sampai sirkuit mencapai 15 milikelvin (jauh lebih dingin dari luar angkasa).
+          </p>
+        </div>
+      </div>
+
+      <!-- Kanan: Diagram Skematik Logika Qubit -->
+      <div class="rounded-3xl border border-slate-200 bg-[#f8fafc] p-6 shadow-sm flex flex-col justify-between h-[460px]">
+        <div>
+          <span class="font-bold text-sm text-[#18181b] flex items-center gap-2 mb-3">
+            <i data-lucide="activity" class="w-4 h-4 text-[#c2410c]"></i>
+            CARA KERJA LOGIKANYA
+          </span>
+
+          <!-- Qubit vs Bit Card -->
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <span class="text-xs font-bold text-slate-500">BIT BIASA</span>
+              <span class="mono text-xs font-bold text-slate-700">0 ATAU 1</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-[#c2410c]">QUBIT KUANTUM</span>
+              <span class="mono text-sm font-extrabold text-[#c2410c] bg-orange-50 px-2 py-0.5 rounded">|0⟩ + |1⟩ SEKALIGUS</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed pt-1">
+              Prinsip <strong>Superposisi</strong> bikin 50 Qubit sanggup ngitung triliunan kombinasi sekaligus. Kalkulasi ribuan tahun kelar dalam hitungan menit!
+            </p>
+          </div>
+
+          <!-- Feature Bullets -->
+          <div class="space-y-2 mt-4">
+            <div class="p-3 rounded-xl bg-white border border-slate-200/80 flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-emerald-600 shrink-0"></i>
+              <span class="text-xs font-semibold text-slate-700">Zero Resistance: Arus muter terus tanpa hambatan kabel</span>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-slate-200/80 flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-emerald-600 shrink-0"></i>
+              <span class="text-xs font-semibold text-slate-700">Entanglement: Qubit saling terhubung instan tanpa kabel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warning Callout -->
+        <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 font-medium flex items-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-amber-700 shrink-0"></i>
+          <span>Tantangan: Super sensitif! Goyang atau hangat dikit, hitungannya bisa ambyar.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200/90 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
+    <div class="mono text-sm font-semibold text-slate-500">
+      SLIDE <span class="text-[#18181b] font-bold">03</span> / 06
+    </div>
+    <div class="flex items-center gap-2 text-sm font-bold text-slate-700 bg-slate-100 border border-slate-200 px-5 py-2.5 rounded-xl">
+      <span>Lanjut ke Komputasi Cahaya ➔</span>
+      <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
