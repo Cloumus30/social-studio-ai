@@ -117,8 +117,34 @@ Untuk aturan detail dan pustaka kode komponen siap pakai, baca [STYLE_GUIDE.md](
 1. Buat folder baru di `projects/<nama-topik>/`.
 2. Salin template dari `templates/` ke folder `slides/` proyek baru Anda.
 3. Tulis naskah dengan mematuhi [WORKFLOW.md](WORKFLOW.md) dan [Anti-Slop](.agents/skills/anti-slop/SKILL.md) (<45 kata per slide).
-4. Jalankan perintah `render.js` untuk menghasilkan gambar PNG.
-5. Ambil gambar dari folder `output/<nama-topik>/` dan posting ke media sosial bersama caption di `caption.txt`.
+4. Jalankan perintah `render.js` untuk menghasilkan gambar PNG Retina 4K.
+5. Unggah otomatis ke Google Drive dengan perintah `npm run upload`.
+6. Ambil link Google Drive atau berkas PNG siap publish bersama caption di `caption.txt`.
+
+---
+
+## ☁️ 6. Sinkronisasi Otomatis ke Google Drive
+
+Studio ini terintegrasi langsung dengan plugin resmi **Google Drive Antigravity** untuk mengunggah seluruh aset visual (PNG Retina 4K) dan naskah caption tanpa perlu upload manual lewat browser.
+
+### Perintah Unggah
+
+```bash
+# 1. Unggah proyek tertentu (contoh: data-warehouse)
+npm run upload -- --project data-warehouse
+# atau: node upload.js --project data-warehouse
+
+# 2. Unggah seluruh proyek yang ada di folder output/
+npm run upload -- --all
+
+# 3. Kustomisasi nama subfolder di Google Drive
+node upload.js --project quantum-computing --subfolder "01 - Quantum Computing & Photonic"
+```
+
+### Fitur Sinkronisasi:
+* **Deteksi Folder Otomatis:** Otomatis mencari atau membuat folder induk `Logikanya.Tech - Social Graphics` di Google Drive Anda.
+* **In-Place Update:** Jika berkas gambar dengan nama yang sama sudah ada di Drive, script akan melakukan pembaruan berkas di tempat (*update in-place*) tanpa membuat duplikat ID atau merusak tautan yang sudah dibagikan.
+* **Sync Metadata:** Setiap proses unggah menghasilkan file `output/<project>/gdrive-sync.json` yang mencatat ID Drive, tautan web preview, dan riwayat waktu sinkronisasi.
 
 ---
 

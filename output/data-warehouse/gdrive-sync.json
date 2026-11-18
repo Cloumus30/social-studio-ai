@@ -1,0 +1,63 @@
+{
+  "projectName": "02 - Data Warehouse (OLTP vs OLAP)",
+  "projectSlug": "data-warehouse",
+  "folderId": "14ANwl89KwT7cf4YxxWrd41qHrqNuITD2",
+  "folderUrl": "https://drive.google.com/drive/folders/14ANwl89KwT7cf4YxxWrd41qHrqNuITD2",
+  "syncedAt": "2026-11-18T08:46:24.941Z",
+  "files": [
+    {
+      "name": "slide-1-cover.png",
+      "id": "14UU67o1xWolBGoouy0Niro8ofzcKtj82",
+      "size": "0.28 MB",
+      "webViewLink": "https://drive.google.com/file/d/14UU67o1xWolBGoouy0Niro8ofzcKtj82/view"
+    },
+    {
+      "name": "slide-2-masalah-oltp.png",
+      "id": "1SZnOqfSOXdCuQf7-AjH7bel3IOrFovG1",
+      "size": "0.34 MB",
+      "webViewLink": "https://drive.google.com/file/d/1SZnOqfSOXdCuQf7-AjH7bel3IOrFovG1/view"
+    },
+    {
+      "name": "slide-3-apa-itu-dw.png",
+      "id": "1BQEWGrjQ47hSLHRNtYxzDs8nOGT0WDYj",
+      "size": "0.28 MB",
+      "webViewLink": "https://drive.google.com/file/d/1BQEWGrjQ47hSLHRNtYxzDs8nOGT0WDYj/view"
+    },
+    {
+      "name": "slide-4-arsitektur-tools.png",
+      "id": "1qfskTi1uOWqVsZ8RjER8-Jhfu6kJJzKY",
+      "size": "0.25 MB",
+      "webViewLink": "https://drive.google.com/file/d/1qfskTi1uOWqVsZ8RjER8-Jhfu6kJJzKY/view"
+    },
+    {
+      "name": "slide-5-kapan-butuh.png",
+      "id": "1IsRWGhvdNkfgRa9nrOZ-8fCOb-cxcaCx",
+      "size": "0.26 MB",
+      "webViewLink": "https://drive.google.com/file/d/1IsRWGhvdNkfgRa9nrOZ-8fCOb-cxcaCx/view"
+    },
+    {
+      "name": "slide-6-komparasi-cta.png",
+      "id": "1UVK_eDuoEELc16bXxMRtKjx3QaS_FDb4",
+      "size": "0.24 MB",
+      "webViewLink": "https://drive.google.com/file/d/1UVK_eDuoEELc16bXxMRtKjx3QaS_FDb4/view"
+    },
+    {
+      "name": "slide-7-cta-3d.png",
+      "id": "1Lb382tut5jG0gWk6a6OJcatjg_eH6cPI",
+      "size": "0.49 MB",
+      "webViewLink": "https://drive.google.com/file/d/1Lb382tut5jG0gWk6a6OJcatjg_eH6cPI/view"
+    },
+    {
+      "name": "story-teaser.png",
+      "id": "1JMjSg2eD46dr-6KOFNHw4eX_zGqrV_15",
+      "size": "0.63 MB",
+      "webViewLink": "https://drive.google.com/file/d/1JMjSg2eD46dr-6KOFNHw4eX_zGqrV_15/view"
+    },
+    {
+      "name": "caption.txt",
+      "id": "1IiXBqbdmVPGhH-3q_fbMnyannMW5Ymqb",
+      "size": "0.00 MB",
+      "webViewLink": "https://drive.google.com/file/d/1IiXBqbdmVPGhH-3q_fbMnyannMW5Ymqb/view"
+    }
+  ]
+}

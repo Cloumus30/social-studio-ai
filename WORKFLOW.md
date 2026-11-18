@@ -92,12 +92,15 @@ node social-graphic-studio/render.js --input social-graphic-studio/projects/[nam
 
 ---
 
-### Tahap 5: Delivery & Dokumentasi
-1. Periksa file di `social-graphic-studio/output/[nama-topik]/`:
-   - `slide-*.png` (2160 x 2700 px)
-   - `story-teaser.png` (2160 x 3840 px)
-2. Pastikan file `caption.txt` sudah siap di-copy-paste ke Instagram & LinkedIn.
-3. Sajikan pratinjau visual kepada pengguna melalui file `walkthrough.md`.
+### Tahap 5: Unggah ke Google Drive & Delivery
+1. Unggah seluruh aset PNG Retina 4K dan caption ke Google Drive:
+   ```bash
+   node social-graphic-studio/upload.js --project [nama-topik]
+   # atau: npm run upload -- --project [nama-topik]
+   ```
+2. Periksa ringkasan berkas dan metadata di `social-graphic-studio/output/[nama-topik]/gdrive-sync.json`.
+3. Pastikan file `caption.txt` sudah siap di-copy-paste ke Instagram & LinkedIn.
+4. Sajikan pratinjau visual kepada pengguna melalui file `walkthrough.md` beserta tautan folder Google Drive.
 
 ---
 
@@ -119,3 +122,5 @@ Berikut adalah rekap perbandingan antara **Workflow Versi Awal** saat studio per
 | **Slide Penutup (CTA)** | Tumpukan 3 kotak kartu ramai | **3D Three.js Seamless Transparent** + 1 bar horizontal CTA lapang |
 | **Slide Sebelum CTA** | Pertanyaan diskusi & polling prematur | **Murni Kesimpulan Teknis** (Dilarang ada pertanyaan) |
 | **Terminologi Teknis** | Singkatan mentah (OLTP / OLAP) | **Layman-First Architecture** (nama fungsi harian + glosarium analogi) |
+| **Tipografi Sistem** | Plus Jakarta Sans & JetBrains Mono | **Strict Inter & Poppins** (Poppins Display & Inter Tabular Body) |
+| **Distribusi Aset** | Manual copy file lokal | **Automated Google Drive Sync** (CLI Antigravity + In-Place Update) |
