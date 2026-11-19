@@ -70,11 +70,8 @@ node social-graphic-studio/render.js --input social-graphic-studio/projects/[nam
 
 ---
 
-### Tahap 5: Unggah Google Drive & Delivery
-1. Unggah seluruh aset PNG Retina 4K dan caption ke Google Drive:
-   ```bash
-   node social-graphic-studio/upload.js --project [nama-topik]
-   ```
-2. Seluruh gambar PNG dan metadata sinkronisasi tersimpan di `./social-graphic-studio/output/[nama-topik]/` dan `gdrive-sync.json`.
-3. Siapkan file `caption.txt` lengkap dengan hook, poin santai, call-to-action, dan hashtag.
-4. Sajikan pratinjau visual kepada pengguna di dokumen `walkthrough.md` beserta tautan folder Google Drive.
+### Tahap 5: Delivery & Review Lokal (Default)
+1. Seluruh gambar PNG Retina 4K tersimpan di folder lokal `./social-graphic-studio/output/[nama-topik]/`.
+2. Siapkan file `caption.txt` lengkap dengan hook, poin santai, call-to-action, dan hashtag.
+3. Sajikan pratinjau visual kepada pengguna di dokumen `walkthrough.md`.
+4. 🛑 **ATURAN GOOGLE DRIVE (ON-DEMAND ONLY):** DILARANG mengunggah ke Google Drive secara otomatis tanpa instruksi eksplisit dari pengguna. Selalu simpan di lokal terlebih dahulu. Hanya jalankan script `node social-graphic-studio/upload.js --project [nama-topik]` apabila pengguna secara spesifik meminta/menyuruh untuk mengunggah ke Google Drive.

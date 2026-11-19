@@ -117,17 +117,17 @@ Untuk aturan detail dan pustaka kode komponen siap pakai, baca [STYLE_GUIDE.md](
 1. Buat folder baru di `projects/<nama-topik>/`.
 2. Salin template dari `templates/` ke folder `slides/` proyek baru Anda.
 3. Tulis naskah dengan mematuhi [WORKFLOW.md](WORKFLOW.md) dan [Anti-Slop](.agents/skills/anti-slop/SKILL.md) (<45 kata per slide).
-4. Jalankan perintah `render.js` untuk menghasilkan gambar PNG Retina 4K.
-5. Unggah otomatis ke Google Drive dengan perintah `npm run upload`.
-6. Ambil link Google Drive atau berkas PNG siap publish bersama caption di `caption.txt`.
+4. Jalankan perintah `render.js` untuk menghasilkan gambar PNG Retina 4K di folder lokal `output/<nama-topik>/`.
+5. Review hasil render secara lokal melalui `walkthrough.md`.
+6. *(Opsional - Hanya jika diminta)* Unggah ke Google Drive dengan perintah `npm run upload`.
 
 ---
 
-## ☁️ 6. Sinkronisasi Otomatis ke Google Drive
+## ☁️ 6. Sinkronisasi ke Google Drive (On-Demand / Sesuai Permintaan)
 
-Studio ini terintegrasi langsung dengan plugin resmi **Google Drive Antigravity** untuk mengunggah seluruh aset visual (PNG Retina 4K) dan naskah caption tanpa perlu upload manual lewat browser.
+> 🛑 **Prinsip Utama:** Studio mengutamakan penyimpanan **lokal terlebih dahulu**. Sistem **TIDAK AKAN** mengunggah berkas ke Google Drive kecuali ada instruksi atau perintah eksplisit dari pengguna.
 
-### Perintah Unggah
+Jika Anda ingin mencadangkan atau membagikan aset ke Google Drive, gunakan perintah:
 
 ```bash
 # 1. Unggah proyek tertentu (contoh: data-warehouse)
