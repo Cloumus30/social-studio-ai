@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Showcase - Perang Kognitif & Buzzer Google TAG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg-top: #fbf9f5;
+      --bg-bottom: #f2ede4;
+      --card-bg: #ffffff;
+      --heading: #1e293b;
+      --body: #475569;
+      --accent: #c2410c; /* Logikanya.Tech Terracotta */
+      --accent-soft: rgba(194, 65, 12, 0.1);
+      --border: #e2e8f0;
+      --font-main: 'Poppins', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f172a;
+      font-family: var(--font-main);
+      color: var(--heading);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      user-select: none;
+    }
+
+    .ig-frame {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .ig-header {
+      height: 48px;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    .ig-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ig-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ig-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .carousel-viewport {
+      width: 420px;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide {
+      width: 420px;
+      height: 525px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 24px 18px 24px;
+      box-sizing: border-box;
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    }
+
+    /* Product Showcase Header */
+    .showcase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .category-pill {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--accent);
+      border: 1px solid rgba(194, 65, 12, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .pagination-dots {
+      display: flex;
+      gap: 4px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #cbd5e1;
+    }
+    .dot.active {
+      width: 16px;
+      border-radius: 4px;
+      background: var(--accent);
+    }
+
+    /* Product Showcase App Card */
+    .app-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.05);
+      margin: 10px 0;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-title-group h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .card-title-group span {
+      font-size: 11px;
+      color: #64748b;
+      font-family: var(--font-mono);
+    }
+
+    .showcase-title {
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+    .showcase-title mark {
+      background: transparent;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .showcase-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--body);
+    }
+
+    /* Spec List inside card */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .spec-cell {
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #f1f5f9;
+    }
+    .spec-cell-label {
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      color: #64748b;
+      text-transform: uppercase;
+    }
+    .spec-cell-val {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: #64748b;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding-top: 10px;
+    }
+    .slide-indicator {
+      color: var(--accent);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 420px;
+      margin-top: 14px;
+    }
+    .nav-btn {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ig-frame">
+    <div class="ig-header">
+      <div class="ig-profile">
+        <div class="ig-avatar">LT</div>
+        <div class="ig-name">Logikanya.Tech</div>
+      </div>
+      <i data-lucide="layout-grid" style="width: 16px; height: 16px; color: var(--accent);"></i>
+    </div>
+
+    <div class="carousel-viewport" id="viewport">
+      <div class="carousel-track" id="track">
+
+        <!-- SLIDE 1 (Showcase Hero) -->
+        <section class="slide">
+          <div class="showcase-header">
+            <span class="category-pill"><i data-lucide="shield-check" style="width: 12px; height: 12px;"></i> FORENSIC REPORT</span>
+            <div class="pagination-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div style="margin: auto 0;">
+            <h1 class="showcase-title">Investigasi Google TAG: Bedah <mark>19.372 Akun Bayangan</mark> di Indonesia.</h1>
+            <p class="showcase-desc">Bukan sekadar debat medsos biasa. Ini adalah laporan resmi operasi pengaruh digital terkoordinasi berskala internasional.</p>
+            <div class="app-card">
+              <div class="card-top">
+                <div class="icon-box"><i data-lucide="database" style="width: 20px; height: 20px;"></i></div>
+                <div class="card-title-group">
+                  <h3>Google Threat Analysis Group</h3>
+                  <span>Influence Operations Bulletin Q3 2026</span>
+                </div>
+              </div>
+              <div class="spec-grid">
+                <div class="spec-cell"><div class="spec-cell-label">Total Ditindak</div><div class="spec-cell-val">19.372 Kanal</div></div>
+                <div class="spec-cell"><div class="spec-cell-label">Pola Serangan</div><div class="spec-cell-val">Inauthentic Ops</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>@logikanyatech</span>
+            <span class="slide-indicator">INSPEKSI <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 14.28%;"></div></div>
+        </section>
+
+        <!-- SLIDE 2 (Anomali Lonjakan) -->
+        <section class="slide">
+          <div class="showcase-header">
+            <span class="category-pill"><i data-lucide="activity" style="width: 12px; height: 12px;"></i> TIMELINE ANOMALY</span>
+            <div class="pagination-dots"><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div style="margin: auto 0;">
+            <h2 class="showcase-title">Puncak Lonjakan: <mark>10.134 Kanal Lenyap</mark> di Bulan Agustus.</h2>
+            <div class="app-card">
+              <div class="card-top">
+                <div class="icon-box"><i data-lucide="flame" style="width: 20px; height: 20px;"></i></div>
+                <div class="card-title-group">
+                  <h3>Korelasi Unjuk Rasa Publik</h3>
+                  <span>Sinkronisasi Operasi Narasi Siber</span>
+                </div>
+              </div>
+              <p class="showcase-desc" style="font-size: 12px;">
+                Saat aksi protes meletus di berbagai kota, 10.134 kanal aktif serempak mengunggah narasi pembenaran dan menyerang figur pengkritik.
+              </p>
+              <div class="spec-grid">
+                <div class="spec-cell"><div class="spec-cell-label">Juli 2026</div><div class="spec-cell-val">6.888 Kanal</div></div>
+                <div class="spec-cell"><div class="spec-cell-label">Agustus 2026</div><div class="spec-cell-val">10.134 Kanal</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>@logikanyatech</span>
+            <span class="slide-indicator">INSPEKSI <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 28.57%;"></div></div>
+        </section>
+
+        <!-- SLIDE 3 (Mekanisme Sistem) -->
+        <section class="slide">
+          <div class="showcase-header">
+            <span class="category-pill"><i data-lucide="cpu" style="width: 12px; height: 12px;"></i> ENGINE DETECTION</span>
+            <div class="pagination-dots"><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div style="margin: auto 0;">
+            <h2 class="showcase-title">Mengapa Ditutup? <mark>Bukan Isinya, Tapi Polanya</mark>.</h2>
+            <div class="app-card">
+              <div class="card-top">
+                <div class="icon-box"><i data-lucide="git-merge" style="width: 20px; height: 20px;"></i></div>
+                <div class="card-title-group">
+                  <h3>Coordinated Influence Ops</h3>
+                  <span>Kriteria Pelanggaran Platform Google</span>
+                </div>
+              </div>
+              <div class="spec-grid">
+                <div class="spec-cell"><div class="spec-cell-label">Jejak IP & Device</div><div class="spec-cell-val">Cluster Ternak</div></div>
+                <div class="spec-cell"><div class="spec-cell-label">Waktu Post</div><div class="spec-cell-val">Sinkron Massal</div></div>
+                <div class="spec-cell"><div class="spec-cell-label">Template Copy</div><div class="spec-cell-val">Duplikasi Skrip</div></div>
+                <div class="spec-cell"><div class="spec-cell-label">Target Algoritma</div><div class="spec-cell-val">Trending Palsu</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>@logikanyatech</span>
+            <span class="slide-indicator">INSPEKSI <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 42.85%;"></div></div>
+        </section>
+
+        <!-- SLIDE 4 (Doktrin Pertahanan) -->
+        <section class="slide">
+          <div class="showcase-header">
+            <span class="category-pill"><i data-lucide="compass" style="width: 12px; height: 12px;"></i> CYBER DOCTRINE</span>
+            <div class="pagination-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span></div>
+          </div>
+          <div style="margin: auto 0;">
+            <h2 class="showcase-title">Peta Global: <mark>Perang Kognitif</mark> di Doktrin Pertahanan.</h2>
+            <div class="app-card">
+              <div class="card-top">
+                <div class="icon-box"><i data-lucide="globe-2" style="width: 20px; height: 20px;"></i></div>
+                <div class="card-title-group">
+                  <h3>Standar Regulasi Dunia</h3>
+                  <span>Penetapan Ancaman Nasional</span>
+                </div>
+              </div>
+              <div class="spec-grid">
+                <div class="spec-cell"><div class="spec-cell-label">Taiwan & AS</div><div class="spec-cell-val">Cognitive War</div></div>
+                <div class="spec-cell"><div class="spec-cell-label">Spanyol & China</div><div class="spec-cell-val">Information Ops</div></div>
+              </div>
+              <p class="showcase-desc" style="font-size: 11.5px; margin-top: 8px;">
+                Tujuannya bukan membela opini, melainkan memanipulasi persepsi dan membelah daya kritis masyarakat.
+              </p>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>@logikanyatech</span>
+            <span class="slide-indicator">INSPEKSI <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 57.14%;"></div></div>
+        </section>
+
+        <!-- SLIDE 5 (Dampak Kerusakan Sistem) -->
+        <section class="slide">
+          <div class="showcase-header">
+            <span class="category-pill"><i data-lucide="alert-triangle" style="width: 12px; height: 12px;"></i> SYSTEM HAZARD</span>
+            <div class="pagination-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div style="margin: auto 0;">
+            <h2 class="showcase-title">Dampak Fatal: <mark>Matinya Saluran Suara Warga</mark>.</h2>
+            <div class="app-card">
+              <div class="card-top">
+                <div class="icon-box"><i data-lucide="volume-x" style="width: 20px; height: 20px;"></i></div>
+                <div class="card-title-group">
+                  <h3>Feedback Loop Terputus</h3>
+                  <span>Distorsi Realitas Kebijakan Publik</span>
+                </div>
+              </div>
+              <div class="spec-grid">
+                <div class="spec-cell"><div class="spec-cell-label">Korban</div><div class="spec-cell-val">Suara Asli Rakyat</div></div>
+                <div class="spec-cell"><div class="spec-cell-label">Efek Samping</div><div class="spec-cell-val">Halusinasi Sukses</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>@logikanyatech</span>
+            <span class="slide-indicator">INSPEKSI <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 71.42%;"></div></div>
+        </section>
+
+        <!-- SLIDE 6 (Perbandingan Fitur) -->
+        <section class="slide">
+          <div class="showcase-header">
+            <span class="category-pill"><i data-lucide="check-square" style="width: 12px; height: 12px;"></i> VERIFICATION CHECK</span>
+            <div class="pagination-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span></div>
+          </div>
+          <div style="margin: auto 0;">
+            <h2 class="showcase-title">Checklist Verifikasi: <mark>Organik vs Jaringan Buzzer</mark>.</h2>
+            <div class="app-card">
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11.5px;">
+                <div style="display: flex; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px solid #f1f5f9;">
+                  <span style="color: #64748b;">Asal Akun</span>
+                  <span style="font-weight: 700; color: #0f172a;">Jejak Riil vs Akun Anonim Baru</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px solid #f1f5f9;">
+                  <span style="color: #64748b;">Fokus Postingan</span>
+                  <span style="font-weight: 700; color: #0f172a;">Argumen Fakta vs Serang Pribadi</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: #64748b;">Pola Upload</span>
+                  <span style="font-weight: 700; color: var(--accent);">Spontan vs Sinkron Serempak</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span>@logikanyatech</span>
+            <span class="slide-indicator">INSPEKSI <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 85.71%;"></div></div>
+        </section>
+
+        <!-- SLIDE 7 (Showcase CTA) -->
+        <section class="slide" style="justify-content: center; text-align: center; background: #ffffff;">
+          <div>
+            <div class="ig-avatar" style="width: 48px; height: 48px; font-size: 16px; margin: 0 auto 12px;">LT</div>
+            <h2 style="font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">
+              Jadikan Logika & Data Sebagai Firewall Pribadi.
+            </h2>
+            <p style="font-size: 13px; color: #64748b; max-width: 320px; margin: 0 auto 16px; line-height: 1.5;">
+              Dapatkan bedah arsitektur sistem, keamanan siber, dan analisa data mendalam tanpa bias.
+            </p>
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 700; font-size: 13px;">
+              <i data-lucide="terminal" style="width: 14px; height: 14px;"></i> Follow @logikanyatech
+            </div>
+          </div>
+          <div class="slide-footer" style="margin-top: 24px; border-top: 1px solid #f1f5f9;">
+            <span>Logikanya.Tech</span>
+            <span class="slide-indicator" style="color: var(--accent);">SIMPAN MODUL INI</span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="nav-btn" id="prevBtn" disabled>Prev</button>
+    <span style="font-family: var(--font-mono); font-size: 12px; color: #94a3b8;" id="pageCounter">Slide 1 / 7</span>
+    <button class="nav-btn" id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    const track = document.getElementById('track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageCounter = document.getElementById('pageCounter');
+    let currentIndex = 0;
+    const totalSlides = 7;
+
+    function update() {
+      track.style.transform = `translateX(-${currentIndex * 420}px)`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === totalSlides - 1;
+      pageCounter.textContent = `Slide ${currentIndex + 1} / ${totalSlides}`;
+    }
+    prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; update(); } });
+    nextBtn.addEventListener('click', () => { if (currentIndex < totalSlides - 1) { currentIndex++; update(); } });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+  </script>
+</body>
+</html>

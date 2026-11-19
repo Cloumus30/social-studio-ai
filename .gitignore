@@ -24,3 +24,13 @@ output/*.png
 .env.local
 *.tmp
 *.temp
+
+# Python Virtualenv & Cache
+.venv/
+carousels/.venv/
+__pycache__/
+*.pyc
+
+# Interactive Carousel Render Output (Ignored to keep repo lightweight)
+carousels/**/slides/*.png
+!carousels/**/slides/.gitkeep

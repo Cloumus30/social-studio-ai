@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perang Kognitif & Pembongkaran Buzzer Google TAG - Logikanya.Tech</title>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --brand-accent: #c2410c; /* Terracotta Orange */
+      --brand-accent-hover: #9a3412;
+      --brand-dark: #18181b;
+      --brand-border: #e4e4e7;
+      --brand-grid: rgba(0, 0, 0, 0.04);
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0f172a;
+      font-family: var(--font-sans);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      user-select: none;
+    }
+
+    /* Container Pratinjau IG Frame */
+    .ig-frame {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    /* IG Top Header */
+    .ig-header {
+      height: 48px;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+    }
+    .ig-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ig-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--brand-accent);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 0 1px var(--brand-border);
+    }
+    .ig-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    /* Track Carousel 420x525 Fixed */
+    .carousel-viewport {
+      width: 420px;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+    }
+    .carousel-viewport:active {
+      cursor: grabbing;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Individual Slide: Fixed 420x525 px */
+    .slide {
+      width: 420px;
+      height: 525px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 24px 20px 24px;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      color: #18181b;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      background-size: 35px 35px;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .slide-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid var(--brand-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .slide-number {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--brand-accent);
+    }
+
+    /* Slide Content */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+      padding: 10px 0;
+    }
+    .slide-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.28;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+      color: #18181b;
+    }
+    .slide-title mark {
+      background: transparent;
+      color: var(--brand-accent);
+      font-weight: 900;
+    }
+    .slide-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #52525b;
+      font-weight: 500;
+    }
+
+    /* Spec Card & Data Points */
+    .spec-card {
+      background: #ffffff;
+      border: 1px solid var(--brand-border);
+      border-radius: 8px;
+      padding: 11px 13px;
+      margin-top: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .spec-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+    }
+    .spec-label {
+      font-family: var(--font-mono);
+      color: #71717a;
+    }
+    .spec-value {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--brand-accent);
+    }
+
+    /* Comparison Table in Slide 6 */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+    .comp-table th {
+      font-family: var(--font-mono);
+      text-align: left;
+      padding: 5px 8px;
+      background: #f8fafc;
+      border: 1px solid var(--brand-border);
+      color: #475569;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .comp-table td {
+      padding: 6px 8px;
+      border: 1px solid var(--brand-border);
+      font-family: var(--font-sans);
+    }
+    .comp-table td:first-child {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #334155;
+      width: 25%;
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--brand-border);
+      padding-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      z-index: 2;
+    }
+    .brand-handle {
+      font-weight: 800;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-indicator {
+      color: var(--brand-accent);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* Progress Bar */
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(0, 0, 0, 0.06);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--brand-accent);
+      transition: width 0.3s ease;
+    }
+
+    /* Controls & Navigation Toolbar */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 420px;
+      margin-top: 14px;
+      padding: 0 4px;
+    }
+    .nav-btn {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: #334155;
+    }
+    .nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .export-toolbar {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .btn-export {
+      background: var(--brand-accent);
+      color: #ffffff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .btn-export:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- IG Preview Frame (420px width) -->
+  <div class="ig-frame">
+    <!-- Header -->
+    <div class="ig-header">
+      <div class="ig-profile">
+        <div class="ig-avatar">LT</div>
+        <div>
+          <div class="ig-name">Logikanya.Tech</div>
+        </div>
+      </div>
+      <i data-lucide="shield-alert" style="width: 16px; height: 16px; color: var(--brand-accent);"></i>
+    </div>
+
+    <!-- Viewport Slide -->
+    <div class="carousel-viewport" id="viewport">
+      <div class="carousel-track" id="track">
+
+        <!-- SLIDE 1: Cover (Hook) -->
+        <section class="slide">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="shield" style="width: 12px; height: 12px; color: var(--brand-accent);"></i> CYBER INTELLIGENCE</span>
+            <span class="slide-number">01/07</span>
+          </div>
+          <div class="slide-body">
+            <h1 class="slide-title">Buzzer Bukan Sekadar Spam Komen. Di Doktrin Pertahanan Global, Ini <mark>Perang Kognitif</mark>.</h1>
+            <p class="slide-desc">Laporan resmi Google TAG kuartal III 2026 mengungkap 19.372 kanal terafiliasi Indonesia ditutup. Di peta ancaman siber dunia, operasi manipulasi opini publik terorganisir ini bukan main-main.</p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle"><i data-lucide="terminal" style="width: 12px; height: 12px; color: var(--brand-accent);"></i> @logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 14.28%;"></div></div>
+        </section>
+
+        <!-- SLIDE 2: Data Lonjakan Q3 2026 -->
+        <section class="slide">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="bar-chart-3" style="width: 12px; height: 12px;"></i> GOOGLE TAG REPORT</span>
+            <span class="slide-number">02/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Anomali 10.134 Kanal Ditutup Saat <mark>Gelombang Protes Publik</mark>.</h2>
+            <p class="slide-desc">Puncak penindakan Google terjadi di Agustus 2026 (10.134 kanal lenyap dalam sebulan). Bersamaan aksi demonstrasi warga di berbagai kota, jaringan akun ini serempak membombardir narasi tandingan dan menyerang pengkritik.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Total Q3 2026 Ditutup:</span><span class="spec-value">19.372 Kanal</span></div>
+              <div class="spec-item"><span class="spec-label">Puncak Penindakan (Agustus):</span><span class="spec-value">10.134 Kanal</span></div>
+              <div class="spec-item"><span class="spec-label">Skala Ancaman Global:</span><span class="spec-value">> Jaringan Rusia & China</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 28.57%;"></div></div>
+        </section>
+
+        <!-- SLIDE 3: Mekanisme Coordinated Influence -->
+        <section class="slide">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="network" style="width: 12px; height: 12px;"></i> THREAT MECHANISM</span>
+            <span class="slide-number">03/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Bukan Soal Isi Opini, Tapi <mark>Pola Rekayasa Inautentik</mark>.</h2>
+            <p class="slide-desc">Google menindak bukan karena kontennya membela kebijakan, melainkan perilakunya: jaringan akun bayangan yang digerakkan terkoordinasi untuk memalsukan ilusi konsensus publik dan mendominasi algoritma.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Klasifikasi Forensik:</span><span class="spec-value">Coordinated Influence Op</span></div>
+              <div class="spec-item"><span class="spec-label">Metode Serangan:</span><span class="spec-value">Jaringan Akun Terorganisir</span></div>
+              <div class="spec-item"><span class="spec-label">Sasaran Utama:</span><span class="spec-value">Fabrikasi Dukungan Palsu</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 42.85%;"></div></div>
+        </section>
+
+        <!-- SLIDE 4: Doktrin Global AS, Spanyol, Taiwan -->
+        <section class="slide">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="globe" style="width: 12px; height: 12px;"></i> GLOBAL DOCTRINE</span>
+            <span class="slide-number">04/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Negara Maju Memperlakukan Buzzer Sebagai <mark>Ancaman Siber</mark>.</h2>
+            <p class="slide-desc">Taiwan, AS, dan Spanyol secara resmi mengkategorikan jaringan buzzer dan troll ke dalam doktrin Perang Kognitif (Cognitive Warfare). Misinya melumpuhkan nalar kritis masyarakat dan membelah ketahanan informasi bangsa.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Doktrin Spanyol/China:</span><span class="spec-value">Information & Cognitive War</span></div>
+              <div class="spec-item"><span class="spec-label">Strategi Taiwan/AS:</span><span class="spec-value">Counter Inauthentic Ops</span></div>
+              <div class="spec-item"><span class="spec-label">Risiko Strategis:</span><span class="spec-value">Sabotase Diskursus Publik</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 57.14%;"></div></div>
+        </section>
+
+        <!-- SLIDE 5: Dampak ke Ruang Publik -->
+        <section class="slide">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="alert-octagon" style="width: 12px; height: 12px;"></i> SYSTEM HAZARD</span>
+            <span class="slide-number">05/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Ketika Suara Warga Asli <mark>Ditenggelamkan Bot Bayaran</mark>.</h2>
+            <p class="slide-desc">Bahaya terbesar fabrikasi opini adalah rusaknya mekanisme feedback loop. Keluhan nyata masyarakat terkubur oleh banjir komentar artifisial, membuat pembuat kebijakan berhalusinasi merasa situasinya baik-baik saja.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Dampak Demokrasi:</span><span class="spec-value">Checks & Balances Mati</span></div>
+              <div class="spec-item"><span class="spec-label">Dampak Kebijakan:</span><span class="spec-value">Feedback Loop Rusak Total</span></div>
+              <div class="spec-item"><span class="spec-label">Korban Terbesar:</span><span class="spec-value">Suara Nyata Warga Organik</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 71.42%;"></div></div>
+        </section>
+
+        <!-- SLIDE 6: Matriks Organik vs Operasi Kognitif -->
+        <section class="slide">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="git-compare" style="width: 12px; height: 12px;"></i> AUDIT MATRIX</span>
+            <span class="slide-number">06/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Membedakan <mark>Dukungan Organik</mark> vs <mark>Operasi Buzzer</mark>.</h2>
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Warga Organik</th>
+                  <th>Operasi Buzzer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Asal Akun</td>
+                  <td>Warga Asli / Jejak Kredibel</td>
+                  <td>Akun Massal / Baru Dibuat</td>
+                </tr>
+                <tr>
+                  <td>Pola Unggah</td>
+                  <td>Waktu Alami / Mandiri</td>
+                  <td>Serempak / Template Sama</td>
+                </tr>
+                <tr>
+                  <td>Taktik Utama</td>
+                  <td>Diskusi Argumen & Data</td>
+                  <td>Doxxing & Serang Pengkritik</td>
+                </tr>
+                <tr>
+                  <td>Dampak</td>
+                  <td>Literasi Terbuka</td>
+                  <td>Polusi Ruang Informasi</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="slide-desc" style="margin-top: 10px;">Pembedanya bukan di mana mereka berpihak, melainkan pola operasinya yang merekayasa percakapan.</p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 85.71%;"></div></div>
+        </section>
+
+        <!-- SLIDE 7: CTA Slide -->
+        <section class="slide" style="justify-content: center; text-align: center;">
+          <div style="margin-bottom: 16px;">
+            <div class="ig-avatar" style="width: 44px; height: 44px; font-size: 15px; margin: 0 auto 12px auto;">LT</div>
+            <h2 class="slide-title" style="font-size: 19px; margin-bottom: 8px;">Ruang Digital Sehat Butuh <mark>Nalar Kritis Kita</mark>.</h2>
+            <p class="slide-desc">Ketika puluhan ribu kanal bisa dibeli untuk merekayasa persepsi publik, skeptisisme logis adalah firewall terbaik kita. Jangan telan trending topic mentah-mentah.</p>
+          </div>
+          <div class="spec-card" style="text-align: left; background: #fafafa;">
+            <div class="spec-item"><span class="spec-label">Follow Analisis:</span><span class="spec-value">@logikanyatech</span></div>
+            <div class="spec-item"><span class="spec-label">Fokus Bahasan:</span><span class="spec-value">Keamanan Siber & Arsitektur Sistem</span></div>
+          </div>
+          <div class="slide-footer" style="margin-top: 20px;">
+            <span class="brand-handle">Logikanya.Tech</span>
+            <span class="slide-indicator" style="color: var(--brand-accent);">SIMPAN POSTINGAN INI <i data-lucide="bookmark" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Navigation Controls -->
+  <div class="carousel-controls">
+    <button class="nav-btn" id="prevBtn" disabled><i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i> Prev</button>
+    <span style="font-family: var(--font-mono); font-size: 12px; color: #94a3b8;" id="pageCounter">Slide 1 / 7</span>
+    <button class="nav-btn" id="nextBtn">Next <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i></button>
+  </div>
+
+  <div class="export-toolbar">
+    <button class="btn-export" onclick="exportViaPlaywright()"><i data-lucide="download" style="width: 14px; height: 14px;"></i> Ekspor ke PNG (Playwright)</button>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const track = document.getElementById('track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageCounter = document.getElementById('pageCounter');
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const offset = currentIndex * 420;
+      track.style.transform = `translateX(-${offset}px)`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === totalSlides - 1;
+      pageCounter.textContent = `Slide ${currentIndex + 1} / ${totalSlides}`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+
+    // Mouse drag & touch swipe
+    let startX = 0;
+    let isDragging = false;
+    const viewport = document.getElementById('viewport');
+
+    viewport.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diffX = e.clientX - startX;
+      if (diffX < -50) nextBtn.click();
+      if (diffX > 50) prevBtn.click();
+    });
+
+    viewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    viewport.addEventListener('touchend', (e) => {
+      const diffX = e.changedTouches[0].clientX - startX;
+      if (diffX < -50) nextBtn.click();
+      if (diffX > 50) prevBtn.click();
+    });
+
+    function exportViaPlaywright() {
+      alert("Jalankan perintah ini di terminal untuk export PNG 1080x1350px:\n\ncarousels/.venv/bin/python3 carousels/export.py --input " + window.location.pathname);
+    }
+  </script>
+</body>
+</html>

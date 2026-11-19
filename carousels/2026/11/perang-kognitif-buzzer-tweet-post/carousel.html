@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tweet Post - Perang Kognitif & Buzzer Google TAG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg: #0c1729;
+      --text: #ffffff;
+      --accent: #c2410c; /* Logikanya.Tech Terracotta */
+      --divider: rgba(255, 255, 255, 0.2);
+      --font-main: 'Poppins', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #020617;
+      font-family: var(--font-main);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      user-select: none;
+    }
+
+    .ig-frame {
+      width: 420px;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .ig-header {
+      height: 48px;
+      background: #0c1729;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    .ig-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ig-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ig-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .carousel-viewport {
+      width: 420px;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide {
+      width: 420px;
+      height: 525px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px 28px 22px 28px;
+      box-sizing: border-box;
+      background: var(--bg);
+    }
+
+    /* Tweet Author Header */
+    .tweet-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tweet-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .tweet-user {
+      display: flex;
+      flex-direction: column;
+    }
+    .tweet-name {
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tweet-handle {
+      font-size: 12px;
+      color: #94a3b8;
+      font-family: var(--font-mono);
+    }
+
+    /* Tweet Body */
+    .tp-body {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #f1f5f9;
+      margin: 18px 0;
+    }
+    .tp-emphasis {
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 2.5px;
+      text-underline-offset: 4px;
+    }
+
+    /* Tweet Signature Diamond Divider */
+    .tp-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 14px 0;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+    .tp-divider::before, .tp-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    /* Tweet Metrics Bar */
+    .tweet-metrics {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 0;
+      margin-top: auto;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .metric-val {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: #64748b;
+      padding-top: 12px;
+    }
+    .slide-indicator {
+      color: var(--accent);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 420px;
+      margin-top: 14px;
+    }
+    .nav-btn {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ig-frame">
+    <div class="ig-header">
+      <div class="ig-profile">
+        <div class="ig-avatar">LT</div>
+        <div class="ig-name">Logikanya.Tech</div>
+      </div>
+      <i data-lucide="message-square" style="width: 16px; height: 16px; color: var(--accent);"></i>
+    </div>
+
+    <div class="carousel-viewport" id="viewport">
+      <div class="carousel-track" id="track">
+
+        <!-- SLIDE 1: Tweet Hook -->
+        <section class="slide">
+          <div class="tweet-header">
+            <div class="tweet-avatar">LT</div>
+            <div class="tweet-user">
+              <span class="tweet-name">Logikanya.Tech <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--accent); fill: var(--accent); stroke: #0c1729;"></i></span>
+              <span class="tweet-handle">@logikanyatech</span>
+            </div>
+          </div>
+          <div class="tp-body" style="font-size: 20px; line-height: 1.4;">
+            Kalau kalian masih ngira buzzer bayaran itu cuma recehan spam komentar, kalian salah besar.<br><br>
+            Di doktrin pertahanan global, sindikat akun ini resmi diklasifikasikan sebagai <span class="tp-emphasis">Perang Kognitif (Cognitive Warfare)</span>.
+          </div>
+          <div class="tp-divider">◆ ◆ ◆</div>
+          <div class="tweet-metrics">
+            <span><span class="metric-val">19.372</span> Kanal Ditutup</span>
+            <span><span class="metric-val">Google TAG</span> Q3 2026</span>
+          </div>
+          <div class="slide-footer">
+            <span>THREAD (1/7)</span>
+            <span class="slide-indicator">NEXT <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 14.28%;"></div></div>
+        </section>
+
+        <!-- SLIDE 2: Tweet Fact 10K Channels -->
+        <section class="slide">
+          <div class="tweet-header">
+            <div class="tweet-avatar">LT</div>
+            <div class="tweet-user">
+              <span class="tweet-name">Logikanya.Tech <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--accent); fill: var(--accent); stroke: #0c1729;"></i></span>
+              <span class="tweet-handle">@logikanyatech</span>
+            </div>
+          </div>
+          <div class="tp-body">
+            Data forensik Google TAG mengungkap anomali mencengangkan:<br><br>
+            Tepat di Agustus 2026 saat aksi demo warga meluas, Google melenyapkan <span class="tp-emphasis">10.134 kanal dalam satu bulan</span>.<br><br>
+            Ribuan akun mendadak aktif serempak membombardir narasi tandingan & menyerang pengkritik.
+          </div>
+          <div class="tp-divider">◆ ◆ ◆</div>
+          <div class="tweet-metrics">
+            <span><span class="metric-val">Puncak:</span> Agustus 2026</span>
+            <span><span class="metric-val">Status:</span> Enforced</span>
+          </div>
+          <div class="slide-footer">
+            <span>THREAD (2/7)</span>
+            <span class="slide-indicator">NEXT <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 28.57%;"></div></div>
+        </section>
+
+        <!-- SLIDE 3: Tweet Mechanism -->
+        <section class="slide">
+          <div class="tweet-header">
+            <div class="tweet-avatar">LT</div>
+            <div class="tweet-user">
+              <span class="tweet-name">Logikanya.Tech <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--accent); fill: var(--accent); stroke: #0c1729;"></i></span>
+              <span class="tweet-handle">@logikanyatech</span>
+            </div>
+          </div>
+          <div class="tp-body">
+            Kenapa platform sekelas Google sampai turun tangan?<br><br>
+            Bukan karena mereka membela kebijakan, tapi karena <span class="tp-emphasis">Coordinated Inauthentic Behavior</span>.<br><br>
+            Mereka merekayasa algoritma dan memalsukan persepsi seakan-akan ada jutaan rakyat yang setuju.
+          </div>
+          <div class="tp-divider">◆ ◆ ◆</div>
+          <div class="tweet-metrics">
+            <span><span class="metric-val">Pola:</span> Jaringan Bot Terkoordinasi</span>
+            <span><span class="metric-val">Target:</span> Algoritma</span>
+          </div>
+          <div class="slide-footer">
+            <span>THREAD (3/7)</span>
+            <span class="slide-indicator">NEXT <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 42.85%;"></div></div>
+        </section>
+
+        <!-- SLIDE 4: Tweet Global Doctrine -->
+        <section class="slide">
+          <div class="tweet-header">
+            <div class="tweet-avatar">LT</div>
+            <div class="tweet-user">
+              <span class="tweet-name">Logikanya.Tech <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--accent); fill: var(--accent); stroke: #0c1729;"></i></span>
+              <span class="tweet-handle">@logikanyatech</span>
+            </div>
+          </div>
+          <div class="tp-body">
+            Di luar negeri, ini bukan bahan lelucon politik biasa.<br><br>
+            Taiwan, AS, hingga Spanyol memasukkan operasi buzzer ke dalam <span class="tp-emphasis">doktrin pertahanan siber nasional</span>.<br><br>
+            Operasi ini dianggap sabotase terhadap nalar publik dan ketahanan sosial suatu negara.
+          </div>
+          <div class="tp-divider">◆ ◆ ◆</div>
+          <div class="tweet-metrics">
+            <span><span class="metric-val">Doktrin:</span> Perang Informasi</span>
+            <span><span class="metric-val">Level:</span> National Security</span>
+          </div>
+          <div class="slide-footer">
+            <span>THREAD (4/7)</span>
+            <span class="slide-indicator">NEXT <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 57.14%;"></div></div>
+        </section>
+
+        <!-- SLIDE 5: Tweet Hazard -->
+        <section class="slide">
+          <div class="tweet-header">
+            <div class="tweet-avatar">LT</div>
+            <div class="tweet-user">
+              <span class="tweet-name">Logikanya.Tech <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--accent); fill: var(--accent); stroke: #0c1729;"></i></span>
+              <span class="tweet-handle">@logikanyatech</span>
+            </div>
+          </div>
+          <div class="tp-body">
+            Efek samping paling mengerikan dari manipulasi ini:<br><br>
+            <span class="tp-emphasis">Matinya saluran umpan balik (feedback loop)</span>.<br><br>
+            Jeritan warga nyata di bawah tenggelam oleh sorak bot bayaran. Pengambil kebijakan akhirnya hidup di dalam ilusi gelembung ciptaannya sendiri.
+          </div>
+          <div class="tp-divider">◆ ◆ ◆</div>
+          <div class="tweet-metrics">
+            <span><span class="metric-val">Dampak:</span> Rusaknya Feedback Warga</span>
+            <span><span class="metric-val">Korban:</span> Suara Riil</span>
+          </div>
+          <div class="slide-footer">
+            <span>THREAD (5/7)</span>
+            <span class="slide-indicator">NEXT <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 71.42%;"></div></div>
+        </section>
+
+        <!-- SLIDE 6: Tweet Spotting Guide -->
+        <section class="slide">
+          <div class="tweet-header">
+            <div class="tweet-avatar">LT</div>
+            <div class="tweet-user">
+              <span class="tweet-name">Logikanya.Tech <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--accent); fill: var(--accent); stroke: #0c1729;"></i></span>
+              <span class="tweet-handle">@logikanyatech</span>
+            </div>
+          </div>
+          <div class="tp-body">
+            Cara gampang mendeteksi operasi buzzer terorganisir:<br><br>
+            1. Pola jam upload & copy teks template seragam.<br>
+            2. Akun baru tanpa jejak postingan organik.<br>
+            3. Fokus pada <span class="tp-emphasis">menyerang karakter & doxxing</span> pengkritik, bukan membantah data teknis.
+          </div>
+          <div class="tp-divider">◆ ◆ ◆</div>
+          <div class="tweet-metrics">
+            <span><span class="metric-val">Filter:</span> Deteksi Pola Cuitan</span>
+            <span><span class="metric-val">Ciri:</span> Doxxing & Serempak</span>
+          </div>
+          <div class="slide-footer">
+            <span>THREAD (6/7)</span>
+            <span class="slide-indicator">NEXT <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 85.71%;"></div></div>
+        </section>
+
+        <!-- SLIDE 7: Tweet CTA -->
+        <section class="slide" style="justify-content: center; text-align: center; background: #ffffff; color: #0c1729;">
+          <div>
+            <div class="tweet-avatar" style="width: 48px; height: 48px; font-size: 16px; margin: 0 auto 14px;">LT</div>
+            <h2 style="font-size: 20px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; color: #0c1729;">
+              Jangan Biarkan Nalar Kalian Dikendalikan Bot.
+            </h2>
+            <p style="font-size: 14px; color: #475569; max-width: 320px; margin: 0 auto 18px; line-height: 1.5;">
+              Skeptisisme berbasis data adalah pertahanan terbaik kita di ruang digital. Follow @logikanyatech untuk analisa sistem tanpa manipulasi.
+            </p>
+            <div style="display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff; font-weight: 700; border-radius: 999px; font-size: 13px;">
+              Follow @logikanyatech
+            </div>
+          </div>
+          <div class="slide-footer" style="margin-top: 24px; border-top: 1px solid #e2e8f0; color: #94a3b8;">
+            <span>Logikanya.Tech</span>
+            <span class="slide-indicator" style="color: var(--accent);">SAVE TWEET</span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="nav-btn" id="prevBtn" disabled>Prev</button>
+    <span style="font-family: var(--font-mono); font-size: 12px; color: #94a3b8;" id="pageCounter">Slide 1 / 7</span>
+    <button class="nav-btn" id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    const track = document.getElementById('track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageCounter = document.getElementById('pageCounter');
+    let currentIndex = 0;
+    const totalSlides = 7;
+
+    function update() {
+      track.style.transform = `translateX(-${currentIndex * 420}px)`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === totalSlides - 1;
+      pageCounter.textContent = `Slide ${currentIndex + 1} / ${totalSlides}`;
+    }
+    prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; update(); } });
+    nextBtn.addEventListener('click', () => { if (currentIndex < totalSlides - 1) { currentIndex++; update(); } });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+  </script>
+</body>
+</html>

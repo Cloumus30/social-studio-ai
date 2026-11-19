@@ -35,7 +35,16 @@ social-graphic-studio/
 
 ---
 
-## 🔄 Alur Kerja 5 Tahap (Production Pipeline)
+## 🔄 Pilihan Alur Kerja: Workflow 1 vs Workflow 2
+
+Studio ini mendukung dua workflow resmi:
+
+* **Workflow 1 (Multi-Slide 3D Studio - Standar Retina 4K):** Menggunakan file HTML terpisah per slide di `projects/[topik]/slides/`, mendukung komponen 3D Three.js dan Story Teaser 4:5, dirender dengan Node.js Playwright (`render.js`) ke resolusi 2160×2700 px.
+* **Workflow 2 (Single-File Interactive Carousel - Instagram Carousel Skill):** Menggunakan single-file all-in-one HTML (420×525px track) di `carousels/[year]/[month]/[topik]/`, mendukung review interaktif (swipe/keyboard), dirender dengan Python Playwright (`export.py`) ke resolusi 1080×1350 px.
+
+---
+
+## 🛠️ Workflow 1: Multi-Slide 3D Studio (Production Pipeline)
 
 ```
 [1. Riset & Framework] ➔ [2. Copywriting (Anti-Slop)] ➔ [3. Layout HTML (Hallmark Floor)] ➔ [4. Render 4K] ➔ [5. Delivery / GDrive]
@@ -122,6 +131,43 @@ node social-graphic-studio/render.js --input social-graphic-studio/projects/[nam
    ```bash
    node social-graphic-studio/upload.js --project [nama-topik]
    # atau: npm run upload -- --project [nama-topik]
+   ```
+
+---
+
+## 📱 Workflow 2: Single-File Interactive Carousel (instagram-carousel Integration)
+
+Workflow 2 adalah pipeline produksi konten mandiri berbasis **Single-File Interactive Preview HTML (420x525px)** hasil integrasi skill `instagram-carousel` dan standar brand `Logikanya.Tech`.
+
+### Keunggulan:
+* **All-in-One File:** 1 file HTML berisi seluruh slide dalam track horizontal interaktif (geser mouse, swipe sentuh, navigasi keyboard panah kiri/kanan).
+* **Pratinjau Instan:** Tidak perlu merender gambar berulang kali saat masih menyusun naskah dan layout.
+* **Presisi 1080×1350 px:** Diekspor langsung menggunakan Python Playwright dengan rasio penskalaan `2.5714x` ke folder output.
+
+### Struktur Proyek:
+```text
+carousels/
+├── brand-config.json              # Konfigurasi identitas Logikanya.Tech
+├── export.py                      # Script export Python Playwright mandiri
+└── [year]/[month]/[nama-topik]/
+    ├── carousel.html              # File HTML interaktif (420x525px)
+    ├── caption.txt                # Naskah caption feed
+    └── slides/                    # Hasil export PNG 1080x1350 px
+        ├── slide_01.png
+        └── ...
+```
+
+### Langkah Produksi:
+1. **Pilih Tema Visual:** Gunakan template `templates/interactive-carousel.html` dengan 4 pilihan tema:
+   - `theme-blueprint-light` (Default Logikanya.Tech Light)
+   - `theme-blueprint-dark` (Dark Engineering)
+   - `theme-tech-take` (High contrast statement/quote)
+   - `theme-hardware-showcase` (50/50 hardware/spec table)
+2. **Copywriting & Anti-Slop:** Gunakan formula scroll-stopping hook (Contrarian, Numbered shift, Technical challenge) dan batasi 30–45 kata per slide dengan filter anti-slop.
+3. **Review di Browser:** Buka `carousel.html` langsung di Google Chrome untuk memverifikasi tata letak dan interaksi.
+4. **Eksekusi Export ke PNG:**
+   ```bash
+   carousels/.venv/bin/python3 carousels/export.py --input carousels/[year]/[month]/[nama-topik]/carousel.html --output carousels/[year]/[month]/[nama-topik]/slides/
    ```
 
 ---

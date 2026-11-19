@@ -76,15 +76,22 @@ Tulis naskah dengan gaya **Smart-Casual Tech Indonesian**:
 
 ---
 
-### Tahap 4: Jalankan Render Engine ke PNG Retina 4K
-Jalankan script `render.js` (Playwright Chromium via Google Chrome sistem):
+### Tahap 4: Jalankan Render Engine ke PNG
+Pilih engine sesuai alur kerja yang digunakan:
 
+#### Workflow 1: Multi-Slide Standar & 3D (Node.js Playwright - 2160x2700 px Retina 4K)
 ```bash
 # Render slide Carousel (4:5) ke resolusi 2160 x 2700 px
 node social-graphic-studio/render.js --input social-graphic-studio/projects/[nama-topik]/slides/ --output social-graphic-studio/output/[nama-topik]/ --format carousel
 
 # Render Story Teaser (4:5) ke resolusi 2160 x 2700 px
 node social-graphic-studio/render.js --input social-graphic-studio/projects/[nama-topik]/story-teaser.html --output social-graphic-studio/output/[nama-topik]/ --format carousel
+```
+
+#### Workflow 2: Single-File Interaktif (Python Playwright - 1080x1350 px)
+```bash
+# Render all-in-one HTML carousel track ke folder slides/
+carousels/.venv/bin/python3 carousels/export.py --input carousels/[year]/[month]/[nama-topik]/carousel.html --output carousels/[year]/[month]/[nama-topik]/slides/
 ```
 
 ---

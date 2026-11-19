@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TOPIC_TITLE}} - Logikanya.Tech Carousel</title>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- HTML2Canvas & jsPDF for browser fallback export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    :root {
+      --brand-accent: #c2410c; /* Terracotta Orange */
+      --brand-accent-hover: #9a3412;
+      --brand-dark: #18181b;
+      --brand-border: #e4e4e7;
+      --brand-grid: rgba(0, 0, 0, 0.04);
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0f172a;
+      font-family: var(--font-sans);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      user-select: none;
+    }
+
+    /* Container Pratinjau IG Frame */
+    .ig-frame {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    /* IG Top Header */
+    .ig-header {
+      height: 48px;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+    }
+    .ig-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ig-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--brand-accent);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 0 1px var(--brand-border);
+    }
+    .ig-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    /* Track Carousel 420x525 Fixed */
+    .carousel-viewport {
+      width: 420px;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+    }
+    .carousel-viewport:active {
+      cursor: grabbing;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Individual Slide: Fixed 420x525 px */
+    .slide {
+      width: 420px;
+      height: 525px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 24px 20px 24px;
+      box-sizing: border-box;
+    }
+
+    /* THEME 1: Tech Blueprint Light (Official Standard) */
+    .theme-blueprint-light {
+      background-color: #ffffff;
+      color: #18181b;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      background-size: 35px 35px;
+    }
+
+    /* THEME 2: Dark Engineering Blueprint */
+    .theme-blueprint-dark {
+      background-color: #090d16;
+      color: #f4f4f5;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 35px 35px;
+    }
+
+    /* THEME 3: Tech Take / Minimal High Impact */
+    .theme-tech-take {
+      background-color: #0c0a09;
+      color: #fafaf9;
+    }
+
+    /* THEME 4: Hardware Showcase */
+    .theme-hardware-showcase {
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .slide-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid var(--brand-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .theme-blueprint-dark .slide-badge,
+    .theme-tech-take .slide-badge {
+      background: #182234;
+      color: #94a3b8;
+      border-color: #334155;
+    }
+
+    .slide-number {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--brand-accent);
+    }
+
+    /* Slide Content */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+      padding: 12px 0;
+    }
+    .slide-title {
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: inherit;
+    }
+    .slide-title mark {
+      background: transparent;
+      color: var(--brand-accent);
+      font-weight: 900;
+    }
+    .slide-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #52525b;
+      font-weight: 500;
+    }
+    .theme-blueprint-dark .slide-desc,
+    .theme-tech-take .slide-desc {
+      color: #a1a1aa;
+    }
+
+    /* Feature Box & Technical Spec Card */
+    .spec-card {
+      background: #ffffff;
+      border: 1px solid var(--brand-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-blueprint-dark .spec-card {
+      background: #101726;
+      border-color: #1e293b;
+    }
+    .spec-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+    }
+    .spec-label {
+      font-family: var(--font-mono);
+      color: #71717a;
+    }
+    .spec-value {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--brand-accent);
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--brand-border);
+      padding-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      z-index: 2;
+    }
+    .theme-blueprint-dark .slide-footer,
+    .theme-tech-take .slide-footer {
+      border-color: #27272a;
+    }
+    .brand-handle {
+      font-weight: 800;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .slide-indicator {
+      color: var(--brand-accent);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* Progress Bar */
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(0, 0, 0, 0.06);
+    }
+    .theme-blueprint-dark .progress-bar-container,
+    .theme-tech-take .progress-bar-container {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--brand-accent);
+      transition: width 0.3s ease;
+    }
+
+    /* Controls & Navigation Toolbar */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 420px;
+      margin-top: 14px;
+      padding: 0 4px;
+    }
+    .nav-btn {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: #334155;
+    }
+    .nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .export-toolbar {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .btn-export {
+      background: var(--brand-accent);
+      color: #ffffff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .btn-export:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- IG Preview Frame (420px width) -->
+  <div class="ig-frame">
+    <!-- Header -->
+    <div class="ig-header">
+      <div class="ig-profile">
+        <div class="ig-avatar">LT</div>
+        <div>
+          <div class="ig-name">Logikanya.Tech</div>
+        </div>
+      </div>
+      <i data-lucide="more-horizontal" style="width: 16px; height: 16px; color: #64748b;"></i>
+    </div>
+
+    <!-- Viewport Slide -->
+    <div class="carousel-viewport" id="viewport">
+      <div class="carousel-track" id="track">
+
+        <!-- SLIDE 1: Cover (Hook) -->
+        <section class="slide theme-blueprint-light">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="cpu" style="width: 12px; height: 12px;"></i> ARCHITECTURE</span>
+            <span class="slide-number">01/07</span>
+          </div>
+          <div class="slide-body">
+            <h1 class="slide-title">Arsitektur Microservices Kalian Sebenarnya <mark>Cuma Monolit</mark> yang Disebar Lewat Kabel.</h1>
+            <p class="slide-desc">Pernah ngerasa deploy makin ribet, latency naik drastis, tapi scalability gak nambah? Mari kita bedah akar masalahnya tanpa basa-basi.</p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle"><i data-lucide="terminal" style="width: 12px; height: 12px; color: var(--brand-accent);"></i> @logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 14.28%;"></div></div>
+        </section>
+
+        <!-- SLIDE 2: Problem Deep-Dive -->
+        <section class="slide theme-blueprint-light">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="alert-triangle" style="width: 12px; height: 12px;"></i> ROOT CAUSE</span>
+            <span class="slide-number">02/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Kutukan <mark>Distributed Monolith</mark> di Balik HTTP Calls.</h2>
+            <p class="slide-desc">Ketika Service A harus manggil Service B secara sinkron cuma buat validasi data kasir, satu service lemot bakal ngerontokin seluruh cluster.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Failure Mode:</span><span class="spec-value">Cascading Timeout</span></div>
+              <div class="spec-item"><span class="spec-label">Network Penalty:</span><span class="spec-value">+45ms per Hop</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 28.57%;"></div></div>
+        </section>
+
+        <!-- SLIDE 3: Architecture Shift -->
+        <section class="slide theme-blueprint-light">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="layers" style="width: 12px; height: 12px;"></i> THE SHIFT</span>
+            <span class="slide-number">03/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Ubah Pola Sinkron Jadi <mark>Event-Driven Async</mark>.</h2>
+            <p class="slide-desc">Service A gak perlu nunggu jawaban. Cukup lempar status transaksi ke message log, lalu biarkan service lain mengonsumsi secara independen.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Coupling:</span><span class="spec-value">Zero Tight Binding</span></div>
+              <div class="spec-item"><span class="spec-label">Recovery:</span><span class="spec-value">Replay Logs Anytime</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 42.85%;"></div></div>
+        </section>
+
+        <!-- SLIDE 4: Hardware / Spec Detail -->
+        <section class="slide theme-blueprint-light">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="hard-drive" style="width: 12px; height: 12px;"></i> INFRASTRUCTURE</span>
+            <span class="slide-number">04/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Investasi di <mark>Sequential Append</mark>, Bukan Lock Database.</h2>
+            <p class="slide-desc">Append-only log di NVMe disk mampu melayani ratusan ribu throughput per detik tanpa overhead row lock di database transaksi.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Write Pattern:</span><span class="spec-value">Sequential Disk I/O</span></div>
+              <div class="spec-item"><span class="spec-label">Throughput:</span><span class="spec-value">> 150K Ops/Sec</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 57.14%;"></div></div>
+        </section>
+
+        <!-- SLIDE 5: When to Use -->
+        <section class="slide theme-blueprint-light">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="check-circle" style="width: 12px; height: 12px;"></i> ADOPTION</span>
+            <span class="slide-number">05/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Kapan Wajib Pakai & Kapan <mark>Cukup Monolit</mark>?</h2>
+            <p class="slide-desc">Kalau traffic tim kalian belum butuh deploy terpisah per squad, modular monolith selalu lebih cepat, murah, dan gampang di-debug.</p>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Squad < 15 Dev:</span><span class="spec-value">Tetap di Monolith</span></div>
+              <div class="spec-item"><span class="spec-label">Squad > 50 Dev:</span><span class="spec-value">Event-Driven Services</span></div>
+            </div>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 71.42%;"></div></div>
+        </section>
+
+        <!-- SLIDE 6: Matrix Comparison -->
+        <section class="slide theme-blueprint-light">
+          <div class="slide-header">
+            <span class="slide-badge"><i data-lucide="git-compare" style="width: 12px; height: 12px;"></i> COMPARISON</span>
+            <span class="slide-number">06/07</span>
+          </div>
+          <div class="slide-body">
+            <h2 class="slide-title">Komparasi: <mark>RPC Sync</mark> vs <mark>Event Streaming</mark>.</h2>
+            <div class="spec-card">
+              <div class="spec-item"><span class="spec-label">Coupling:</span><span class="spec-value">Ketat ➔ Lepas Total</span></div>
+              <div class="spec-item"><span class="spec-label">Resilience:</span><span class="spec-value">Rentan ➔ Fault Tolerant</span></div>
+              <div class="spec-item"><span class="spec-label">Debugging:</span><span class="spec-value">Traceable ➔ Log Replay</span></div>
+            </div>
+            <p class="slide-desc" style="margin-top: 10px;">Pilihlah arsitektur berdasarkan kendala teknis nyata di lapangan, bukan sekadar ikut tren perusahaan raksasa.</p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">GESER <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 85.71%;"></div></div>
+        </section>
+
+        <!-- SLIDE 7: CTA Slide -->
+        <section class="slide theme-blueprint-light" style="justify-content: center; text-align: center;">
+          <div style="margin-bottom: 16px;">
+            <div class="ig-avatar" style="width: 44px; height: 44px; font-size: 15px; margin: 0 auto 12px auto;">LT</div>
+            <h2 class="slide-title" style="font-size: 20px; margin-bottom: 8px;">Suka Bahasan Arsitektur Kayak Gini?</h2>
+            <p class="slide-desc">Kami rutin bedah rekayasa sistem, database, dan performa backend tanpa jargon membingungkan.</p>
+          </div>
+          <div class="spec-card" style="text-align: left; background: #fafafa;">
+            <div class="spec-item"><span class="spec-label">Follow:</span><span class="spec-value">@logikanyatech</span></div>
+            <div class="spec-item"><span class="spec-label">Update:</span><span class="spec-value">Senin, Rabu, & Jumat</span></div>
+          </div>
+          <div class="slide-footer" style="margin-top: 20px;">
+            <span class="brand-handle">Logikanya.Tech</span>
+            <span class="slide-indicator" style="color: var(--brand-accent);">SIMPAN KONTEN INI <i data-lucide="bookmark" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Navigation Controls -->
+  <div class="carousel-controls">
+    <button class="nav-btn" id="prevBtn" disabled><i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i> Prev</button>
+    <span style="font-family: var(--font-mono); font-size: 12px; color: #94a3b8;" id="pageCounter">Slide 1 / 7</span>
+    <button class="nav-btn" id="nextBtn">Next <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i></button>
+  </div>
+
+  <div class="export-toolbar">
+    <button class="btn-export" onclick="exportViaPlaywright()"><i data-lucide="download" style="width: 14px; height: 14px;"></i> Ekspor ke PNG (Playwright)</button>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const track = document.getElementById('track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageCounter = document.getElementById('pageCounter');
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const offset = currentIndex * 420;
+      track.style.transform = `translateX(-${offset}px)`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === totalSlides - 1;
+      pageCounter.textContent = `Slide ${currentIndex + 1} / ${totalSlides}`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+
+    // Mouse drag & touch swipe
+    let startX = 0;
+    let isDragging = false;
+    const viewport = document.getElementById('viewport');
+
+    viewport.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diffX = e.clientX - startX;
+      if (diffX < -50) nextBtn.click();
+      if (diffX > 50) prevBtn.click();
+    });
+
+    viewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    viewport.addEventListener('touchend', (e) => {
+      const diffX = e.changedTouches[0].clientX - startX;
+      if (diffX < -50) nextBtn.click();
+      if (diffX > 50) prevBtn.click();
+    });
+
+    function exportViaPlaywright() {
+      alert("Untuk mengekspor ke resolusi 1080x1350px pixel-perfect, jalankan perintah di terminal:\n\npython3 carousels/export.py --input " + window.location.pathname);
+    }
+  </script>
+</body>
+</html>

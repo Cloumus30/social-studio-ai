@@ -1,0 +1,11 @@
+{
+  "name": "Logikanya.Tech",
+  "handle": "@logikanyatech",
+  "subtitle": "Arsitektur & Rekayasa Sistem Tanpa Basa-Basi",
+  "profile_photo": "assets/logikanyatech-avatar.png",
+  "accent_color": "#c2410c",
+  "initials": "LT",
+  "default_style": "blueprint_light",
+  "grid_size": 40,
+  "setup_complete": true
+}

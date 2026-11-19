@@ -1,0 +1,19 @@
+Buzzer bukan sekadar perang komentar di media sosial. Di mata pakar siber dan doktrin pertahanan global, ini adalah Cognitive Warfare (Perang Kognitif).
+
+Baru-baru ini, laporan Google Threat Analysis Group (TAG) kuartal III 2026 mengungkap penindakan terhadap 19.372 kanal YouTube yang terafiliasi dengan jaringan operasi pengaruh di Indonesia. Angka ini bahkan melampaui temuan jaringan serupa di Rusia dan China pada periode yang sama.
+
+Puncaknya terjadi pada Agustus 2026: sebanyak 10.134 kanal dilenyapkan hanya dalam tempo 30 hari. Menariknya, momen ini bertepatan langsung dengan maraknya gelombang aksi unjuk rasa warga di berbagai kota.
+
+Kenapa Google turun tangan?
+Bukan karena kontennya mendukung pemerintah atau tokoh tertentu, melainkan karena polanya: Coordinated Inauthentic Behavior. Ada jaringan terorganisir yang sengaja digerakkan untuk memalsukan opini publik, menyerang pengkritik kebijakan, dan mendominasi algoritma.
+
+Di negara maju seperti Taiwan, Spanyol, dan Amerika Serikat, operasi buzzer terorganisir ini sudah masuk kategori ancaman ketahanan informasi nasional.
+
+Bahaya terbesarnya bukan cuma polarisasi, tapi rusaknya mekanisme feedback loop. Ketika kritik nyata dari masyarakat tenggelam oleh banjir bot berbayar, pengambil kebijakan bakal kehilangan kontak dengan realitas lapangan.
+
+Slide demi slide di postingan ini membedah data laporan Google TAG dan bagaimana operasi kognitif ini bekerja.
+
+Geser sampai habis dan kasih tahu di kolom komentar: menurut kalian, seberapa besar manipulasi buzzer memengaruhi persepsi kalian di medsos selama ini?
+
+---
+#LogikanyaTech #GoogleTAG #KeamananSiber #PerangKognitif #Buzzer #ArsitekturSistem #LiterasiDigital #CyberSecurityID #DataForensik #OpenData

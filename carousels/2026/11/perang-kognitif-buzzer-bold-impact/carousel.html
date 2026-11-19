@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bold Impact - Perang Kognitif & Buzzer Google TAG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700;1,800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg-primary: #0c1729;
+      --bg-elevated: #101d32;
+      --accent: #c2410c; /* Logikanya.Tech Terracotta */
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --font-main: 'Poppins', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #020617;
+      font-family: var(--font-main);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      user-select: none;
+    }
+
+    .ig-frame {
+      width: 420px;
+      background: #000000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .ig-header {
+      height: 48px;
+      background: #0c1729;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    .ig-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ig-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ig-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .carousel-viewport {
+      width: 420px;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide {
+      width: 420px;
+      height: 525px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 44px 30px 24px 30px;
+      box-sizing: border-box;
+    }
+
+    .slide:nth-child(odd) { background: var(--bg-primary); }
+    .slide:nth-child(even) { background: var(--bg-elevated); }
+
+    /* Top profile header on slide */
+    .slide-profile {
+      position: absolute;
+      top: 18px;
+      left: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #cbd5e1;
+      text-transform: uppercase;
+    }
+    .slide-profile .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Bold Impact Typography */
+    .bi-number {
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .bi-heading {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .bi-heading .accent {
+      color: var(--accent);
+    }
+
+    .bi-body {
+      font-size: 15px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+    .bi-body .keyword {
+      color: var(--accent);
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    /* Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+    }
+    .brand-handle {
+      color: #94a3b8;
+      font-weight: 700;
+    }
+    .slide-indicator {
+      color: var(--accent);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+    }
+
+    /* Controls */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 420px;
+      margin-top: 14px;
+    }
+    .nav-btn {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ig-frame">
+    <div class="ig-header">
+      <div class="ig-profile">
+        <div class="ig-avatar">LT</div>
+        <div class="ig-name">Logikanya.Tech</div>
+      </div>
+      <i data-lucide="zap" style="width: 16px; height: 16px; color: var(--accent);"></i>
+    </div>
+
+    <div class="carousel-viewport" id="viewport">
+      <div class="carousel-track" id="track">
+
+        <!-- SLIDE 1 (Hero) -->
+        <section class="slide" style="justify-content: center;">
+          <div class="slide-profile"><span class="dot"></span> LOGIKANYA.TECH | INTEL</div>
+          <div>
+            <h1 class="bi-heading" style="font-size: 38px; line-height: 1.1;">
+              Buzzer Bukan Cuma Spam Komen. Ini <span class="accent">Perang Kognitif</span>.
+            </h1>
+            <p class="bi-body" style="font-size: 16px; margin-top: 14px;">
+              Google TAG baru saja menghapus <span class="keyword">19.372 kanal YouTube</span> jaringan operasi pengaruh di Indonesia. Ini bedah data resminya.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">SWIPE <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 14.28%;"></div></div>
+        </section>
+
+        <!-- SLIDE 2 -->
+        <section class="slide">
+          <div class="slide-profile"><span class="dot"></span> 01 / ANOMALI DATA</div>
+          <div style="margin: auto 0;">
+            <div class="bi-number">10.134</div>
+            <h2 class="bi-heading">Kanal Lenyap Tepat di <span class="accent">Puncak Aksi Warga</span>.</h2>
+            <p class="bi-body">
+              Agustus 2026 mencatat rekor. Bersamaan dengan gelombang unjuk rasa di berbagai kota, Google menghapus <span class="keyword">10.134 kanal bayangan</span> dalam 30 hari.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">SWIPE <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 28.57%;"></div></div>
+        </section>
+
+        <!-- SLIDE 3 -->
+        <section class="slide">
+          <div class="slide-profile"><span class="dot"></span> 02 / MEKANISME THREAT</div>
+          <div style="margin: auto 0;">
+            <div class="bi-number">TAG</div>
+            <h2 class="bi-heading">Bukan Soal Narasi, Tapi <span class="accent">Rekayasa Terkoordinasi</span>.</h2>
+            <p class="bi-body">
+              Google menindak bukan karena isi dukungannya, melainkan pola <span class="keyword">Coordinated Inauthentic Behavior</span>: sindikat akun yang digerakkan untuk memalsukan konsensus rakyat.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">SWIPE <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 42.85%;"></div></div>
+        </section>
+
+        <!-- SLIDE 4 -->
+        <section class="slide">
+          <div class="slide-profile"><span class="dot"></span> 03 / DOKTRIN GLOBAL</div>
+          <div style="margin: auto 0;">
+            <div class="bi-number">NATO</div>
+            <h2 class="bi-heading">Negara Maju Melihat Buzzer Sebagai <span class="accent">Senjata Siber</span>.</h2>
+            <p class="bi-body">
+              Taiwan, Spanyol, dan AS memasukkan troll terorganisir ke doktrin <span class="keyword">Cognitive Warfare</span>. Target utamanya: menyabotase nalar kritis dan memecah kohesi masyarakat.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">SWIPE <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 57.14%;"></div></div>
+        </section>
+
+        <!-- SLIDE 5 -->
+        <section class="slide">
+          <div class="slide-profile"><span class="dot"></span> 04 / DAMPAK PUBLIK</div>
+          <div style="margin: auto 0;">
+            <div class="bi-number">0%</div>
+            <h2 class="bi-heading">Ketika Suara Asli <span class="accent">Tenggelam oleh Bot</span>.</h2>
+            <p class="bi-body">
+              Kerusakan fatal terjadi saat <span class="keyword">feedback loop kebijakan mati</span>. Keluhan riil warga terbungkam oleh bot bayaran, menciptakan halusinasi bahwa semua baik-baik saja.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">SWIPE <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 71.42%;"></div></div>
+        </section>
+
+        <!-- SLIDE 6 -->
+        <section class="slide">
+          <div class="slide-profile"><span class="dot"></span> 05 / DETEKSI CEPAT</div>
+          <div style="margin: auto 0;">
+            <div class="bi-number">VS</div>
+            <h2 class="bi-heading">Organik vs <span class="accent">Operasi Bayaran</span>.</h2>
+            <p class="bi-body">
+              Warga asli berdiskusi pakai <span class="keyword">argumen & data</span>. Jaringan operasi pengaruh bekerja serempak memakai <span class="keyword">template seragam & serangan doxxing</span> ke pengkritik.
+            </p>
+          </div>
+          <div class="slide-footer">
+            <span class="brand-handle">@logikanyatech</span>
+            <span class="slide-indicator">SWIPE <i data-lucide="arrow-right" style="width: 12px; height: 12px;"></i></span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 85.71%;"></div></div>
+        </section>
+
+        <!-- SLIDE 7 (CTA) -->
+        <section class="slide" style="justify-content: center; text-align: center; background: #ffffff; color: #0c1729;">
+          <div>
+            <div class="ig-avatar" style="width: 50px; height: 50px; font-size: 18px; margin: 0 auto 16px;">LT</div>
+            <h2 style="font-size: 24px; font-weight: 900; line-height: 1.2; margin-bottom: 12px; color: #0c1729;">
+              Nalar Kritis Adalah Firewall Terkuat Kita.
+            </h2>
+            <p style="font-size: 14px; color: #475569; max-width: 300px; margin: 0 auto 20px;">
+              Jangan telan trending topic mentah-mentah. Pantau bedah arsitektur data & keamanan siber rutin bersama kami.
+            </p>
+            <div style="display: inline-block; padding: 10px 22px; background: var(--accent); color: #fff; font-weight: 700; border-radius: 6px; font-size: 13px;">
+              FOLLOW @LOGIKANYATECH
+            </div>
+          </div>
+          <div class="slide-footer" style="margin-top: 30px; border-color: #e2e8f0; color: #94a3b8;">
+            <span class="brand-handle" style="color: #0c1729;">Logikanya.Tech</span>
+            <span class="slide-indicator" style="color: var(--accent);">SIMPAN POSTINGAN</span>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="nav-btn" id="prevBtn" disabled>Prev</button>
+    <span style="font-family: var(--font-mono); font-size: 12px; color: #94a3b8;" id="pageCounter">Slide 1 / 7</span>
+    <button class="nav-btn" id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    const track = document.getElementById('track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageCounter = document.getElementById('pageCounter');
+    let currentIndex = 0;
+    const totalSlides = 7;
+
+    function update() {
+      track.style.transform = `translateX(-${currentIndex * 420}px)`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === totalSlides - 1;
+      pageCounter.textContent = `Slide ${currentIndex + 1} / ${totalSlides}`;
+    }
+    prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; update(); } });
+    nextBtn.addEventListener('click', () => { if (currentIndex < totalSlides - 1) { currentIndex++; update(); } });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+  </script>
+</body>
+</html>
