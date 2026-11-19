@@ -106,6 +106,7 @@ social-graphic-studio/
 * **Tipografi:**
   * Judul & Display: `Poppins`
   * Body, Penjelas & Data Teknis: `Inter` (dengan Tabular Numbers untuk angka/badge)
+* **Logo Brand:** Logo resmi `{ }` bohlam kurung kurawal + microchip IC + jalur tembaga PCB (`assets/logo.png`) dalam frame putih minimalis `40x40px` dan terintegrasi pada Monolith 3D Three.js.
 * **Ikon:** Lucide Icons (`<script src="https://unpkg.com/lucide@latest"></script>`).
 
 Untuk aturan detail dan pustaka kode komponen siap pakai, baca [STYLE_GUIDE.md](STYLE_GUIDE.md).

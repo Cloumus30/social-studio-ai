@@ -59,6 +59,22 @@ Menggunakan kombinasi 2 font family resmi: **Poppins** (Headings & Display) dan 
 
 ---
 
+## 🏷️ 3.1 Logo Resmi Logikanya.Tech (Brand Identity)
+
+* **Berkas Aset:** `assets/logo.png` (PNG RGBA transparan resolusi tinggi)
+* **Konsep Visual:** Bohlam ide berbentuk kurung kurawal `{ }` gelap, dengan microchip IC di bagian bawah dan 4 jalur sirkuit tembaga PCB (*copper circuit traces*) berwarna oranye terakota (`#c2410c`) yang mengarah ke atas.
+* **Standar Tampilan Header Slide:**
+  Menggunakan wadah frame putih minimalis berbingkai halus:
+  ```html
+  <div class="w-10 h-10 p-1.5 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+    <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
+  </div>
+  ```
+* **Standar Slide 7 (CTA 3D):**
+  Logo terintegrasi langsung pada permukaan tekstur plat 3D Monolith Three.js berdampingan dengan tipografi brand `Logikanya.Tech`.
+
+---
+
 ## 🛡️ 4. Standar Desain Visual: Hallmark *The Floor*
 
 Mengikuti standar baku [Hallmark](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/.agents/skills/hallmark/SKILL.md) untuk mencegah *generic AI design defaults*:
