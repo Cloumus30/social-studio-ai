@@ -54,22 +54,15 @@
     <!-- MAIN CONTENT -->
     <main class="my-auto z-10 flex flex-col gap-6">
       
-      <!-- Eyebrow Badge -->
-      <div>
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider mono">
-          <i data-lucide="eye" class="w-3.5 h-3.5 text-[#c2410c]"></i>
-          PERSEPSI PUBLIK VS REALITAS SISTEM
-        </span>
-      </div>
-
-      <!-- Headline -->
+      <!-- Headline & Context -->
       <div class="space-y-3">
+        <p class="text-sm font-medium text-zinc-500">Tampilan Antarmuka vs Catatan Database</p>
         <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
-          Mata Manusia Tertipu, <br>
-          <span class="text-[#c2410c]">Tapi Algoritma Backend Tahu</span>
+          Tampilan di Layar vs Catatan di Database: <br>
+          <span class="text-[#c2410c]">Cara Backend Mengelompokkan Ribuan Akun</span>
         </h2>
         <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
-          Di layar handphone (frontend), kita melihat ribuan komentar seolah ada jutaan orang sungguhan yang bersuara. Namun di database backend Google, jutaan aktivitas itu langsung terlacak ke satu server pengendali yang sama.
+          Di antarmuka aplikasi, komentar tampak berasal dari ribuan akun berbeda. Namun di database backend Google, seluruh interaksi tersebut mengarah ke sesi login dan pengendali skrip yang sama.
         </p>
       </div>
 
@@ -81,15 +74,15 @@
           <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
             <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 mono flex items-center gap-1.5">
               <i data-lucide="smartphone" class="w-4 h-4 text-zinc-400"></i>
-              FRONT-END (PANDANGAN PUBLIK)
+              Front-End (Tampilan Pengguna)
             </span>
-            <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 mono">ILUSI KONSENSUS</span>
+            <span class="text-xs text-zinc-500 mono">Komentar Publik</span>
           </div>
 
           <!-- Mockup Comments Box -->
           <div class="space-y-2.5 my-3">
             <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
-              <div class="w-7 h-7 rounded-full bg-cyan-100 text-cyan-800 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U1</div>
+              <div class="w-7 h-7 rounded-full bg-zinc-200 text-zinc-700 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U1</div>
               <div class="text-[11px] leading-tight">
                 <span class="font-bold text-zinc-800">@user_nusantara99</span>
                 <p class="text-zinc-600 mt-0.5">"Kebijakan ini sudah sangat tepat dan membanggakan bangsa!"</p>
@@ -97,7 +90,7 @@
             </div>
 
             <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
-              <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-800 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U2</div>
+              <div class="w-7 h-7 rounded-full bg-zinc-200 text-zinc-700 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U2</div>
               <div class="text-[11px] leading-tight">
                 <span class="font-bold text-zinc-800">@garuda_pancasila88</span>
                 <p class="text-zinc-600 mt-0.5">"Yang demo kemarin jelas cuma mau bikin rusuh dan ditunggangi."</p>
@@ -105,7 +98,7 @@
             </div>
 
             <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
-              <div class="w-7 h-7 rounded-full bg-purple-100 text-purple-800 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U3</div>
+              <div class="w-7 h-7 rounded-full bg-zinc-200 text-zinc-700 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U3</div>
               <div class="text-[11px] leading-tight">
                 <span class="font-bold text-zinc-800">@rakyat_bersatu_id</span>
                 <p class="text-zinc-600 mt-0.5">"Jangan mau dipecah belah, tetap kawal terus sampai tuntas!"</p>
@@ -113,8 +106,8 @@
             </div>
           </div>
 
-          <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-200 text-xs text-amber-900 leading-snug">
-            ⚠️ <strong>Dampak Kognitif:</strong> Menciptakan efek *bandwagon* (merasa pendapat tersebut adalah konsensus mayoritas warga).
+          <div class="bg-zinc-50 p-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-700 leading-relaxed">
+            <strong>Tujuan Operasi:</strong> Memicu efek bandwagon agar persepsi tersebut tampak didukung mayoritas publik.
           </div>
         </div>
 
@@ -122,10 +115,10 @@
         <div class="bg-zinc-900 rounded-2xl p-5 border border-zinc-700 shadow-xl flex flex-col justify-between text-zinc-100">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
             <span class="text-xs font-bold uppercase tracking-wider text-zinc-300 mono flex items-center gap-1.5">
-              <i data-lucide="database" class="w-4 h-4 text-cyan-400"></i>
-              BACK-END (ANALISIS SISTEM)
+              <i data-lucide="database" class="w-4 h-4 text-zinc-400"></i>
+              Back-End (Analisis Sistem)
             </span>
-            <span class="text-[11px] font-bold text-rose-400 bg-zinc-800 px-2 py-0.5 rounded mono">ANOMALI TERLINTAS</span>
+            <span class="text-xs text-zinc-400 mono">Korelasi Jaringan</span>
           </div>
 
           <!-- Architecture Reality Schematic -->
@@ -140,8 +133,8 @@
                 1 Script Worker <br> <span class="text-zinc-500 font-normal">Payload Identik</span>
               </div>
               <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
-              <div class="px-3 py-1.5 rounded-lg bg-rose-950/80 border border-rose-700 text-[11px] font-bold text-rose-300 mono text-center">
-                1 C2 Server <br> <span class="text-rose-400 font-normal">Satu Operator</span>
+              <div class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-[11px] font-bold text-rose-300 mono text-center">
+                1 Server C2 <br> <span class="text-zinc-400 font-normal">Satu Pengendali</span>
               </div>
             </div>
 
@@ -155,8 +148,8 @@
           </div>
 
           <div class="bg-zinc-950 p-2.5 rounded-xl border border-zinc-800 text-xs text-zinc-400 flex justify-between mono">
-            <span>DATABASE RESULT:</span>
-            <span class="text-emerald-400 font-bold">1 OPERATOR = 10K AKUN</span>
+            <span>Hasil Korelasi Database:</span>
+            <span class="text-zinc-200 font-bold">1 Server = 10.000 Akun</span>
           </div>
         </div>
 

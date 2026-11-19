@@ -54,38 +54,26 @@
     <!-- MAIN CONTENT -->
     <main class="my-auto z-10 flex flex-col gap-6">
       
-      <!-- Eyebrow Badge -->
-      <div>
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider mono">
-          <i data-lucide="cpu" class="w-3.5 h-3.5 text-purple-600"></i>
-          JEJAK FORENSIK 02: SIDIK JARI PERANGKAT
-        </span>
-      </div>
-
-      <!-- Headline -->
+      <!-- Headline & Context -->
       <div class="space-y-3">
+        <p class="text-sm font-medium text-zinc-500">Jejak Forensik 02 • Sidik Jari Perangkat & Jaringan</p>
         <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
-          Sidik Jari Perangkat & <br>
-          <span class="text-[#c2410c]">Proxy Residensial yang Bocor</span>
+          Kebocoran Sidik Jari Perangkat <br>
+          <span class="text-[#c2410c]">& Kolam Proxy Residensial</span>
         </h2>
         <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
-          Meskipun pakai ribuan akun Gmail berbeda, mesin bot farm biasanya berbagi *fingerprint* yang seragam: konfigurasi WebGL/Canvas hash, kesamaan template video, dan blok IP proxy yang terkelompok.
+          Meskipun memakai ribuan akun Gmail berbeda, mesin otomatisasi (headless browser) biasanya berbagi konfigurasi GPU, hash WebGL, dan blok IP proxy yang seragam.
         </p>
       </div>
 
-      <!-- 50/50 VISUAL SPLIT: Terminal Inspector + 3 Forensic Pillars -->
+      <!-- 50/50 VISUAL SPLIT: Terminal Inspector + 3 Forensic Sources -->
       <div class="grid grid-cols-2 gap-6 pt-2">
         
         <!-- Left: Realistic Terminal Inspector -->
         <div class="bg-zinc-900 rounded-2xl p-4 border border-zinc-700 shadow-xl flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-rose-500"></div>
-              <div class="w-3 h-3 rounded-full bg-amber-500"></div>
-              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
-              <span class="text-xs text-zinc-400 font-medium ml-2 mono">fingerprint-audit --cluster=ID-774</span>
-            </div>
-            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-purple-400 font-bold mono">ANALYZED</span>
+            <span class="text-xs text-zinc-400 font-medium mono">fingerprint-audit --cluster=ID-774</span>
+            <span class="text-xs text-zinc-500 mono">Pemeriksaan Hardware</span>
           </div>
 
           <div class="py-4 space-y-2 text-xs font-mono text-zinc-300 mono leading-relaxed">
@@ -104,18 +92,18 @@
           </div>
 
           <div class="bg-zinc-950 p-2 rounded-lg border border-zinc-800 text-[11px] text-zinc-400 flex items-center justify-between mono">
-            <span>DETECTION CONFIDENCE</span>
-            <span class="text-emerald-400 font-bold">99.4% (VERIFIED)</span>
+            <span>Tingkat Kepastian Deteksi</span>
+            <span class="text-zinc-200 font-semibold">99.4% Terverifikasi</span>
           </div>
         </div>
 
-        <!-- Right: 3 Forensic Leak Pillars -->
+        <!-- Right: 3 Forensic Leak Sources -->
         <div class="flex flex-col justify-between gap-3">
           
-          <!-- Pillar 1: Hardware Canvas Hash -->
+          <!-- Source 1: Hardware Canvas Hash -->
           <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
-            <div class="w-9 h-9 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0">
-              <i data-lucide="fingerprint" class="w-5 h-5 text-rose-600"></i>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-zinc-700 font-bold text-xs mono">
+              01
             </div>
             <div>
               <h4 class="text-xs font-bold text-zinc-900 heading-poppins">1. Canvas & WebGL Hash</h4>
@@ -125,10 +113,10 @@
             </div>
           </div>
 
-          <!-- Pillar 2: IP Proxy Pool -->
+          <!-- Source 2: IP Proxy Pool -->
           <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
-            <div class="w-9 h-9 rounded-lg bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
-              <i data-lucide="globe" class="w-5 h-5 text-cyan-600"></i>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-zinc-700 font-bold text-xs mono">
+              02
             </div>
             <div>
               <h4 class="text-xs font-bold text-zinc-900 heading-poppins">2. Kolam Proxy Residensial</h4>
@@ -138,15 +126,15 @@
             </div>
           </div>
 
-          <!-- Pillar 3: Template & Audio Hash -->
+          <!-- Source 3: Template & Audio Hash -->
           <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
-            <div class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
-              <i data-lucide="music" class="w-5 h-5 text-[#c2410c]"></i>
+            <div class="w-8 h-8 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-zinc-700 font-bold text-xs mono">
+              03
             </div>
             <div>
-              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">3. Kesamaan Suara & Video AI</h4>
+              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">3. Kesamaan Sintesis Suara AI</h4>
               <p class="text-[12px] text-zinc-600 leading-relaxed mt-0.5">
-                Video diproduksi massal dengan pola render FFmpeg seragam, menggunakan model suara text-to-speech AI yang spektrum frekuensinya sama.
+                Video diproduksi massal dengan pola render FFmpeg seragam, memakai model text-to-speech AI yang spektrum frekuensinya sama.
               </p>
             </div>
           </div>
