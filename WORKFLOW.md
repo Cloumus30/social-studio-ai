@@ -1,6 +1,6 @@
 # SOP & Workflow: Social Graphic Studio (Comprehensive Standard)
 
-`social-graphic-studio` adalah sistem terintegrasi di Antigravity untuk memproduksi postingan **Carousel (4:5)** dan **Story Teaser (9:16)** dalam bentuk gambar beresolusi ultra tajam (**Retina 4K**) langsung dari kode HTML/CSS Tailwind dan Playwright.
+`social-graphic-studio` adalah sistem terintegrasi di Antigravity untuk memproduksi postingan **Carousel (4:5)** dan **Story Teaser (4:5)** dalam bentuk gambar beresolusi ultra tajam (**Retina 4K**) langsung dari kode HTML/CSS Tailwind dan Playwright.
 
 Workflow ini mematuhi standar desain dari **[Hallmark](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/.agents/skills/hallmark/SKILL.md)** (*The Floor Rules*) dan standar copywriting dari **[Anti-Slop](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/.agents/skills/anti-slop/SKILL.md)** (*dharmawan-id*).
 
@@ -15,20 +15,22 @@ social-graphic-studio/
 ├── STYLE_GUIDE.md            # Panduan resmi warna, tipografi, grid & snippet library
 ├── package.json              # Dependency Playwright & script render
 ├── render.js                 # Script Node.js pengubah HTML ke PNG Retina 2x (Google Chrome)
+├── upload.js                 # Script pengunggah/pembaru aset ke Google Drive (On-Demand)
 ├── templates/                # Template dasar HTML slide (Standar Light Blueprint)
 │   ├── carousel-slide.html   # Template Carousel 4:5 (1080x1350)
-│   └── story-slide.html      # Template Story 9:16 (1080x1920)
+│   └── story-slide.html      # Template Story Teaser 4:5 (1080x1350)
 ├── projects/                 # Folder pengerjaan per topik konten
 │   └── [nama-topik]/
 │       ├── assets/           # Foto hardware / gambar pendukung
 │       ├── slides/           # File HTML slide carousel 1 s/d N
-│       ├── story-teaser.html # File HTML Story Teaser 9:16 (Dual Photo)
+│       ├── story-teaser.html # File HTML Story Teaser 4:5 (Dual Photo Split)
 │       └── caption.txt       # Naskah caption media sosial
 └── output/                   # Folder hasil render gambar PNG Retina 4K siap upload
     └── [nama-topik]/
         ├── slide-1-cover.png (2160x2700)
         ├── slide-2-...png
-        └── story-teaser.png  (2160x3840)
+        ├── story-teaser.png  (2160x2700)
+        └── gdrive-sync.json  # Metadata sinkronisasi Google Drive
 ```
 
 ---
@@ -36,7 +38,7 @@ social-graphic-studio/
 ## 🔄 Alur Kerja 5 Tahap (Production Pipeline)
 
 ```
-[1. Riset & Framework] ➔ [2. Copywriting (Anti-Slop)] ➔ [3. Layout HTML (Hallmark Floor)] ➔ [4. Render 4K] ➔ [5. Delivery]
+[1. Riset & Framework] ➔ [2. Copywriting (Anti-Slop)] ➔ [3. Layout HTML (Hallmark Floor)] ➔ [4. Render 4K] ➔ [5. Delivery / GDrive]
 ```
 
 ### Tahap 1: Riset & Arsitektur Narasi
@@ -45,9 +47,9 @@ Tentukan struktur konten (standar 7 slide):
 * **Slide 2 (Akar Masalah & Glosarium):** Bedah kendala sistem lama dengan diagram alur SVG fungsional + Box info glosarium istilah ramah pemula.
 * **Slide 3 & 4 (Pilar Solusi & Pipeline):** Foto hardware nyata dengan CSS frame mockup + Diagram mekanisme kerja/pipeline.
 * **Slide 5 (Kapan Wajib Pakai):** Kriteria kesiapan teknis atau skenario nyata implementasi di lapangan.
-* **Slide 6 (Matriks Komparasi - Slide Sebelum CTA):** Tabel perbandingan parameter + 2 poin kesimpulan arsitektur padat (**DILARANG MEMBERI PERTANYAAN DI SLIDE INI**).
-* **Slide 7 (Slide Penutup / CTA 3D Three.js):** Monolit 3D Logikanya.Tech melayang di atas kanvas transparan murni + headline ramah tanpa overclaim + 1 bar CTA horizontal lapang.
-* **Story Teaser (9:16):** Teaser pemicu penasaran dengan layout **Dua Foto Berdampingan** (*Dual Real Photo Split*).
+* **Slide 6 (Matriks Komparasi - Slide Sebelum CTA):** Tabel perbandingan parameter lapang (`py-6 px-7`, font 19px) + 2 poin kesimpulan arsitektur padat menempel rapat di bawah tabel (`gap-5`). (**DILARANG MEMBERI PERTANYAAN DI SLIDE INI DAN DILARANG MEMBIARKAN CELAH KOSONG DI TENGAH**).
+* **Slide 7 (Slide Penutup / CTA 3D Three.js):** Monolit 3D Logikanya.Tech melayang di atas kanvas transparan murni (`h-[520px]`) + headline ramah tanpa overclaim + 1 bar CTA horizontal lapang + footer utuh sejajar.
+* **Story Teaser (Format 4:5, 1080x1350):** Teaser proporsional dengan layout **Dua Foto Berdampingan** (*Dual Real Photo Split*), tanpa status bar hitam buatan AI.
 
 ---
 
@@ -66,13 +68,25 @@ Tulis naskah teks dengan aturan:
 ---
 
 ### Tahap 3: Desain HTML/CSS dengan Standar [Hallmark](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/.agents/skills/hallmark/SKILL.md) & [STYLE_GUIDE.md](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/social-graphic-studio/STYLE_GUIDE.md)
-> 🛑 **WAJIB (MANDATORY):** Seluruh styling slide WAJIB mematuhi *The Floor* dari [hallmark](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/.agents/skills/hallmark/SKILL.md) dan token [STYLE_GUIDE.md](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/social-graphic-studio/STYLE_GUIDE.md).
+> 🛑 **WAJIB (MANDATORY):** Seluruh styling slide WAJIB mematuhi *The Floor* dari [hallmark](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/.agents/skills/hallmark/SKILL.md), token [STYLE_GUIDE.md](file:///Users/lcgoesinternational/Desktop/webmaster-dana/my-ai/social-graphic-studio/STYLE_GUIDE.md), serta aturan tipografi mobile-first.
 
 Bangun file HTML menggunakan Tailwind CSS mematuhi *The Floor*:
+* **Dimensi Kanvas:** Seluruh slide Carousel dan Story Teaser wajib berukuran **1080 x 1350 px (4:5)**.
+* **Aturan Skala Tipografi Mobile-First (Anti Teks Kekecilan):**
+  - Judul Poin/Kartu: `text-[21px] - text-[23px] font-black`.
+  - Deskripsi Poin/Body Teks: Minimal `text-[18px] - text-[19px] leading-relaxed`.
+  - Nomor Badge Poin: `w-14 h-14 text-[22px] font-black mono`.
+  - Tabel: Padding sel lapang `py-6 px-7`, parameter `text-[19px] font-black mono`, isi `text-[19px]`.
+* **Aturan Footer Ukuran Besar di Seluruh Slide (1–7):**
+  - Format wajib: `border-t-2 border-zinc-200 pt-5 z-10 mono text-[19px] text-zinc-600`.
+  - Brand: `@logikanyatech` `text-[20px] font-black text-zinc-900`.
+  - Navigasi CTA Kanan: `text-[19px] font-bold text-[#c2410c]` dengan panah/ikon `w-5 h-5`.
+* **Eliminasi Total Celah Kosong (Zero Whitespace Void):**
+  - Dilarang keras menggunakan kombinasi `my-auto` dan `justify-between` kaku yang menciptakan celah kosong putih 200–300px di tengah slide.
+  - Kartu kesimpulan bawah wajib menempel padat dan proporsional di bawah tabel/elemen utama (`gap-5`).
 * **Background Grid:** Sertakan `40x40px square grid` dengan `opacity-60`.
 * **50/50 Visual Split:** Setiap slide memiliki minimal 50% ruang visual (foto nyata atau SVG diagram).
-* **Hallmark The Floor:** Dilarang menggunakan gradasi ungu-ke-biru neon, dilarang card di dalam card (*no nested cards*), dan dilarang emoji sebagai icon (wajib Lucide Icons).
-* **Badge Komponen:** Wajib nama komponen teknis resmi (`300MM SILICON WAFER`, `DILUTION CRYOSTAT (-273°C)`). Tanpa tulisan *"Foto Asli"*.
+* **Hallmark The Floor:** Dilarang menggunakan gradasi ungu-ke-biru neon, dilarang card di dalam card (*no nested cards*), dilarang status bar artifisial ("Status: Enforced"), dan dilarang emoji sebagai icon (wajib Lucide Icons).
 * **Relative Path:**
   - File di dalam `slides/*.html` memanggil aset dengan `../assets/[nama-file]`.
   - File di root project seperti `story-teaser.html` memanggil aset dengan `./assets/[nama-file]`.
@@ -86,18 +100,24 @@ Jalankan script `render.js` (otomatis mendeteksi Google Chrome sistem):
 # 1. Render seluruh slide Carousel (4:5)
 node social-graphic-studio/render.js --input social-graphic-studio/projects/[nama-topik]/slides/ --output social-graphic-studio/output/[nama-topik]/ --format carousel
 
-# 2. Render Story Teaser (9:16)
-node social-graphic-studio/render.js --input social-graphic-studio/projects/[nama-topik]/story-teaser.html --output social-graphic-studio/output/[nama-topik]/ --format story
+# 2. Render Story Teaser (4:5)
+node social-graphic-studio/render.js --input social-graphic-studio/projects/[nama-topik]/story-teaser.html --output social-graphic-studio/output/[nama-topik]/ --format carousel
 ```
 
 ---
 
-### Tahap 5: Delivery & Review Lokal (Default Pipeline)
+### Tahap 5: Delivery & Sinkronisasi Google Drive
 1. Periksa seluruh aset PNG Retina 4K di folder lokal:
    - `social-graphic-studio/output/[nama-topik]/slide-*.png` (2160 x 2700 px)
-   - `social-graphic-studio/output/[nama-topik]/story-teaser.png` (2160 x 3840 px)
+   - `social-graphic-studio/output/[nama-topik]/story-teaser.png` (2160 x 2700 px)
 2. Pastikan file `caption.txt` sudah siap di-copy-paste ke Instagram & LinkedIn.
 3. Sajikan pratinjau visual kepada pengguna melalui file `walkthrough.md`.
+4. **Sinkronisasi Google Drive (On-Demand):**
+   Ketika pengguna meminta untuk mengunggah atau memperbarui ke Google Drive, jalankan:
+   ```bash
+   cd social-graphic-studio && node upload.js --project [nama-topik]
+   ```
+   Script secara otomatis mendeteksi berkas yang sudah ada (`gdrive mutate update`) sehingga URL berkas tetap konsisten dan tidak terjadi duplikasi.
 4. 🛑 **ATURAN GOOGLE DRIVE (ON-DEMAND ONLY):** DILARANG mengunggah ke Google Drive secara otomatis jika pengguna tidak menyuruh/meminta. Seluruh aset wajib disimpan di lokal terlebih dahulu. Hanya jalankan perintah di bawah ini apabila pengguna memberikan instruksi eksplisit:
    ```bash
    node social-graphic-studio/upload.js --project [nama-topik]

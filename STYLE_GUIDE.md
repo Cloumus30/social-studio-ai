@@ -36,19 +36,27 @@ Setiap slide dan teaser wajib menyertakan layer grid kotak tipis di belakang kon
 
 ---
 
-## 🔤 3. Tipografi (Typography)
+## 🔤 3. Tipografi (Typography & Mobile-First Scale)
 
 Menggunakan kombinasi 2 font family resmi: **Poppins** (Headings & Display) dan **Inter** (Body & Data Teknis).
 
 * **Font Judul / Display (Headings):** `Poppins`
   - Karakter: Geometris, tebal, memikat (*punchy*), dan sangat tegas di feed media sosial.
-  - Judul Cover (Slide 1): `font-black text-5xl tracking-tight leading-[1.14]` (Weight 900)
-  - Judul Slide Isi (2–7): `font-extrabold text-4xl tracking-tight` (Weight 800)
-  - Nama Brand Logo: `font-extrabold text-2xl`
+  - Judul Cover (Slide 1): `font-black text-[50px] - text-[52px] tracking-tight leading-[1.14]` (Weight 900)
+  - Judul Slide Isi (2–7): `font-black text-[46px] - text-[48px] tracking-tight leading-[1.15]` (Weight 900)
+  - Nama Brand Logo: `font-black text-[28px] tracking-tight`
 * **Font Konten & Data Teknis (Body & Technical):** `Inter`
   - Karakter: Tajam, netral, sangat mudah dibaca (*ultra-readable*) di layar smartphone pada ukuran kecil hingga menengah.
-  - Body / Penjelas: `text-xl text-slate-600 leading-relaxed font-normal` (Weight 400 / 500)
-  - Elemen Teknis (`.mono`): Penomoran slide (`SLIDE 01 / 07`), badge teknis, kode query SQL, parameter angka, dan handle (`@logikanyatech`) menggunakan **Inter dengan Tabular Numbers** (`font-feature-settings: 'tnum'; font-variant-numeric: tabular-nums`).
+  - **Skala Tipografi Mobile-First (Anti Teks Kekecilan):**
+    - Judul Poin / Kartu: `text-[21px] - text-[23px] font-black` (Poppins / Inter).
+    - Deskripsi Poin / Body Teks: Minimal `text-[18px] - text-[19px] leading-relaxed` (dilarang menggunakan font 12px-14px untuk isi konten utama karena tidak terbaca di smartphone).
+    - Nomor Badge Poin (01, 02, 03): `w-14 h-14 text-[22px] font-black mono` dengan latar squircle zinc rapi.
+    - Tabel Matriks: Padding sel luas `py-6 px-7`, parameter `text-[19px] font-black mono`, isi sel `text-[19px]`.
+  - **Aturan Footer Ukuran Besar di Seluruh Slide (1–7):**
+    - Format wajib: `border-t-2 border-zinc-200 pt-5 z-10 mono text-[19px] text-zinc-600`.
+    - Brand: `@logikanyatech` `text-[20px] font-black text-zinc-900`.
+    - Navigasi CTA Kanan: `text-[19px] font-bold text-[#c2410c]` dengan panah/ikon `w-5 h-5`.
+  - Elemen Teknis (`.mono`): Penomoran slide (`SLIDE 01 / 07`), badge teknis, kode terminal, parameter angka, dan handle (`@logikanyatech`) menggunakan **Inter dengan Tabular Numbers** (`font-feature-settings: 'tnum'; font-variant-numeric: tabular-nums`).
 
 ---
 
@@ -66,12 +74,12 @@ Menggunakan kombinasi 2 font family resmi: **Poppins** (Headings & Display) dan 
 * **Standar Tampilan Header Slide:**
   Menggunakan wadah frame putih minimalis berbingkai halus:
   ```html
-  <div class="w-10 h-10 p-1.5 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+  <div class="w-12 h-12 p-1.5 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
     <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
   </div>
   ```
 * **Standar Slide 7 (CTA 3D):**
-  Logo terintegrasi langsung pada permukaan tekstur plat 3D Monolith Three.js berdampingan dengan tipografi brand `Logikanya.Tech`.
+  Logo terintegrasi langsung pada permukaan tekstur plat 3D Monolith Three.js berdampingan dengan tipografi brand `Logikanya.Tech`. Kontainer kanvas 3D dibatasi pada `h-[520px]` dengan `overflow: hidden` agar footer tetap tampil utuh di bawah.
 
 ---
 
@@ -82,31 +90,35 @@ Mengikuti standar baku [Hallmark](file:///Users/lcgoesinternational/Desktop/webm
 2. ❌ **Tanpa Card dalam Card (*No Card-in-Card Nesting*):** Jangan membuat kartu di dalam kartu yang membuat layout terasa sesak dan tebal.
 3. ❌ **Tanpa Emoji sebagai Ikon:** Selalu gunakan SVG icon modern via Lucide Icons (`<i data-lucide="..."></i>`), bukan emoji karakter.
 4. ❌ **Tanpa Metrik Palsu:** Dilarang mengarang testimoni, metrik, atau data tanpa referensi teknis yang jelas.
-5. **50/50 Visual-Copy:** Minimal 50% area canvas didedikasikan untuk elemen visual (foto hardware berbingkai atau diagram skematik SVG).
+5. ❌ **Tanpa Bar Status Palsu AI:** Dilarang membuat status bar hitam mengambang buatan AI (seperti *"Laporan X... Status: Enforced"*).
+6. ❌ **Tanpa Rongga Kosong Mengambang (Zero Whitespace Void):** Dilarang membiarkan rongga kosong putih menganga 200–300px di tengah slide akibat kombinasi `my-auto` dan `justify-between` kaku.
+7. **50/50 Visual-Copy:** Minimal 50% area canvas didedikasikan untuk elemen visual (foto hardware berbingkai atau diagram skematik SVG).
 
 ---
 
 ## 🖼️ 5. Aturan Visual & Foto Nyata (CSS Frame Mockup)
 
 1. **CSS Frame Mockup:**
-   - Sudut melengkung halus: `rounded-3xl` (24px - 28px).
-   - Border halus: `border border-slate-200`.
-   - Gradient gelap bawah: `bg-gradient-to-t from-black/85 via-black/20 to-black/40` agar teks caption bawah tetap terbaca jelas di atas gambar terang.
+   - Sudut melengkung halus: `rounded-2xl` s/d `rounded-3xl` (16px - 24px).
+   - Border halus: `border border-zinc-700` (dark) atau `border border-zinc-200` (light).
+   - Gradient gelap bawah: `bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent` agar teks caption bawah tetap terbaca jelas di atas gambar terang.
 2. **Aturan Badge Foto (Strict Rule):**
    - ❌ **DILARANG KERAS** menggunakan label *"Foto Asli"*, *"Gambar Nyata"*, atau *"Real Hardware"*.
    - ✅ **WAJIB** menggunakan **Nama Komponen Teknis Resmi** (contoh: `300MM SILICON WAFER`, `DILUTION REFRIGERATOR (-273°C)`, `INTEGRATED OPTICAL MODULATOR`).
-   - Badge menggunakan format glassmorphism gelap: `bg-black/60 backdrop-blur-md text-white text-xs font-extrabold mono border border-white/20`.
+   - Badge menggunakan format glassmorphism gelap: `bg-zinc-900/90 backdrop-blur-md text-white text-xs font-extrabold mono border border-zinc-700/80`.
 
 ---
 
-## 📱 6. Format Story Teaser (9:16)
+## 📱 6. Format Story Teaser (4:5)
 
-* **Dimensi:** Base `1080 x 1920 px` dirender dengan skala Retina 2x menjadi `2160 x 3840 px`.
+* **Dimensi:** Base `1080 x 1350 px` (Rasio 4:5 sama persis dengan carousel feed) dirender dengan skala Retina 2x menjadi `2160 x 2700 px`.
+* **Alasan Desain:** Format 4:5 membuat preview story serasi dengan postingan feed, tidak terlalu panjang, dan nyaman dibagikan ke story tanpa terpotong antarmuka Instagram.
 * **Komposisi:**
-  - Header brand di atas.
-  - Hook headline tebal di bagian atas.
-  - **Dual Real Photo Split:** Dua foto berdampingan (misal: Cryostat Kiri, Photonic Chip Kanan) dengan tinggi `560px` dan badge komponen masing-masing.
-  - CTA Button besar di bawah mengarahkan audiens untuk geser ke postingan Feed.
+  - Header brand minimalis di atas (`w-12 h-12` logo + badge `TEASER • CAROUSEL FEED`).
+  - Hook headline tebal dan lead paragraph tanpa basa-basi di bagian atas.
+  - **Dual Real Photo Split:** Dua foto berdampingan (misal: Datacenter Kiri, Server Rack Kanan) dengan tinggi `h-[460px]` dan badge parameter teknis masing-masing.
+  - Bebas dari bar status hitam artifisial ("Status: Enforced").
+  - CTA Button bar lapang di bawah: "Baca Pembahasan Lengkap 7 Slide" dengan tombol "Buka Feed ->".
 
 ---
 
