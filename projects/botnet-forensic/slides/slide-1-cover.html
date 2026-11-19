@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 1 - Cover</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .heading-poppins {
+      font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    }
+    .mono {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
+
+  <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+
+    <!-- HEADER / BRANDING -->
+    <header class="flex justify-between items-center z-10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#c2410c] text-white flex items-center justify-center rounded-lg font-bold text-xl heading-poppins">L</div>
+        <div>
+          <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+          <p class="text-xs text-zinc-500 font-medium tracking-wide uppercase mono">Rekayasa Sistem & Keamanan Data</p>
+        </div>
+      </div>
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+        SLIDE 01 / 07
+      </div>
+    </header>
+
+    <!-- MAIN HERO CONTENT -->
+    <main class="my-auto z-10 flex flex-col gap-8">
+      
+      <!-- Top Eyebrow Badge -->
+      <div>
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider mono">
+          <i data-lucide="shield-alert" class="w-4 h-4 text-[#c2410c]"></i>
+          Laporan Google TAG & Forensik Siber
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <div class="space-y-4">
+        <h1 class="text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] heading-poppins">
+          28.000 Kanal Dihapus Google:
+          <span class="text-[#c2410c] block mt-1">Gimana Cara Algoritma Ngebongkar</span>
+          Jaringan Buzzer Terkoordinasi?
+        </h1>
+        <p class="text-xl text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+          Laporan resmi Google TAG mengungkap puluhan ribu kanal di Indonesia ditindak karena operasi manipulasi opini publik. Inilah anatomi teknis cara sistem backend melacak jejaknya.
+        </p>
+      </div>
+
+      <!-- 50/50 VISUAL SPLIT: Hardware Photo + SVG Network Topology -->
+      <div class="grid grid-cols-2 gap-6 pt-4">
+        
+        <!-- Left: Real Hardware Data Center Frame Mockup -->
+        <div class="bg-zinc-900 rounded-2xl p-3 border border-zinc-300 shadow-xl relative overflow-hidden flex flex-col">
+          <div class="flex items-center justify-between pb-2 px-2 text-zinc-400 text-xs border-b border-zinc-800 mono">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="server" class="w-3.5 h-3.5 text-cyan-400"></i>
+              GOOGLE THREAT ANALYSIS GROUP
+            </span>
+            <span class="text-zinc-500">INFRA-INSPECT</span>
+          </div>
+          <div class="relative w-full h-[330px] rounded-xl overflow-hidden mt-2 bg-zinc-950">
+            <img src="../assets/datacenter-servers.jpg" alt="Data Center Server Rack" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3 bg-zinc-900/90 backdrop-blur-md border border-zinc-700/80 p-2.5 rounded-lg flex items-center justify-between">
+              <div>
+                <p class="text-xs font-bold text-zinc-100 mono">HIGH-DENSITY SERVER CLUSTER</p>
+                <p class="text-[11px] text-zinc-400">Infrastruktur pendeteksi botnet siber skala petabyte</p>
+              </div>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Schematic SVG Network Topology (Botnet vs Organic) -->
+        <div class="bg-white rounded-2xl p-5 border border-zinc-200 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
+            <div class="flex items-center gap-2">
+              <i data-lucide="network" class="w-4 h-4 text-[#c2410c]"></i>
+              <span class="text-xs font-bold uppercase tracking-wider text-zinc-700 mono">TOPOLOGI OPERASI CIB</span>
+            </div>
+            <span class="px-2 py-0.5 text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200 rounded mono">ANOMALI</span>
+          </div>
+
+          <!-- SVG Graphic of Centralized Command Node vs Bot Channels -->
+          <div class="my-auto py-2 flex items-center justify-center">
+            <svg viewBox="0 0 420 220" class="w-full h-[220px]">
+              <!-- Center Command Node -->
+              <circle cx="210" cy="110" r="28" fill="#c2410c" fill-opacity="0.1" stroke="#c2410c" stroke-width="2.5" />
+              <circle cx="210" cy="110" r="14" fill="#c2410c" />
+              <text x="210" y="114" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold" font-family="Inter">C2</text>
+              <text x="210" y="152" text-anchor="middle" fill="#18181b" font-size="11" font-weight="bold" font-family="Poppins">Command & Control</text>
+
+              <!-- Left Branch (Cluster A) -->
+              <line x1="184" y1="100" x2="80" y2="50" stroke="#0891b2" stroke-width="1.8" stroke-dasharray="3 3" />
+              <circle cx="80" cy="50" r="12" fill="#ecfeff" stroke="#0891b2" stroke-width="2" />
+              <text x="80" y="54" text-anchor="middle" fill="#0e7490" font-size="9" font-weight="bold" font-family="Inter">Bot 1</text>
+
+              <line x1="182" y1="110" x2="60" y2="110" stroke="#0891b2" stroke-width="1.8" stroke-dasharray="3 3" />
+              <circle cx="60" cy="110" r="12" fill="#ecfeff" stroke="#0891b2" stroke-width="2" />
+              <text x="60" y="114" text-anchor="middle" fill="#0e7490" font-size="9" font-weight="bold" font-family="Inter">Bot 2</text>
+
+              <line x1="184" y1="120" x2="80" y2="170" stroke="#0891b2" stroke-width="1.8" stroke-dasharray="3 3" />
+              <circle cx="80" cy="170" r="12" fill="#ecfeff" stroke="#0891b2" stroke-width="2" />
+              <text x="80" y="174" text-anchor="middle" fill="#0e7490" font-size="9" font-weight="bold" font-family="Inter">Bot 3</text>
+
+              <!-- Right Branch (Cluster B) -->
+              <line x1="236" y1="100" x2="340" y2="50" stroke="#c2410c" stroke-width="1.8" stroke-dasharray="3 3" />
+              <circle cx="340" cy="50" r="12" fill="#fff7ed" stroke="#c2410c" stroke-width="2" />
+              <text x="340" y="54" text-anchor="middle" fill="#c2410c" font-size="9" font-weight="bold" font-family="Inter">Bot N</text>
+
+              <line x1="238" y1="110" x2="360" y2="110" stroke="#c2410c" stroke-width="1.8" stroke-dasharray="3 3" />
+              <circle cx="360" cy="110" r="12" fill="#fff7ed" stroke="#c2410c" stroke-width="2" />
+              <text x="360" y="114" text-anchor="middle" fill="#c2410c" font-size="9" font-weight="bold" font-family="Inter">10K+</text>
+
+              <line x1="236" y1="120" x2="340" y2="170" stroke="#c2410c" stroke-width="1.8" stroke-dasharray="3 3" />
+              <circle cx="340" cy="170" r="12" fill="#fff7ed" stroke="#c2410c" stroke-width="2" />
+              <text x="340" y="174" text-anchor="middle" fill="#c2410c" font-size="9" font-weight="bold" font-family="Inter">Kanal</text>
+            </svg>
+          </div>
+
+          <div class="bg-zinc-50 p-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-600 flex items-center justify-between">
+            <span class="mono">STATUS: 28.326 KANAL BANNED</span>
+            <span class="text-rose-600 font-bold mono">OCT 2026</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-zinc-800">@logikanyatech</span>
+        <span>•</span>
+        <span>Instagram Carousel Series</span>
+      </div>
+      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+        <span>Geser untuk bedah jejak digitalnya</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

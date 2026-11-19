@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 4 - Fingerprint & Proxy Farm</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .heading-poppins {
+      font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    }
+    .mono {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
+
+  <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+
+    <!-- HEADER / BRANDING -->
+    <header class="flex justify-between items-center z-10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#c2410c] text-white flex items-center justify-center rounded-lg font-bold text-xl heading-poppins">L</div>
+        <div>
+          <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+          <p class="text-xs text-zinc-500 font-medium tracking-wide uppercase mono">Rekayasa Sistem & Keamanan Data</p>
+        </div>
+      </div>
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+        SLIDE 04 / 07
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="my-auto z-10 flex flex-col gap-6">
+      
+      <!-- Eyebrow Badge -->
+      <div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider mono">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-purple-600"></i>
+          JEJAK FORENSIK 02: SIDIK JARI PERANGKAT
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <div class="space-y-3">
+        <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
+          Sidik Jari Perangkat & <br>
+          <span class="text-[#c2410c]">Proxy Residensial yang Bocor</span>
+        </h2>
+        <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+          Meskipun pakai ribuan akun Gmail berbeda, mesin bot farm biasanya berbagi *fingerprint* yang seragam: konfigurasi WebGL/Canvas hash, kesamaan template video, dan blok IP proxy yang terkelompok.
+        </p>
+      </div>
+
+      <!-- 50/50 VISUAL SPLIT: Terminal Inspector + 3 Forensic Pillars -->
+      <div class="grid grid-cols-2 gap-6 pt-2">
+        
+        <!-- Left: Realistic Terminal Inspector -->
+        <div class="bg-zinc-900 rounded-2xl p-4 border border-zinc-700 shadow-xl flex flex-col justify-between">
+          <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+              <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+              <span class="text-xs text-zinc-400 font-medium ml-2 mono">fingerprint-audit --cluster=ID-774</span>
+            </div>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-purple-400 font-bold mono">ANALYZED</span>
+          </div>
+
+          <div class="py-4 space-y-2 text-xs font-mono text-zinc-300 mono leading-relaxed">
+            <p class="text-zinc-500">// Device Fingerprint Engine Results</p>
+            <div class="bg-zinc-950 p-2.5 rounded-lg border border-zinc-800 space-y-1.5">
+              <p><span class="text-cyan-400">canvas_hash:</span> <span class="text-amber-400">"a8f9c2d1b0"</span> <span class="text-rose-400 text-[10px]">(1.420 node match)</span></p>
+              <p><span class="text-cyan-400">webgl_renderer:</span> <span class="text-zinc-300">"ANGLE (Mesa Gallium LLVM)"</span></p>
+              <p><span class="text-cyan-400">audio_fingerprint:</span> <span class="text-amber-400">"hash_99.8%_similarity"</span></p>
+            </div>
+            <div class="bg-zinc-950 p-2.5 rounded-lg border border-zinc-800 space-y-1.5">
+              <p><span class="text-purple-400 font-semibold">// IP Proxy Telemetry:</span></p>
+              <p><span class="text-zinc-400">proxy_asn:</span> <span class="text-zinc-200">AS17974 (Residential Farm Pool)</span></p>
+              <p><span class="text-zinc-400">tcp_fingerprint:</span> <span class="text-rose-400 font-bold">SYN Packet OS Mismatch</span></p>
+            </div>
+            <p class="text-rose-400 font-bold pt-1">➔ FLAG: HEADLESS BROWSER FARM DETECTED</p>
+          </div>
+
+          <div class="bg-zinc-950 p-2 rounded-lg border border-zinc-800 text-[11px] text-zinc-400 flex items-center justify-between mono">
+            <span>DETECTION CONFIDENCE</span>
+            <span class="text-emerald-400 font-bold">99.4% (VERIFIED)</span>
+          </div>
+        </div>
+
+        <!-- Right: 3 Forensic Leak Pillars -->
+        <div class="flex flex-col justify-between gap-3">
+          
+          <!-- Pillar 1: Hardware Canvas Hash -->
+          <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center shrink-0">
+              <i data-lucide="fingerprint" class="w-5 h-5 text-rose-600"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">1. Canvas & WebGL Hash</h4>
+              <p class="text-[12px] text-zinc-600 leading-relaxed mt-0.5">
+                Rendering grafis GPU dari browser headless otomatis menghasilkan sidik jari kriptografi yang identik pada ratusan akun.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 2: IP Proxy Pool -->
+          <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-cyan-50 border border-cyan-200 flex items-center justify-center shrink-0">
+              <i data-lucide="globe" class="w-5 h-5 text-cyan-600"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">2. Kolam Proxy Residensial</h4>
+              <p class="text-[12px] text-zinc-600 leading-relaxed mt-0.5">
+                Meskipun IP berganti-ganti, seluruh koneksi berasal dari penyedia proxy komersial yang sama dengan nomor Autonomous System (ASN) terpusat.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Template & Audio Hash -->
+          <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
+              <i data-lucide="music" class="w-5 h-5 text-[#c2410c]"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">3. Kesamaan Suara & Video AI</h4>
+              <p class="text-[12px] text-zinc-600 leading-relaxed mt-0.5">
+                Video diproduksi massal dengan pola render FFmpeg seragam, menggunakan model suara text-to-speech AI yang spektrum frekuensinya sama.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-zinc-800">@logikanyatech</span>
+        <span>•</span>
+        <span>Instagram Carousel Series</span>
+      </div>
+      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+        <span>Kenapa mata manusia tertipu?</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

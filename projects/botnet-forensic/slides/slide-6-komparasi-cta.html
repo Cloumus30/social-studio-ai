@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 6 - Matriks Komparasi & Kesimpulan Teknis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .heading-poppins {
+      font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    }
+    .mono {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
+
+  <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+
+    <!-- HEADER / BRANDING -->
+    <header class="flex justify-between items-center z-10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#c2410c] text-white flex items-center justify-center rounded-lg font-bold text-xl heading-poppins">L</div>
+        <div>
+          <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+          <p class="text-xs text-zinc-500 font-medium tracking-wide uppercase mono">Rekayasa Sistem & Keamanan Data</p>
+        </div>
+      </div>
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+        SLIDE 06 / 07
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="my-auto z-10 flex flex-col gap-6">
+      
+      <!-- Eyebrow Badge -->
+      <div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-zinc-100 border border-zinc-300 text-zinc-800 text-xs font-bold uppercase tracking-wider mono">
+          <i data-lucide="scale" class="w-3.5 h-3.5 text-zinc-600"></i>
+          MATRIKS PERBANDINGAN ARSITEKTUR
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <div class="space-y-3">
+        <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
+          Organik vs Jaringan Siluman: <br>
+          <span class="text-[#c2410c]">Beda Pola, Beda Jejak Digital</span>
+        </h2>
+        <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+          Algoritma platform mendeteksi anomali perilaku melalui komparasi parameter teknis di tingkat backend:
+        </p>
+      </div>
+
+      <!-- 50/50 VISUAL SPLIT: Comparison Matrix + Architecture Takeaways -->
+      <div class="flex flex-col gap-5 pt-2">
+        
+        <!-- Table Matrix Card -->
+        <div class="bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-zinc-50 border-b border-zinc-200 text-zinc-500 text-xs font-bold uppercase tracking-wider mono">
+                <th class="py-3.5 px-5">Parameter Sistem</th>
+                <th class="py-3.5 px-5 text-emerald-800 bg-emerald-50/50">Akun Organik (Warga Asli)</th>
+                <th class="py-3.5 px-5 text-rose-800 bg-rose-50/50">Bot Farm (CIB Terkoordinasi)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-200 text-xs text-zinc-800">
+              <tr class="hover:bg-zinc-50/50">
+                <td class="py-3.5 px-5 font-bold mono text-zinc-700">Waktu Unggah</td>
+                <td class="py-3.5 px-5 text-zinc-600">Acak & menyebar sepanjang hari (Poisson)</td>
+                <td class="py-3.5 px-5 font-bold text-rose-600 mono">Burst serentak (&lt; 500 ms)</td>
+              </tr>
+              <tr class="hover:bg-zinc-50/50">
+                <td class="py-3.5 px-5 font-bold mono text-zinc-700">Graf Jaringan</td>
+                <td class="py-3.5 px-5 text-zinc-600">Hubungan sosial beragam & menyebar</td>
+                <td class="py-3.5 px-5 font-bold text-rose-600 mono">Klaster tertutup, saling quote internal</td>
+              </tr>
+              <tr class="hover:bg-zinc-50/50">
+                <td class="py-3.5 px-5 font-bold mono text-zinc-700">Sidik Jari Hardware</td>
+                <td class="py-3.5 px-5 text-zinc-600">Canvas hash & OS unik per perangkat</td>
+                <td class="py-3.5 px-5 font-bold text-rose-600 mono">Hash WebGL & subnet IP proxy identik</td>
+              </tr>
+              <tr class="hover:bg-zinc-50/50">
+                <td class="py-3.5 px-5 font-bold mono text-zinc-700">Arah Narasi</td>
+                <td class="py-3.5 px-5 text-zinc-600">Ragam opini autentik & spontan</td>
+                <td class="py-3.5 px-5 font-bold text-rose-600 mono">Templat teks seragam & counter-attack</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 2 Architecture Takeaway Cards (Strictly No Questions) -->
+        <div class="grid grid-cols-2 gap-4">
+          
+          <div class="bg-zinc-900 text-zinc-100 rounded-xl p-4 border border-zinc-700 shadow-md flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center shrink-0 text-[#c2410c] font-bold mono">
+              01
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-zinc-200 heading-poppins">Entropi Data Selalu Bocor</h4>
+              <p class="text-[12px] text-zinc-400 leading-relaxed mt-1">
+                Operasi botnet skala masif selalu meninggalkan jejak korelasi waktu dan jaringan yang mustahil disembunyikan dari pemodelan statistik backend.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-zinc-900 text-zinc-100 rounded-xl p-4 border border-zinc-700 shadow-md flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center shrink-0 text-cyan-400 font-bold mono">
+              02
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-zinc-200 heading-poppins">Benteng Integritas Digital</h4>
+              <p class="text-[12px] text-zinc-400 leading-relaxed mt-1">
+                Pembersihan 28.000 kanal oleh Google membuktikan bahwa kebersihan ruang demokrasi digital sangat bergantung pada transparansi algoritma platform.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-zinc-800">@logikanyatech</span>
+        <span>•</span>
+        <span>Instagram Carousel Series</span>
+      </div>
+      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+        <span>Catatan rekayasa sistem</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

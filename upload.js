@@ -103,7 +103,8 @@ Contoh:
 function getPrettyProjectName(slug) {
   const map = {
     'data-warehouse': '02 - Data Warehouse (OLTP vs OLAP)',
-    'quantum-computing': '01 - Quantum Computing & Photonic Chip'
+    'quantum-computing': '01 - Quantum Computing & Photonic Chip',
+    'botnet-forensic': '03 - Forensik Jaringan Buzzer (Google TAG)'
   };
   if (map[slug]) return map[slug];
   return slug

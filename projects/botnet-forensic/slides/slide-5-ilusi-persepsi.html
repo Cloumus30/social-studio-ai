@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 5 - Ilusi Persepsi vs Realitas Sistem</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .heading-poppins {
+      font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    }
+    .mono {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
+
+  <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+
+    <!-- HEADER / BRANDING -->
+    <header class="flex justify-between items-center z-10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#c2410c] text-white flex items-center justify-center rounded-lg font-bold text-xl heading-poppins">L</div>
+        <div>
+          <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+          <p class="text-xs text-zinc-500 font-medium tracking-wide uppercase mono">Rekayasa Sistem & Keamanan Data</p>
+        </div>
+      </div>
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+        SLIDE 05 / 07
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="my-auto z-10 flex flex-col gap-6">
+      
+      <!-- Eyebrow Badge -->
+      <div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider mono">
+          <i data-lucide="eye" class="w-3.5 h-3.5 text-[#c2410c]"></i>
+          PERSEPSI PUBLIK VS REALITAS SISTEM
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <div class="space-y-3">
+        <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
+          Mata Manusia Tertipu, <br>
+          <span class="text-[#c2410c]">Tapi Algoritma Backend Tahu</span>
+        </h2>
+        <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+          Di layar handphone (frontend), kita melihat ribuan komentar seolah ada jutaan orang sungguhan yang bersuara. Namun di database backend Google, jutaan aktivitas itu langsung terlacak ke satu server pengendali yang sama.
+        </p>
+      </div>
+
+      <!-- 50/50 VISUAL SPLIT: Frontend Perception vs Backend Reality -->
+      <div class="grid grid-cols-2 gap-6 pt-2">
+        
+        <!-- Left: Frontend UI Perception (What Public Sees) -->
+        <div class="bg-white rounded-2xl p-5 border border-zinc-200 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 mono flex items-center gap-1.5">
+              <i data-lucide="smartphone" class="w-4 h-4 text-zinc-400"></i>
+              FRONT-END (PANDANGAN PUBLIK)
+            </span>
+            <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 mono">ILUSI KONSENSUS</span>
+          </div>
+
+          <!-- Mockup Comments Box -->
+          <div class="space-y-2.5 my-3">
+            <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
+              <div class="w-7 h-7 rounded-full bg-cyan-100 text-cyan-800 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U1</div>
+              <div class="text-[11px] leading-tight">
+                <span class="font-bold text-zinc-800">@user_nusantara99</span>
+                <p class="text-zinc-600 mt-0.5">"Kebijakan ini sudah sangat tepat dan membanggakan bangsa!"</p>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
+              <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-800 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U2</div>
+              <div class="text-[11px] leading-tight">
+                <span class="font-bold text-zinc-800">@garuda_pancasila88</span>
+                <p class="text-zinc-600 mt-0.5">"Yang demo kemarin jelas cuma mau bikin rusuh dan ditunggangi."</p>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
+              <div class="w-7 h-7 rounded-full bg-purple-100 text-purple-800 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U3</div>
+              <div class="text-[11px] leading-tight">
+                <span class="font-bold text-zinc-800">@rakyat_bersatu_id</span>
+                <p class="text-zinc-600 mt-0.5">"Jangan mau dipecah belah, tetap kawal terus sampai tuntas!"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-200 text-xs text-amber-900 leading-snug">
+            ⚠️ <strong>Dampak Kognitif:</strong> Menciptakan efek *bandwagon* (merasa pendapat tersebut adalah konsensus mayoritas warga).
+          </div>
+        </div>
+
+        <!-- Right: Backend System Reality (What Google Tag Sees) -->
+        <div class="bg-zinc-900 rounded-2xl p-5 border border-zinc-700 shadow-xl flex flex-col justify-between text-zinc-100">
+          <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-zinc-300 mono flex items-center gap-1.5">
+              <i data-lucide="database" class="w-4 h-4 text-cyan-400"></i>
+              BACK-END (ANALISIS SISTEM)
+            </span>
+            <span class="text-[11px] font-bold text-rose-400 bg-zinc-800 px-2 py-0.5 rounded mono">ANOMALI TERLINTAS</span>
+          </div>
+
+          <!-- Architecture Reality Schematic -->
+          <div class="my-auto py-2 flex flex-col items-center justify-center gap-3">
+            
+            <div class="flex items-center justify-between w-full px-4">
+              <div class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-[11px] font-bold text-zinc-300 mono text-center">
+                3 Akun Berbeda <br> <span class="text-zinc-500 font-normal">Gmail Cookies</span>
+              </div>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
+              <div class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-[11px] font-bold text-amber-400 mono text-center">
+                1 Script Worker <br> <span class="text-zinc-500 font-normal">Payload Identik</span>
+              </div>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
+              <div class="px-3 py-1.5 rounded-lg bg-rose-950/80 border border-rose-700 text-[11px] font-bold text-rose-300 mono text-center">
+                1 C2 Server <br> <span class="text-rose-400 font-normal">Satu Operator</span>
+              </div>
+            </div>
+
+            <!-- Pipeline Log View -->
+            <div class="w-full bg-zinc-950 p-3 rounded-xl border border-zinc-800 text-[11px] font-mono text-zinc-300 mono space-y-1">
+              <p class="text-zinc-500">// Google Trust & Safety Pattern Engine:</p>
+              <p><span class="text-cyan-400">auth_cluster:</span> "SHARED_DEVICE_HASH_#774"</p>
+              <p><span class="text-cyan-400">ip_pool:</span> "Residential Proxy Rotating Farm"</p>
+              <p><span class="text-rose-400 font-bold">verdict: INAUTHENTIC COORDINATED (BANNED)</span></p>
+            </div>
+          </div>
+
+          <div class="bg-zinc-950 p-2.5 rounded-xl border border-zinc-800 text-xs text-zinc-400 flex justify-between mono">
+            <span>DATABASE RESULT:</span>
+            <span class="text-emerald-400 font-bold">1 OPERATOR = 10K AKUN</span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-zinc-800">@logikanyatech</span>
+        <span>•</span>
+        <span>Instagram Carousel Series</span>
+      </div>
+      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+        <span>Matriks komparasi arsitektur</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
