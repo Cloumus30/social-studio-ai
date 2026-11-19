@@ -226,3 +226,31 @@ Slide tepat sebelum slide penutup (misal: Slide 6 pada carousel 7 slide) memilik
   </div>
 </div>
 ```
+
+---
+
+### Snippet D: Pure Transparent 3D Canvas Container (Three.js Showcase)
+Gunakan pola ini ketika menampilkan objek atau diagram 3D prosedural di slide:
+
+```html
+<!-- Container 3D Transparan -->
+<div class="relative w-full h-[520px] flex items-center justify-center my-auto">
+  <canvas id="three-canvas" class="w-full h-full block"></canvas>
+</div>
+
+<!-- Standar Setup Three.js (img2threejs Pipeline) -->
+<script>
+  const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('three-canvas'),
+    antialias: true,
+    alpha: true,
+    powerPreference: "high-performance"
+  });
+  renderer.setClearColor(0x000000, 0); // Pure transparent agar grid latar tetap terlihat
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 2, 2));
+
+  // Render frame pertama langsung agar siap di-capture oleh Playwright
+  renderer.render(scene, camera);
+  window.__THREE_READY__ = true;
+</script>
+```

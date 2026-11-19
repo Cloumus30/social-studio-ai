@@ -49,7 +49,7 @@ function parseArgs() {
   const args = process.argv.slice(2);
   const options = {
     project: null,
-    folder: 'Logikanya.Tech - Social Graphics',
+    folder: 'Logikanya/Carousel',
     subfolder: null,
     includeCaption: true,
     all: false,
@@ -113,9 +113,9 @@ function getPrettyProjectName(slug) {
     .join(' ');
 }
 
-// Find or create root folder on Google Drive
+// Find or create folder on Google Drive
 function getOrCreateFolder(folderName, parentId = null) {
-  let searchCmd = `gdrive readonly search --name-contains "${folderName}" --json`;
+  let searchCmd = `gdrive readonly search --name-exact "${folderName}" --type folder --json`;
   if (parentId) {
     searchCmd += ` --parent-id "${parentId}"`;
   }
@@ -126,6 +126,20 @@ function getOrCreateFolder(folderName, parentId = null) {
     if (out) items = JSON.parse(out);
   } catch (err) {
     items = [];
+  }
+
+  // Fallback to name-contains if name-exact returns empty but exists
+  if (items.length === 0) {
+    try {
+      let fbCmd = `gdrive readonly search --name-contains "${folderName}" --type folder --json`;
+      if (parentId) {
+        fbCmd += ` --parent-id "${parentId}"`;
+      }
+      const outFb = runCmd(fbCmd);
+      if (outFb) items = JSON.parse(outFb);
+    } catch (e) {
+      items = [];
+    }
   }
 
   const existing = items.find(item => item.name === folderName && item.mimeType === 'application/vnd.google-apps.folder');
@@ -144,7 +158,23 @@ function getOrCreateFolder(folderName, parentId = null) {
     return match[1];
   }
 
+  try {
+    const parsed = JSON.parse(result);
+    if (parsed.id) return parsed.id;
+  } catch (e) {}
+
   throw new Error(`Gagal membuat folder di Google Drive: ${result}`);
+}
+
+// Resolve hierarchical folder path like "Logikanya/Carousel" or "Logikanya -> Carousel"
+function resolveFolderPath(pathStr) {
+  const parts = pathStr.split(/[\/\->]+/).map(p => p.trim()).filter(Boolean);
+  let currentParentId = null;
+  for (const part of parts) {
+    console.log(`📁 Menemukan/membuat folder: "${part}"...`);
+    currentParentId = getOrCreateFolder(part, currentParentId);
+  }
+  return currentParentId;
 }
 
 // Get existing files in a folder
@@ -296,9 +326,14 @@ function main() {
 
   if (options.all) {
     if (fs.existsSync(outputBase)) {
-      targetProjects = fs.readdirSync(outputBase).filter(f => {
+      const canonicalOrder = ['quantum-computing', 'data-warehouse', 'botnet-forensic'];
+      const found = fs.readdirSync(outputBase).filter(f => {
         const full = path.join(outputBase, f);
         return fs.statSync(full).isDirectory() && f !== 'test';
+      });
+      targetProjects = canonicalOrder.filter(p => found.includes(p));
+      found.forEach(p => {
+        if (!targetProjects.includes(p)) targetProjects.push(p);
       });
     }
   } else if (options.project) {
@@ -314,11 +349,11 @@ function main() {
     }
   }
 
-  console.log(`📂 Memeriksa folder root Google Drive: "${options.folder}"...`);
-  const rootFolderId = getOrCreateFolder(options.folder);
+  console.log(`📂 Memeriksa folder target Google Drive: "${options.folder}"...`);
+  const rootFolderId = resolveFolderPath(options.folder);
   const rootFolderUrl = `https://drive.google.com/drive/folders/${rootFolderId}`;
-  console.log(`✅ Folder Root ID: ${rootFolderId}`);
-  console.log(`🔗 Root Folder URL: ${rootFolderUrl}`);
+  console.log(`✅ Folder Target ID: ${rootFolderId}`);
+  console.log(`🔗 Target Folder URL: ${rootFolderUrl}`);
 
   const summary = [];
 

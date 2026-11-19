@@ -96,6 +96,21 @@ async function renderFile(browser, filePath, destDir) {
 
   // Tunggu sejenak agar web fonts & Lucide icons ter-render sempurna
   await page.evaluate(() => document.fonts ? document.fonts.ready : Promise.resolve());
+
+  // Sinkronisasi Three.js / WebGL handshake (img2threejs pipeline)
+  try {
+    await page.waitForFunction(
+      () => {
+        if (typeof window.__THREE_READY__ !== 'undefined') {
+          return window.__THREE_READY__ === true;
+        }
+        return true;
+      },
+      { timeout: 1500 }
+    );
+  } catch (_) {
+    // Fallback bila window.__THREE_READY__ tidak diset secara eksplisit
+  }
   await page.waitForTimeout(300);
 
   // Ambil screenshot

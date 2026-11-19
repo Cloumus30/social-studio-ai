@@ -374,6 +374,7 @@
 
       // Render First Frame Immediately for Headless Playwright
       renderer.render(scene, camera);
+      window.__THREE_READY__ = true;
       window.__THREE_READY = true;
 
       // 7. Interactive Floating Animation

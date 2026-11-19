@@ -1,63 +1,63 @@
 {
   "projectName": "02 - Data Warehouse (OLTP vs OLAP)",
   "projectSlug": "data-warehouse",
-  "folderId": "14ANwl89KwT7cf4YxxWrd41qHrqNuITD2",
-  "folderUrl": "https://drive.google.com/drive/folders/14ANwl89KwT7cf4YxxWrd41qHrqNuITD2",
-  "syncedAt": "2026-11-18T08:46:24.941Z",
+  "folderId": "15HsOjFw-5VekER5kVl1HKULaGSJi1peo",
+  "folderUrl": "https://drive.google.com/drive/folders/15HsOjFw-5VekER5kVl1HKULaGSJi1peo",
+  "syncedAt": "2026-11-19T02:58:20.745Z",
   "files": [
     {
       "name": "slide-1-cover.png",
-      "id": "14UU67o1xWolBGoouy0Niro8ofzcKtj82",
+      "id": "1tVTr59V8dECx-QB9VLm_CbToD-u8QiiM",
       "size": "0.28 MB",
-      "webViewLink": "https://drive.google.com/file/d/14UU67o1xWolBGoouy0Niro8ofzcKtj82/view"
+      "webViewLink": "https://drive.google.com/file/d/1tVTr59V8dECx-QB9VLm_CbToD-u8QiiM/view"
     },
     {
       "name": "slide-2-masalah-oltp.png",
-      "id": "1SZnOqfSOXdCuQf7-AjH7bel3IOrFovG1",
+      "id": "1kW4hD6hNlG2nl5HSdvF2tqSRiIiNNw2k",
       "size": "0.34 MB",
-      "webViewLink": "https://drive.google.com/file/d/1SZnOqfSOXdCuQf7-AjH7bel3IOrFovG1/view"
+      "webViewLink": "https://drive.google.com/file/d/1kW4hD6hNlG2nl5HSdvF2tqSRiIiNNw2k/view"
     },
     {
       "name": "slide-3-apa-itu-dw.png",
-      "id": "1BQEWGrjQ47hSLHRNtYxzDs8nOGT0WDYj",
+      "id": "1sCI4ZU3ambQy40Kei2fe-jj7xfkgPeHs",
       "size": "0.28 MB",
-      "webViewLink": "https://drive.google.com/file/d/1BQEWGrjQ47hSLHRNtYxzDs8nOGT0WDYj/view"
+      "webViewLink": "https://drive.google.com/file/d/1sCI4ZU3ambQy40Kei2fe-jj7xfkgPeHs/view"
     },
     {
       "name": "slide-4-arsitektur-tools.png",
-      "id": "1qfskTi1uOWqVsZ8RjER8-Jhfu6kJJzKY",
+      "id": "1_8VPNp2V-6Lj7gKutpG60Hg-o_ZqWhvD",
       "size": "0.25 MB",
-      "webViewLink": "https://drive.google.com/file/d/1qfskTi1uOWqVsZ8RjER8-Jhfu6kJJzKY/view"
+      "webViewLink": "https://drive.google.com/file/d/1_8VPNp2V-6Lj7gKutpG60Hg-o_ZqWhvD/view"
     },
     {
       "name": "slide-5-kapan-butuh.png",
-      "id": "1IsRWGhvdNkfgRa9nrOZ-8fCOb-cxcaCx",
+      "id": "1xTc6Mm05f8MrUip2aH2Vmk5QdY0uL_oh",
       "size": "0.26 MB",
-      "webViewLink": "https://drive.google.com/file/d/1IsRWGhvdNkfgRa9nrOZ-8fCOb-cxcaCx/view"
+      "webViewLink": "https://drive.google.com/file/d/1xTc6Mm05f8MrUip2aH2Vmk5QdY0uL_oh/view"
     },
     {
       "name": "slide-6-komparasi-cta.png",
-      "id": "1UVK_eDuoEELc16bXxMRtKjx3QaS_FDb4",
+      "id": "1cnOnS6vXr6eu2rr_aGufdIuOtQmlEfCl",
       "size": "0.24 MB",
-      "webViewLink": "https://drive.google.com/file/d/1UVK_eDuoEELc16bXxMRtKjx3QaS_FDb4/view"
+      "webViewLink": "https://drive.google.com/file/d/1cnOnS6vXr6eu2rr_aGufdIuOtQmlEfCl/view"
     },
     {
       "name": "slide-7-cta-3d.png",
-      "id": "1Lb382tut5jG0gWk6a6OJcatjg_eH6cPI",
-      "size": "0.49 MB",
-      "webViewLink": "https://drive.google.com/file/d/1Lb382tut5jG0gWk6a6OJcatjg_eH6cPI/view"
+      "id": "1ZU4E2lW_6IuJNgrt3pOvAxGPBIpHAZjS",
+      "size": "0.48 MB",
+      "webViewLink": "https://drive.google.com/file/d/1ZU4E2lW_6IuJNgrt3pOvAxGPBIpHAZjS/view"
     },
     {
       "name": "story-teaser.png",
-      "id": "1JMjSg2eD46dr-6KOFNHw4eX_zGqrV_15",
+      "id": "1AsMoJTPs95_l0loJcJ1cKQFrbR9xUtUG",
       "size": "0.63 MB",
-      "webViewLink": "https://drive.google.com/file/d/1JMjSg2eD46dr-6KOFNHw4eX_zGqrV_15/view"
+      "webViewLink": "https://drive.google.com/file/d/1AsMoJTPs95_l0loJcJ1cKQFrbR9xUtUG/view"
     },
     {
       "name": "caption.txt",
-      "id": "1IiXBqbdmVPGhH-3q_fbMnyannMW5Ymqb",
+      "id": "1RB8Y82luvbbUPH5D4Sv1eSk17UdIJuAj",
       "size": "0.00 MB",
-      "webViewLink": "https://drive.google.com/file/d/1IiXBqbdmVPGhH-3q_fbMnyannMW5Ymqb/view"
+      "webViewLink": "https://drive.google.com/file/d/1RB8Y82luvbbUPH5D4Sv1eSk17UdIJuAj/view"
     }
   ]
 }
