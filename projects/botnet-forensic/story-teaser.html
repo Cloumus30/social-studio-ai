@@ -34,79 +34,79 @@
   </style>
 </head>
 
-<body class="bg-white text-[#18181b] flex flex-col justify-between p-20 relative">
+<body class="bg-white text-[#18181b] flex flex-col justify-between px-14 pt-12 pb-10 relative">
   <!-- Blueprint Square Line Grid Pattern (40x40px) -->
   <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
 
   <!-- TOP HEADER -->
-  <header class="relative z-10 pt-12 flex items-center justify-between border-b border-slate-200/90 pb-8 bg-white/80 backdrop-blur-sm -mx-20 px-20 -mt-20 pt-20">
-    <div class="flex items-center gap-5">
-      <div class="w-16 h-16 p-2 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6">
+    <div class="flex items-center gap-4">
+      <div class="w-14 h-14 p-1.5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
         <img src="./assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
       </div>
-      <span class="font-extrabold text-3xl leading-tight text-[#18181b] font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+      <span class="font-black text-[30px] leading-tight text-[#18181b] font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
     </div>
-    <span class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mono">
+    <span class="text-sm font-semibold text-zinc-500 uppercase tracking-wider mono">
       Catatan Forensik Keamanan
     </span>
   </header>
 
   <!-- BODY CONTENT (HOOK + DUAL PHOTO SPLIT) -->
-  <main class="relative z-10 flex flex-col gap-8 my-auto">
+  <main class="relative z-10 flex-1 flex flex-col gap-8 py-6">
     <div class="space-y-4">
-      <h1 class="text-6xl font-black leading-[1.15] tracking-tight text-[#18181b] font-heading">
+      <h1 class="text-[64px] font-black leading-[1.12] tracking-tight text-[#18181b] font-heading">
         28.000 Kanal Dihapus: <br/>
         <span class="text-[#c2410c]">Cara Algoritma Melacak</span> <br/>
         Jaringan Akun Botnet
       </h1>
-      <p class="text-2xl text-slate-600 font-normal leading-relaxed max-w-[900px]">
+      <p class="text-[25px] text-slate-600 font-normal leading-relaxed max-w-[920px]">
         Laporan resmi Google TAG mengungkap pembersihan puluhan ribu kanal di Indonesia. Simak anatomi teknis cara sistem backend melacak jejak operasinya.
       </p>
     </div>
 
     <!-- Terminal Status Banner -->
-    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-4 text-xs font-mono text-zinc-300 mono flex items-center justify-between shadow-lg">
+    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-5 text-sm font-mono text-zinc-300 mono flex items-center justify-between shadow-lg">
       <div class="flex items-center gap-3">
         <span>Laporan Google TAG Q3 2026:</span>
         <span class="text-zinc-100 font-bold">28.326 kanal dinonaktifkan</span>
       </div>
-      <span class="text-zinc-400">Status: Enforced</span>
+      <span class="text-emerald-400 font-bold">Status: Enforced</span>
     </div>
 
     <!-- DUAL PHOTO REAL HARDWARE SPLIT (HALLMARK COMPLIANT) -->
-    <div class="grid grid-cols-2 gap-6 pt-2">
+    <div class="flex-1 grid grid-cols-2 gap-6">
       
       <!-- PHOTO 1: DATA CENTER INFRASTRUCTURE -->
-      <div class="p-3 bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl flex flex-col justify-between">
+      <div class="p-4 bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl flex flex-col justify-between">
         <div class="flex items-center justify-between pb-3 px-2 text-slate-400 text-xs border-b border-slate-800 mono">
           <span class="flex items-center gap-2">
             <i data-lucide="server" class="w-4 h-4 text-cyan-400"></i>
             BACKEND INFRASTRUCTURE
           </span>
         </div>
-        <div class="relative w-full h-[520px] rounded-2xl overflow-hidden mt-3 bg-slate-950">
+        <div class="relative w-full flex-1 min-h-[680px] rounded-2xl overflow-hidden mt-3 bg-slate-950">
           <img src="./assets/datacenter-servers.jpg" alt="Data Center Servers" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-md border border-slate-700 p-3.5 rounded-xl">
-            <p class="text-xs font-bold text-slate-200 mono">DETECTION ENGINE CLUSTER</p>
+          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-md border border-slate-700 p-4 rounded-xl">
+            <p class="text-sm font-bold text-slate-200 mono">DETECTION ENGINE CLUSTER</p>
             <p class="text-xs text-slate-400 mt-1">Pemindaian anomali traffic & Poisson burst timing</p>
           </div>
         </div>
       </div>
 
       <!-- PHOTO 2: SERVER RACKS & NETWORK SWITCH -->
-      <div class="p-3 bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl flex flex-col justify-between">
+      <div class="p-4 bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl flex flex-col justify-between">
         <div class="flex items-center justify-between pb-3 px-2 text-slate-400 text-xs border-b border-slate-800 mono">
           <span class="flex items-center gap-2">
             <i data-lucide="network" class="w-4 h-4 text-orange-400"></i>
             BOT FARM TOPOLOGY
           </span>
         </div>
-        <div class="relative w-full h-[520px] rounded-2xl overflow-hidden mt-3 bg-slate-950">
+        <div class="relative w-full flex-1 min-h-[680px] rounded-2xl overflow-hidden mt-3 bg-slate-950">
           <img src="./assets/server-racks.jpg" alt="Server Racks" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-md border border-slate-700 p-3.5 rounded-xl">
-            <p class="text-xs font-bold text-slate-200 mono">HARDWARE FINGERPRINT AUDIT</p>
+          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-md border border-slate-700 p-4 rounded-xl">
+            <p class="text-sm font-bold text-slate-200 mono">HARDWARE FINGERPRINT AUDIT</p>
             <p class="text-xs text-slate-400 mt-1">Pelacakan Canvas hash & proxy pool residensial</p>
           </div>
         </div>
@@ -116,18 +116,18 @@
   </main>
 
   <!-- BOTTOM CALL TO ACTION -->
-  <footer class="relative z-10 border-t border-slate-200/90 pt-8 bg-white/80 backdrop-blur-sm -mx-20 px-20 -mb-20 pb-20">
+  <footer class="relative z-10 border-t border-slate-200/90 pt-6">
     <div class="p-6 rounded-2xl bg-zinc-900 text-white flex items-center justify-between shadow-xl">
       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-xl bg-[#c2410c] flex items-center justify-center font-bold text-white shadow-md">
-          <i data-lucide="book-open" class="w-6 h-6"></i>
+        <div class="w-14 h-14 rounded-xl bg-[#c2410c] flex items-center justify-center font-bold text-white shadow-md">
+          <i data-lucide="book-open" class="w-7 h-7"></i>
         </div>
         <div>
-          <h4 class="font-extrabold text-xl text-white font-heading">Baca Pembahasan Lengkap 7 Slide</h4>
-          <p class="text-sm text-zinc-400 mono">Tersedia sekarang di carousel feed @logikanyatech</p>
+          <h4 class="font-extrabold text-2xl text-white font-heading">Baca Pembahasan Lengkap 7 Slide</h4>
+          <p class="text-base text-zinc-400 mono mt-0.5">Tersedia sekarang di carousel feed @logikanyatech</p>
         </div>
       </div>
-      <div class="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#c2410c] text-white font-bold text-base shadow-sm">
+      <div class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#c2410c] text-white font-bold text-lg shadow-sm">
         <span>Buka Feed</span>
         <i data-lucide="arrow-right" class="w-5 h-5"></i>
       </div>

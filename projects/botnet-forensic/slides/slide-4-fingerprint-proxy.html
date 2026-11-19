@@ -36,104 +36,104 @@
 <body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
 
   <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
-  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between px-12 pt-8 pb-7 overflow-hidden blueprint-grid border border-zinc-200">
 
     <!-- HEADER / BRANDING -->
     <header class="flex justify-between items-center z-10">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
           <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
         </div>
-        <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+        <span class="font-black text-[26px] tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
       </div>
-      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wider text-zinc-700 uppercase mono">
         SLIDE 04 / 07
       </div>
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="my-auto z-10 flex flex-col gap-6">
+    <main class="flex-1 flex flex-col gap-7 py-5 z-10">
       
       <!-- Headline & Context -->
-      <div class="space-y-3">
-        <p class="text-sm font-medium text-zinc-500">Jejak Forensik 02 • Sidik Jari Perangkat & Jaringan</p>
-        <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
+      <div class="space-y-3.5">
+        <p class="text-base font-semibold text-zinc-500">Jejak Forensik 02 • Sidik Jari Perangkat & Jaringan</p>
+        <h2 class="text-[48px] font-black text-zinc-900 tracking-tight leading-[1.15] heading-poppins">
           Kebocoran Sidik Jari Perangkat <br>
           <span class="text-[#c2410c]">& Kolam Proxy Residensial</span>
         </h2>
-        <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+        <p class="text-[22px] text-zinc-600 font-normal leading-relaxed max-w-[980px]">
           Meskipun memakai ribuan akun Gmail berbeda, mesin otomatisasi (headless browser) biasanya berbagi konfigurasi GPU, hash WebGL, dan blok IP proxy yang seragam.
         </p>
       </div>
 
       <!-- 50/50 VISUAL SPLIT: Terminal Inspector + 3 Forensic Sources -->
-      <div class="grid grid-cols-2 gap-6 pt-2">
+      <div class="flex-1 grid grid-cols-2 gap-6">
         
         <!-- Left: Realistic Terminal Inspector -->
-        <div class="bg-zinc-900 rounded-2xl p-4 border border-zinc-700 shadow-xl flex flex-col justify-between">
+        <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-700 shadow-xl flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <span class="text-xs text-zinc-400 font-medium mono">fingerprint-audit --cluster=ID-774</span>
-            <span class="text-xs text-zinc-500 mono">Pemeriksaan Hardware</span>
+            <span class="text-sm text-zinc-300 font-medium mono">fingerprint-audit --cluster=ID-774</span>
+            <span class="text-sm text-zinc-500 mono">Pemeriksaan Hardware</span>
           </div>
 
-          <div class="py-4 space-y-2 text-xs font-mono text-zinc-300 mono leading-relaxed">
+          <div class="py-4 space-y-3 text-[16px] font-mono text-zinc-300 mono leading-relaxed">
             <p class="text-zinc-500">// Device Fingerprint Engine Results</p>
-            <div class="bg-zinc-950 p-2.5 rounded-lg border border-zinc-800 space-y-1.5">
-              <p><span class="text-cyan-400">canvas_hash:</span> <span class="text-amber-400">"a8f9c2d1b0"</span> <span class="text-rose-400 text-[10px]">(1.420 node match)</span></p>
+            <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800 space-y-2 my-2">
+              <p><span class="text-cyan-400">canvas_hash:</span> <span class="text-amber-400">"a8f9c2d1b0"</span> <span class="text-rose-400 text-xs font-bold">(1.420 node match)</span></p>
               <p><span class="text-cyan-400">webgl_renderer:</span> <span class="text-zinc-300">"ANGLE (Mesa Gallium LLVM)"</span></p>
               <p><span class="text-cyan-400">audio_fingerprint:</span> <span class="text-amber-400">"hash_99.8%_similarity"</span></p>
             </div>
-            <div class="bg-zinc-950 p-2.5 rounded-lg border border-zinc-800 space-y-1.5">
+            <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800 space-y-2 my-2">
               <p><span class="text-purple-400 font-semibold">// IP Proxy Telemetry:</span></p>
               <p><span class="text-zinc-400">proxy_asn:</span> <span class="text-zinc-200">AS17974 (Residential Farm Pool)</span></p>
               <p><span class="text-zinc-400">tcp_fingerprint:</span> <span class="text-rose-400 font-bold">SYN Packet OS Mismatch</span></p>
             </div>
-            <p class="text-rose-400 font-bold pt-1">➔ FLAG: HEADLESS BROWSER FARM DETECTED</p>
+            <p class="text-rose-400 font-bold pt-2 text-base">➔ FLAG: HEADLESS BROWSER FARM DETECTED</p>
           </div>
 
-          <div class="bg-zinc-950 p-2 rounded-lg border border-zinc-800 text-[11px] text-zinc-400 flex items-center justify-between mono">
+          <div class="bg-zinc-950 p-3.5 rounded-xl border border-zinc-800 text-xs text-zinc-400 flex items-center justify-between mono">
             <span>Tingkat Kepastian Deteksi</span>
             <span class="text-zinc-200 font-semibold">99.4% Terverifikasi</span>
           </div>
         </div>
 
         <!-- Right: 3 Forensic Leak Sources -->
-        <div class="flex flex-col justify-between gap-3">
+        <div class="flex-1 flex flex-col justify-between gap-4">
           
           <!-- Source 1: Hardware Canvas Hash -->
-          <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-zinc-700 font-bold text-xs mono">
+          <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-5 shadow-sm flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-[#c2410c] font-bold text-base mono">
               01
             </div>
             <div>
-              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">1. Canvas & WebGL Hash</h4>
-              <p class="text-[12px] text-zinc-600 leading-relaxed mt-0.5">
+              <h4 class="text-lg font-bold text-zinc-900 heading-poppins">1. Canvas & WebGL Hash</h4>
+              <p class="text-[17px] text-zinc-600 leading-relaxed mt-1">
                 Rendering grafis GPU dari browser headless otomatis menghasilkan sidik jari kriptografi yang identik pada ratusan akun.
               </p>
             </div>
           </div>
 
           <!-- Source 2: IP Proxy Pool -->
-          <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-zinc-700 font-bold text-xs mono">
+          <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-5 shadow-sm flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-[#c2410c] font-bold text-base mono">
               02
             </div>
             <div>
-              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">2. Kolam Proxy Residensial</h4>
-              <p class="text-[12px] text-zinc-600 leading-relaxed mt-0.5">
+              <h4 class="text-lg font-bold text-zinc-900 heading-poppins">2. Kolam Proxy Residensial</h4>
+              <p class="text-[17px] text-zinc-600 leading-relaxed mt-1">
                 Meskipun IP berganti-ganti, seluruh koneksi berasal dari penyedia proxy komersial yang sama dengan nomor Autonomous System (ASN) terpusat.
               </p>
             </div>
           </div>
 
           <!-- Source 3: Template & Audio Hash -->
-          <div class="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-zinc-700 font-bold text-xs mono">
+          <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-5 shadow-sm flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0 text-[#c2410c] font-bold text-base mono">
               03
             </div>
             <div>
-              <h4 class="text-xs font-bold text-zinc-900 heading-poppins">3. Kesamaan Sintesis Suara AI</h4>
-              <p class="text-[12px] text-zinc-600 leading-relaxed mt-0.5">
+              <h4 class="text-lg font-bold text-zinc-900 heading-poppins">3. Kesamaan Sintesis Suara AI</h4>
+              <p class="text-[17px] text-zinc-600 leading-relaxed mt-1">
                 Video diproduksi massal dengan pola render FFmpeg seragam, memakai model text-to-speech AI yang spektrum frekuensinya sama.
               </p>
             </div>
@@ -146,13 +146,13 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+    <footer class="flex justify-between items-center text-[15px] text-zinc-500 pt-5 border-t border-zinc-200 z-10 mono">
       <div class="flex items-center gap-2">
         <span class="font-bold text-zinc-800">@logikanyatech</span>
         <span>•</span>
         <span>Instagram Carousel Series</span>
       </div>
-      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+      <div class="flex items-center gap-2 font-semibold text-[#c2410c]">
         <span>Kenapa mata manusia tertipu?</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </div>

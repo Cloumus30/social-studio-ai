@@ -33,71 +33,75 @@
   </style>
 </head>
 
-<body class="bg-white text-[#18181b] flex flex-col justify-between p-16 relative">
+<body class="bg-white text-[#18181b] flex flex-col justify-between px-12 pt-8 pb-7 relative">
   <!-- Blueprint Square Line Grid Pattern (40x40px, opacity 0.6) -->
   <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
 
   <!-- HEADER / BRANDING (Selaras dengan Slide 1-6) -->
-  <header class="flex justify-between items-center z-10 border-b border-zinc-200 pb-6 -mx-16 px-16 -mt-16 pt-16 bg-white/80 backdrop-blur-sm">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+  <header class="flex justify-between items-center z-10">
+    <div class="flex items-center gap-3.5">
+      <div class="w-11 h-11 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
         <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
       </div>
-      <span class="font-black text-2xl tracking-tight text-zinc-900 font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+      <span class="font-black text-[26px] tracking-tight text-zinc-900 font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
     </div>
-    <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+    <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wider text-zinc-700 uppercase mono">
       SLIDE 07 / 07
     </div>
   </header>
 
   <!-- BODY CONTENT -->
-  <main class="relative z-10 my-auto flex flex-col justify-between h-[1020px] py-2">
+  <main class="relative z-10 flex-1 flex flex-col gap-6 py-5">
     <!-- Top Text Section (Ramah, Bebas Overclaim, Tanpa Eyebrow Pill) -->
-    <div class="space-y-3 pt-2">
-      <h1 class="text-5xl font-black leading-[1.18] tracking-tight text-[#18181b] font-heading">
+    <div class="space-y-3.5">
+      <h1 class="text-[52px] font-black leading-[1.14] tracking-tight text-[#18181b] font-heading">
         Suka Bahasan Teknis Praktis Kayak Gini? <br/>
         <span class="text-[#c2410c]">Yuk Konek di @logikanyatech</span>
       </h1>
-      <p class="text-xl text-slate-600 font-normal leading-relaxed">
+      <p class="text-[23px] text-slate-600 font-normal leading-relaxed">
         Berbagi catatan arsitektur sistem dan teknologi tanpa jargon yang bikin pusing.
       </p>
     </div>
 
     <!-- PURE TRANSPARENT SEAMLESS 3D SHOWCASE -->
-    <div class="relative w-full h-[520px] flex items-center justify-center my-auto">
+    <div class="relative w-full flex-1 min-h-[640px] flex items-center justify-center">
       <canvas id="three-canvas" class="w-full h-full block"></canvas>
     </div>
 
     <!-- 1 BAR CTA HORIZONTAL ELEGAN -->
-    <div class="flex items-center gap-4 w-full pb-2">
+    <div class="flex items-center gap-4 w-full">
       <!-- Tombol Follow Utama (Oranye Lapang) -->
-      <div class="flex-1 p-5 rounded-2xl bg-[#c2410c] text-white flex items-center justify-center gap-3 font-extrabold text-xl shadow-md shadow-orange-500/15 font-heading">
-        <i data-lucide="user-plus" class="w-6 h-6"></i>
+      <div class="flex-1 p-5 rounded-2xl bg-[#c2410c] text-white flex items-center justify-center gap-3 font-extrabold text-[22px] shadow-md shadow-orange-500/15 font-heading">
+        <i data-lucide="user-plus" class="w-7 h-7"></i>
         <span>Follow @logikanyatech</span>
       </div>
 
       <!-- Aksi Ringan 1: Save -->
-      <div class="px-6 py-5 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-base flex items-center gap-2.5 shadow-xs">
-        <i data-lucide="bookmark" class="w-5 h-5 text-[#c2410c]"></i>
+      <div class="px-7 py-5 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-[18px] flex items-center gap-2.5 shadow-xs">
+        <i data-lucide="bookmark" class="w-6 h-6 text-[#c2410c]"></i>
         <span>Simpan</span>
       </div>
 
       <!-- Aksi Ringan 2: Share -->
-      <div class="px-6 py-5 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-base flex items-center gap-2.5 shadow-xs">
-        <i data-lucide="share-2" class="w-5 h-5 text-slate-600"></i>
+      <div class="px-7 py-5 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-[18px] flex items-center gap-2.5 shadow-xs">
+        <i data-lucide="share-2" class="w-6 h-6 text-slate-600"></i>
         <span>Bagikan</span>
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
-    <div class="mono text-xs font-semibold text-slate-500">
-      SLIDE <span class="text-[#18181b] font-bold">07</span> / 07 • PENUTUP
+  <footer class="flex justify-between items-center text-[15px] text-zinc-500 pt-5 border-t border-zinc-200 z-10 mono">
+    <div class="flex items-center gap-2">
+      <span class="font-bold text-zinc-800">@logikanyatech</span>
+      <span>•</span>
+      <span>Instagram Carousel Series</span>
     </div>
-    <div class="mono text-xs font-bold text-slate-600 flex items-center gap-2">
-      <i data-lucide="check-check" class="w-4 h-4 text-[#c2410c]"></i>
-      <span>@logikanyatech</span>
+    <div class="flex items-center gap-2 font-semibold text-[#c2410c]">
+      <span>Terima kasih telah membaca</span>
+      <i data-lucide="check-check" class="w-5 h-5 text-[#c2410c]"></i>
+    </div>
+  </footer>
     </div>
   </footer>
 

@@ -36,120 +36,120 @@
 <body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
 
   <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
-  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between px-12 pt-8 pb-7 overflow-hidden blueprint-grid border border-zinc-200">
 
     <!-- HEADER / BRANDING -->
     <header class="flex justify-between items-center z-10">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
           <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
         </div>
-        <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+        <span class="font-black text-[26px] tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
       </div>
-      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wider text-zinc-700 uppercase mono">
         SLIDE 05 / 07
       </div>
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="my-auto z-10 flex flex-col gap-6">
+    <main class="flex-1 flex flex-col gap-7 py-5 z-10">
       
       <!-- Headline & Context -->
-      <div class="space-y-3">
-        <p class="text-sm font-medium text-zinc-500">Tampilan Antarmuka vs Catatan Database</p>
-        <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
+      <div class="space-y-3.5">
+        <p class="text-base font-semibold text-zinc-500">Tampilan Antarmuka vs Catatan Database</p>
+        <h2 class="text-[48px] font-black text-zinc-900 tracking-tight leading-[1.15] heading-poppins">
           Tampilan di Layar vs Catatan di Database: <br>
           <span class="text-[#c2410c]">Cara Backend Mengelompokkan Ribuan Akun</span>
         </h2>
-        <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+        <p class="text-[22px] text-zinc-600 font-normal leading-relaxed max-w-[980px]">
           Di antarmuka aplikasi, komentar tampak berasal dari ribuan akun berbeda. Namun di database backend Google, seluruh interaksi tersebut mengarah ke sesi login dan pengendali skrip yang sama.
         </p>
       </div>
 
       <!-- 50/50 VISUAL SPLIT: Frontend Perception vs Backend Reality -->
-      <div class="grid grid-cols-2 gap-6 pt-2">
+      <div class="flex-1 grid grid-cols-2 gap-6">
         
         <!-- Left: Frontend UI Perception (What Public Sees) -->
-        <div class="bg-white rounded-2xl p-5 border border-zinc-200 shadow-sm flex flex-col justify-between">
+        <div class="bg-white rounded-2xl p-6 border border-zinc-200 shadow-sm flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
-            <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 mono flex items-center gap-1.5">
-              <i data-lucide="smartphone" class="w-4 h-4 text-zinc-400"></i>
+            <span class="text-sm font-bold uppercase tracking-wider text-zinc-700 mono flex items-center gap-2">
+              <i data-lucide="smartphone" class="w-5 h-5 text-zinc-500"></i>
               Front-End (Tampilan Pengguna)
             </span>
-            <span class="text-xs text-zinc-500 mono">Komentar Publik</span>
+            <span class="text-sm text-zinc-500 mono font-semibold">Komentar Publik</span>
           </div>
 
           <!-- Mockup Comments Box -->
-          <div class="space-y-2.5 my-3">
-            <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
-              <div class="w-7 h-7 rounded-full bg-zinc-200 text-zinc-700 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U1</div>
-              <div class="text-[11px] leading-tight">
-                <span class="font-bold text-zinc-800">@user_nusantara99</span>
-                <p class="text-zinc-600 mt-0.5">"Kebijakan ini sudah sangat tepat dan membanggakan bangsa!"</p>
+          <div class="space-y-4 my-auto py-2">
+            <div class="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-full bg-zinc-200 text-zinc-800 font-bold text-xs flex items-center justify-center shrink-0 mono">U1</div>
+              <div class="text-[16px] leading-snug">
+                <span class="font-bold text-zinc-900">@user_nusantara99</span>
+                <p class="text-zinc-600 mt-1">"Kebijakan ini sudah sangat tepat dan membanggakan bangsa!"</p>
               </div>
             </div>
 
-            <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
-              <div class="w-7 h-7 rounded-full bg-zinc-200 text-zinc-700 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U2</div>
-              <div class="text-[11px] leading-tight">
-                <span class="font-bold text-zinc-800">@garuda_pancasila88</span>
-                <p class="text-zinc-600 mt-0.5">"Yang demo kemarin jelas cuma mau bikin rusuh dan ditunggangi."</p>
+            <div class="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-full bg-zinc-200 text-zinc-800 font-bold text-xs flex items-center justify-center shrink-0 mono">U2</div>
+              <div class="text-[16px] leading-snug">
+                <span class="font-bold text-zinc-900">@garuda_pancasila88</span>
+                <p class="text-zinc-600 mt-1">"Yang demo kemarin jelas cuma mau bikin rusuh dan ditunggangi."</p>
               </div>
             </div>
 
-            <div class="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 flex items-start gap-2.5">
-              <div class="w-7 h-7 rounded-full bg-zinc-200 text-zinc-700 font-bold text-[10px] flex items-center justify-center shrink-0 mono">U3</div>
-              <div class="text-[11px] leading-tight">
-                <span class="font-bold text-zinc-800">@rakyat_bersatu_id</span>
-                <p class="text-zinc-600 mt-0.5">"Jangan mau dipecah belah, tetap kawal terus sampai tuntas!"</p>
+            <div class="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-full bg-zinc-200 text-zinc-800 font-bold text-xs flex items-center justify-center shrink-0 mono">U3</div>
+              <div class="text-[16px] leading-snug">
+                <span class="font-bold text-zinc-900">@rakyat_bersatu_id</span>
+                <p class="text-zinc-600 mt-1">"Jangan mau dipecah belah, tetap kawal terus sampai tuntas!"</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-zinc-50 p-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-700 leading-relaxed">
+          <div class="bg-zinc-50 p-4 rounded-xl border border-zinc-200 text-sm text-zinc-700 leading-relaxed">
             <strong>Tujuan Operasi:</strong> Memicu efek bandwagon agar persepsi tersebut tampak didukung mayoritas publik.
           </div>
         </div>
 
         <!-- Right: Backend System Reality (What Google Tag Sees) -->
-        <div class="bg-zinc-900 rounded-2xl p-5 border border-zinc-700 shadow-xl flex flex-col justify-between text-zinc-100">
+        <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-700 shadow-xl flex flex-col justify-between text-zinc-100">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <span class="text-xs font-bold uppercase tracking-wider text-zinc-300 mono flex items-center gap-1.5">
-              <i data-lucide="database" class="w-4 h-4 text-zinc-400"></i>
+            <span class="text-sm font-bold uppercase tracking-wider text-zinc-300 mono flex items-center gap-2">
+              <i data-lucide="database" class="w-5 h-5 text-zinc-400"></i>
               Back-End (Analisis Sistem)
             </span>
-            <span class="text-xs text-zinc-400 mono">Korelasi Jaringan</span>
+            <span class="text-sm text-zinc-400 mono">Korelasi Jaringan</span>
           </div>
 
           <!-- Architecture Reality Schematic -->
-          <div class="my-auto py-2 flex flex-col items-center justify-center gap-3">
+          <div class="my-auto py-3 flex flex-col items-center justify-center gap-5">
             
-            <div class="flex items-center justify-between w-full px-4">
-              <div class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-[11px] font-bold text-zinc-300 mono text-center">
-                3 Akun Berbeda <br> <span class="text-zinc-500 font-normal">Gmail Cookies</span>
+            <div class="flex items-center justify-between w-full px-2">
+              <div class="px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-sm font-bold text-zinc-200 mono text-center">
+                3 Akun Berbeda <br> <span class="text-zinc-400 font-normal text-xs">Gmail Cookies</span>
               </div>
-              <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
-              <div class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-[11px] font-bold text-amber-400 mono text-center">
-                1 Script Worker <br> <span class="text-zinc-500 font-normal">Payload Identik</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 text-[#c2410c]"></i>
+              <div class="px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-sm font-bold text-amber-400 mono text-center">
+                1 Script Worker <br> <span class="text-zinc-400 font-normal text-xs">Payload Identik</span>
               </div>
-              <i data-lucide="arrow-right" class="w-4 h-4 text-[#c2410c]"></i>
-              <div class="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-[11px] font-bold text-rose-300 mono text-center">
-                1 Server C2 <br> <span class="text-zinc-400 font-normal">Satu Pengendali</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 text-[#c2410c]"></i>
+              <div class="px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-sm font-bold text-rose-300 mono text-center">
+                1 Server C2 <br> <span class="text-zinc-300 font-normal text-xs">Satu Pengendali</span>
               </div>
             </div>
 
             <!-- Pipeline Log View -->
-            <div class="w-full bg-zinc-950 p-3 rounded-xl border border-zinc-800 text-[11px] font-mono text-zinc-300 mono space-y-1">
+            <div class="w-full bg-zinc-950 p-4 rounded-xl border border-zinc-800 text-sm font-mono text-zinc-300 mono space-y-2">
               <p class="text-zinc-500">// Google Trust & Safety Pattern Engine:</p>
               <p><span class="text-cyan-400">auth_cluster:</span> "SHARED_DEVICE_HASH_#774"</p>
               <p><span class="text-cyan-400">ip_pool:</span> "Residential Proxy Rotating Farm"</p>
-              <p><span class="text-rose-400 font-bold">verdict: INAUTHENTIC COORDINATED (BANNED)</span></p>
+              <p class="text-rose-400 font-bold pt-1 text-base">verdict: INAUTHENTIC COORDINATED (BANNED)</p>
             </div>
           </div>
 
-          <div class="bg-zinc-950 p-2.5 rounded-xl border border-zinc-800 text-xs text-zinc-400 flex justify-between mono">
+          <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800 text-sm text-zinc-300 flex justify-between mono">
             <span>Hasil Korelasi Database:</span>
-            <span class="text-zinc-200 font-bold">1 Server = 10.000 Akun</span>
+            <span class="text-zinc-100 font-bold">1 Server = 10.000 Akun</span>
           </div>
         </div>
 
@@ -158,13 +158,13 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+    <footer class="flex justify-between items-center text-[15px] text-zinc-500 pt-5 border-t border-zinc-200 z-10 mono">
       <div class="flex items-center gap-2">
         <span class="font-bold text-zinc-800">@logikanyatech</span>
         <span>•</span>
         <span>Instagram Carousel Series</span>
       </div>
-      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+      <div class="flex items-center gap-2 font-semibold text-[#c2410c]">
         <span>Matriks komparasi arsitektur</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </div>

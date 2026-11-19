@@ -36,135 +36,135 @@
 <body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
 
   <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
-  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between px-12 pt-8 pb-7 overflow-hidden blueprint-grid border border-zinc-200">
 
     <!-- HEADER / BRANDING -->
     <header class="flex justify-between items-center z-10">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
           <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
         </div>
-        <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+        <span class="font-black text-[26px] tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
       </div>
-      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wider text-zinc-700 uppercase mono">
         SLIDE 03 / 07
       </div>
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="my-auto z-10 flex flex-col gap-6">
+    <main class="flex-1 flex flex-col gap-7 py-5 z-10">
       
       <!-- Headline & Context -->
-      <div class="space-y-3">
-        <p class="text-sm font-medium text-zinc-500">Jejak Forensik 01 • Pola Waktu & Korelasi Jaringan</p>
-        <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
+      <div class="space-y-3.5">
+        <p class="text-base font-semibold text-zinc-500">Jejak Forensik 01 • Pola Waktu & Korelasi Jaringan</p>
+        <h2 class="text-[48px] font-black text-zinc-900 tracking-tight leading-[1.15] heading-poppins">
           Anomali Waktu Unggah Serentak: <br>
           <span class="text-[#c2410c]">Jejak Burst Timing & Klaster Tertutup</span>
         </h2>
-        <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+        <p class="text-[22px] text-zinc-600 font-normal leading-relaxed max-w-[980px]">
           Aktivitas pengguna organik menyebar acak sepanjang hari. Bot farm dikendalikan skrip otomatis: ratusan video dan komentar ditembakkan bersamaan dalam rentang milidetik.
         </p>
       </div>
 
       <!-- 50/50 VISUAL SPLIT: Timing Graph SVG + Network Clustering SVG -->
-      <div class="grid grid-cols-2 gap-6 pt-2">
+      <div class="flex-1 grid grid-cols-2 gap-6">
         
         <!-- Left: SVG Timing Distribution Analysis -->
-        <div class="bg-white rounded-2xl p-5 border border-zinc-200 shadow-sm flex flex-col justify-between">
+        <div class="bg-white rounded-2xl p-6 border border-zinc-200 shadow-sm flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
-            <span class="text-xs font-bold uppercase tracking-wider text-zinc-700 mono flex items-center gap-1.5">
-              <i data-lucide="activity" class="w-4 h-4 text-zinc-500"></i>
+            <span class="text-sm font-bold uppercase tracking-wider text-zinc-800 mono flex items-center gap-2">
+              <i data-lucide="activity" class="w-5 h-5 text-zinc-600"></i>
               Distribusi Waktu Aktivitas
             </span>
-            <span class="text-xs text-zinc-500 mono font-semibold">Lonjakan Serentak</span>
+            <span class="text-sm text-zinc-500 mono font-semibold">Lonjakan Serentak</span>
           </div>
 
           <!-- SVG Chart -->
-          <div class="my-auto py-2">
-            <svg viewBox="0 0 420 220" class="w-full h-[220px]">
+          <div class="my-auto py-4">
+            <svg viewBox="0 0 420 260" class="w-full h-[330px]">
               <!-- Grid lines -->
-              <line x1="40" y1="30" x2="400" y2="30" stroke="#f1f5f9" stroke-width="1" />
-              <line x1="40" y1="80" x2="400" y2="80" stroke="#f1f5f9" stroke-width="1" />
-              <line x1="40" y1="130" x2="400" y2="130" stroke="#f1f5f9" stroke-width="1" />
-              <line x1="40" y1="180" x2="400" y2="180" stroke="#e2e8f0" stroke-width="1.5" />
+              <line x1="40" y1="40" x2="400" y2="40" stroke="#f1f5f9" stroke-width="1.5" />
+              <line x1="40" y1="95" x2="400" y2="95" stroke="#f1f5f9" stroke-width="1.5" />
+              <line x1="40" y1="150" x2="400" y2="150" stroke="#f1f5f9" stroke-width="1.5" />
+              <line x1="40" y1="205" x2="400" y2="205" stroke="#e2e8f0" stroke-width="2" />
 
               <!-- X Axis Labels -->
-              <text x="50" y="198" fill="#94a3b8" font-size="10" font-family="Inter" class="mono">00:00</text>
-              <text x="140" y="198" fill="#94a3b8" font-size="10" font-family="Inter" class="mono">08:00</text>
-              <text x="230" y="198" fill="#94a3b8" font-size="10" font-family="Inter" class="mono">14:00</text>
-              <text x="320" y="198" fill="#94a3b8" font-size="10" font-family="Inter" class="mono">20:00</text>
+              <text x="50" y="230" fill="#64748b" font-size="13" font-weight="600" font-family="Inter" class="mono">00:00</text>
+              <text x="140" y="230" fill="#64748b" font-size="13" font-weight="600" font-family="Inter" class="mono">08:00</text>
+              <text x="230" y="230" fill="#64748b" font-size="13" font-weight="600" font-family="Inter" class="mono">14:00</text>
+              <text x="320" y="230" fill="#64748b" font-size="13" font-weight="600" font-family="Inter" class="mono">20:00</text>
 
               <!-- Organic Smooth Curve (Teal/Emerald) -->
-              <path d="M 40 170 Q 100 160 140 120 T 230 110 T 320 130 T 400 175" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" />
-              <text x="90" y="115" fill="#059669" font-size="10" font-weight="bold" font-family="Inter">Warga Alami (Menyebar)</text>
+              <path d="M 40 195 Q 100 185 140 135 T 230 120 T 320 145 T 400 200" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+              <text x="85" y="125" fill="#047857" font-size="13" font-weight="bold" font-family="Inter">Warga Alami (Menyebar)</text>
 
               <!-- Botnet Burst Spike (Terracotta Orange Vertical Spike) -->
-              <line x1="260" y1="180" x2="260" y2="35" stroke="#c2410c" stroke-width="4.5" stroke-linecap="round" />
-              <circle cx="260" cy="35" r="5" fill="#c2410c" />
-              <rect x="272" y="30" width="120" height="34" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1" />
-              <text x="280" y="44" fill="#c2410c" font-size="10" font-weight="bold" font-family="Inter">Botnet Burst Event</text>
-              <text x="280" y="58" fill="#7c2d12" font-size="9" font-family="Inter" class="mono">500+ upload / 30 detik</text>
+              <line x1="260" y1="205" x2="260" y2="45" stroke="#c2410c" stroke-width="5.5" stroke-linecap="round" />
+              <circle cx="260" cy="45" r="7" fill="#c2410c" />
+              <rect x="268" y="36" width="142" height="46" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5" />
+              <text x="278" y="55" fill="#c2410c" font-size="13" font-weight="bold" font-family="Inter">Botnet Burst Event</text>
+              <text x="278" y="73" fill="#7c2d12" font-size="11" font-weight="600" font-family="Inter" class="mono">500+ upload / 30 detik</text>
             </svg>
           </div>
 
-          <div class="bg-zinc-50 p-2.5 rounded-xl border border-zinc-200 text-xs text-zinc-600 flex justify-between mono">
+          <div class="bg-zinc-50 p-4 rounded-xl border border-zinc-200 text-sm text-zinc-700 flex justify-between mono">
             <span>DISTRIBUSI ORGANIK: POISSON</span>
             <span class="text-[#c2410c] font-bold">BURST: DETERMINISTIK</span>
           </div>
         </div>
 
         <!-- Right: Graph Clustering Node Density -->
-        <div class="bg-zinc-900 rounded-2xl p-5 border border-zinc-700 shadow-xl flex flex-col justify-between text-zinc-100">
+        <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-700 shadow-xl flex flex-col justify-between text-zinc-100">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <span class="text-xs font-bold uppercase tracking-wider text-zinc-300 mono flex items-center gap-1.5">
-              <i data-lucide="share-2" class="w-4 h-4 text-zinc-400"></i>
+            <span class="text-sm font-bold uppercase tracking-wider text-zinc-300 mono flex items-center gap-2">
+              <i data-lucide="share-2" class="w-5 h-5 text-zinc-400"></i>
               Analisis Klaster Jaringan
             </span>
-            <span class="text-xs text-zinc-400 mono">Kerapatan Hubungan</span>
+            <span class="text-sm text-zinc-400 mono">Kerapatan Hubungan</span>
           </div>
 
-          <div class="my-auto py-2 flex items-center justify-center">
-            <svg viewBox="0 0 420 180" class="w-full h-[180px]">
+          <div class="my-auto py-4 flex items-center justify-center">
+            <svg viewBox="0 0 420 220" class="w-full h-[290px]">
               <!-- Dense Interconnected Cluster A -->
-              <circle cx="130" cy="90" r="50" fill="#c2410c" fill-opacity="0.1" stroke="#c2410c" stroke-dasharray="2 2" />
+              <circle cx="130" cy="100" r="62" fill="#c2410c" fill-opacity="0.12" stroke="#c2410c" stroke-dasharray="3 3" stroke-width="1.5" />
               
               <!-- Edges -->
-              <line x1="110" y1="70" x2="150" y2="70" stroke="#71717a" stroke-width="1" />
-              <line x1="110" y1="70" x2="130" y2="110" stroke="#71717a" stroke-width="1" />
-              <line x1="150" y1="70" x2="130" y2="110" stroke="#71717a" stroke-width="1" />
-              <line x1="90" y1="95" x2="130" y2="110" stroke="#71717a" stroke-width="1" />
-              <line x1="170" y1="95" x2="150" y2="70" stroke="#71717a" stroke-width="1" />
+              <line x1="105" y1="75" x2="155" y2="75" stroke="#a1a1aa" stroke-width="1.8" />
+              <line x1="105" y1="75" x2="130" y2="120" stroke="#a1a1aa" stroke-width="1.8" />
+              <line x1="155" y1="75" x2="130" y2="120" stroke="#a1a1aa" stroke-width="1.8" />
+              <line x1="85" y1="105" x2="130" y2="120" stroke="#a1a1aa" stroke-width="1.8" />
+              <line x1="175" y1="105" x2="155" y2="75" stroke="#a1a1aa" stroke-width="1.8" />
 
               <!-- Nodes in Cluster -->
-              <circle cx="110" cy="70" r="7" fill="#c2410c" />
-              <circle cx="150" cy="70" r="7" fill="#c2410c" />
-              <circle cx="130" cy="110" r="9" fill="#0891b2" />
-              <circle cx="90" cy="95" r="6" fill="#c2410c" />
-              <circle cx="170" cy="95" r="6" fill="#c2410c" />
+              <circle cx="105" cy="75" r="9" fill="#c2410c" />
+              <circle cx="155" cy="75" r="9" fill="#c2410c" />
+              <circle cx="130" cy="120" r="11" fill="#0891b2" />
+              <circle cx="85" cy="105" r="8" fill="#c2410c" />
+              <circle cx="175" cy="105" r="8" fill="#c2410c" />
 
-              <text x="130" y="155" text-anchor="middle" fill="#f43f5e" font-size="11" font-weight="bold" font-family="Poppins">Klaster Tertutup (CIB)</text>
-              <text x="130" y="170" text-anchor="middle" fill="#a1a1aa" font-size="9" font-family="Inter" class="mono">Koefisien Hubungan: 0.94</text>
+              <text x="130" y="180" text-anchor="middle" fill="#fb7185" font-size="14" font-weight="bold" font-family="Poppins">Klaster Tertutup (CIB)</text>
+              <text x="130" y="200" text-anchor="middle" fill="#d4d4d8" font-size="12" font-family="Inter" class="mono">Koefisien Hubungan: 0.94</text>
 
               <!-- Organic Random Nodes (Spread out) -->
-              <circle cx="310" cy="50" r="7" fill="#10b981" />
-              <circle cx="360" cy="90" r="8" fill="#10b981" />
-              <circle cx="280" cy="120" r="6" fill="#10b981" />
-              <circle cx="340" cy="140" r="7" fill="#10b981" />
+              <circle cx="310" cy="55" r="9" fill="#10b981" />
+              <circle cx="365" cy="100" r="10" fill="#10b981" />
+              <circle cx="280" cy="130" r="8" fill="#10b981" />
+              <circle cx="345" cy="155" r="9" fill="#10b981" />
               
-              <line x1="310" y1="50" x2="360" y2="90" stroke="#3f3f46" stroke-width="1" stroke-dasharray="3 3" />
-              <line x1="280" y1="120" x2="340" y2="140" stroke="#3f3f46" stroke-width="1" stroke-dasharray="3 3" />
+              <line x1="310" y1="55" x2="365" y2="100" stroke="#52525b" stroke-width="1.8" stroke-dasharray="3 3" />
+              <line x1="280" y1="130" x2="345" y2="155" stroke="#52525b" stroke-width="1.8" stroke-dasharray="3 3" />
 
-              <text x="325" y="170" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold" font-family="Poppins">Graf Organik (Alami)</text>
+              <text x="325" y="195" text-anchor="middle" fill="#34d399" font-size="14" font-weight="bold" font-family="Poppins">Graf Organik (Alami)</text>
             </svg>
           </div>
 
-          <div class="grid grid-cols-2 gap-2 text-xs mono">
-            <div class="bg-zinc-950 p-2 rounded-lg border border-zinc-800">
-              <span class="text-zinc-400 block text-[10px]">TIME DELTA</span>
+          <div class="grid grid-cols-2 gap-3 text-sm mono">
+            <div class="bg-zinc-950 p-3.5 rounded-xl border border-zinc-800">
+              <span class="text-zinc-400 block text-xs">TIME DELTA</span>
               <span class="text-rose-400 font-bold">&lt; 420 ms (Synchronous)</span>
             </div>
-            <div class="bg-zinc-950 p-2 rounded-lg border border-zinc-800">
-              <span class="text-zinc-400 block text-[10px]">GRAPH DENSITY</span>
+            <div class="bg-zinc-950 p-3.5 rounded-xl border border-zinc-800">
+              <span class="text-zinc-400 block text-xs">GRAPH DENSITY</span>
               <span class="text-amber-400 font-bold">0.94 (Abnormal High)</span>
             </div>
           </div>
@@ -175,13 +175,13 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+    <footer class="flex justify-between items-center text-[15px] text-zinc-500 pt-5 border-t border-zinc-200 z-10 mono">
       <div class="flex items-center gap-2">
         <span class="font-bold text-zinc-800">@logikanyatech</span>
         <span>•</span>
         <span>Instagram Carousel Series</span>
       </div>
-      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+      <div class="flex items-center gap-2 font-semibold text-[#c2410c]">
         <span>Lanjut ke sidik jari perangkat</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </div>

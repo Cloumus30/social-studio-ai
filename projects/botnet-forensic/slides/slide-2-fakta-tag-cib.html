@@ -36,100 +36,100 @@
 <body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
 
   <!-- CAROUSEL SLIDE 4:5 CONTAINER (1080 x 1350) -->
-  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between p-16 overflow-hidden blueprint-grid border border-zinc-200">
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between px-12 pt-8 pb-7 overflow-hidden blueprint-grid border border-zinc-200">
 
     <!-- HEADER / BRANDING -->
     <header class="flex justify-between items-center z-10">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
           <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
         </div>
-        <span class="font-black text-2xl tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+        <span class="font-black text-[26px] tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
       </div>
-      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+      <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wider text-zinc-700 uppercase mono">
         SLIDE 02 / 07
       </div>
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="my-auto z-10 flex flex-col gap-6">
+    <main class="flex-1 flex flex-col gap-7 py-5 z-10">
       
       <!-- Headline & Context -->
-      <div class="space-y-3">
-        <p class="text-sm font-medium text-zinc-500">Laporan Google Threat Analysis Group (TAG)</p>
-        <h2 class="text-4xl font-extrabold text-zinc-900 tracking-tight leading-[1.2] heading-poppins">
+      <div class="space-y-3.5">
+        <p class="text-base font-semibold text-zinc-500">Laporan Google Threat Analysis Group (TAG)</p>
+        <h2 class="text-[48px] font-black text-zinc-900 tracking-tight leading-[1.15] heading-poppins">
           Pelanggaran Coordinated Inauthentic Behavior: <br>
           <span class="text-[#c2410c]">Ketika Ribuan Akun Digerakkan Satu Skrip</span>
         </h2>
-        <p class="text-lg text-zinc-600 font-normal leading-relaxed max-w-[950px]">
+        <p class="text-[22px] text-zinc-600 font-normal leading-relaxed max-w-[980px]">
           Warga bebas menyuarakan opini apa pun. Google menindak 28.000+ kanal karena rekayasa interaksi terprogram: ribuan akun otomatis dikerahkan serentak untuk memanipulasi algoritma rekomendasi.
         </p>
       </div>
 
       <!-- 50/50 VISUAL SPLIT: Terminal Log Inspector + Analogy Box -->
-      <div class="grid grid-cols-2 gap-6 pt-2">
+      <div class="flex-1 grid grid-cols-2 gap-6">
         
         <!-- Left: Realistic Terminal Window Log Mockup -->
-        <div class="bg-zinc-900 rounded-2xl p-4 border border-zinc-700 shadow-xl flex flex-col justify-between">
+        <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-700 shadow-xl flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <span class="text-xs text-zinc-400 font-medium mono">tag-bulletin-q3-2026.log</span>
-            <span class="text-xs text-zinc-500 mono">Pemeriksaan TAG</span>
+            <span class="text-sm text-zinc-300 font-medium mono">tag-bulletin-q3-2026.log</span>
+            <span class="text-sm text-zinc-500 mono">Pemeriksaan TAG</span>
           </div>
 
-          <div class="py-4 space-y-2 text-xs font-mono text-zinc-300 mono leading-relaxed">
-            <p class="text-zinc-500"># Security Engine Investigation Q3 2026</p>
+          <div class="py-4 space-y-3 text-[16px] font-mono text-zinc-300 mono leading-relaxed">
+            <p class="text-zinc-500">// Security Engine Investigation Q3 2026</p>
             <p><span class="text-cyan-400">target_region:</span> "Indonesia (ID)"</p>
             <p><span class="text-cyan-400">violation_code:</span> <span class="text-rose-400 font-bold">COORDINATED_INAUTHENTIC</span></p>
-            <div class="p-2.5 bg-zinc-950 rounded-lg border border-zinc-800 space-y-1 my-2">
+            <div class="p-4 bg-zinc-950 rounded-xl border border-zinc-800 space-y-2 my-4">
               <p class="text-amber-400 font-semibold">• 2025 Total Banned: 4.499 channels</p>
               <p class="text-amber-400 font-semibold">• Jan - Sep 2026: 23.827 channels</p>
               <p class="text-rose-400 font-bold">• Peak Month (Aug 2026): 10.134 channels</p>
-              <p class="text-emerald-400">• Total Action Taken: 28.326 channels</p>
+              <p class="text-emerald-400 font-bold">• Total Action Taken: 28.326 channels</p>
             </div>
             <p class="text-zinc-400"><span class="text-emerald-400">✓ action_status:</span> Terminated permanently</p>
           </div>
 
-          <div class="bg-zinc-950 p-2 rounded-lg border border-zinc-800 text-[11px] text-zinc-400 flex items-center justify-between mono">
+          <div class="bg-zinc-950 p-3.5 rounded-xl border border-zinc-800 text-xs text-zinc-400 flex items-center justify-between mono">
             <span>Platform: YouTube & Ads</span>
             <span class="text-zinc-200 font-semibold">Tindakan Permanen</span>
           </div>
         </div>
 
         <!-- Right: Analogi Ramah Pemula & Bedah Konsep CIB -->
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col justify-between gap-5">
           
           <!-- Box Analogi Lapangan Bola -->
-          <div class="bg-white border border-zinc-200 rounded-2xl p-5 flex flex-col justify-between shadow-sm">
+          <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-              <div class="flex items-center gap-2 mb-2 text-zinc-900 font-bold text-sm heading-poppins">
-                <i data-lucide="help-circle" class="w-4 h-4 text-[#c2410c]"></i>
+              <div class="flex items-center gap-2 mb-3 text-zinc-900 font-bold text-lg heading-poppins">
+                <i data-lucide="help-circle" class="w-5 h-5 text-[#c2410c]"></i>
                 <span>Glosarium Singkat: Apa itu CIB?</span>
               </div>
-              <p class="text-sm text-zinc-700 leading-relaxed">
+              <p class="text-[17px] text-zinc-700 leading-relaxed">
                 Ibarat di stadion ada <strong>1 orang</strong> yang menyalakan <strong>10.000 speaker kecil</strong> bersamaan. Suara rekaman yang sama diputar serentak agar orang di luar mengira ada ribuan penonton asli yang sedang bersorak.
               </p>
             </div>
-            <div class="mt-3 pt-3 border-t border-zinc-100 flex items-center justify-between text-xs text-zinc-500 mono font-semibold">
+            <div class="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between text-sm text-zinc-500 mono font-semibold">
               <span>1 Pengendali</span>
-              <span>➔</span>
+              <span class="text-[#c2410c] font-bold">➔</span>
               <span>10.000 Akun Otomatis</span>
             </div>
           </div>
 
           <!-- Indikator Pelanggaran -->
-          <div class="bg-white border border-zinc-200 rounded-2xl p-5 flex flex-col justify-between shadow-sm">
-            <h4 class="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-2 mono">Indikator Pelanggaran Utama:</h4>
-            <ul class="space-y-2 text-xs text-zinc-700">
-              <li class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#c2410c] shrink-0 mt-1.5"></span>
+          <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
+            <h4 class="text-sm font-bold text-zinc-800 uppercase tracking-wider mb-3 mono">Indikator Pelanggaran Utama:</h4>
+            <ul class="space-y-2.5 text-[16px] text-zinc-700">
+              <li class="flex items-start gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-[#c2410c] shrink-0 mt-2"></span>
                 <span><strong>Identitas Otomatis:</strong> Akun dibuat massal tanpa aktivitas manusia riil.</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#c2410c] shrink-0 mt-1.5"></span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-[#c2410c] shrink-0 mt-2"></span>
                 <span><strong>Sinkronisasi Skrip:</strong> Ribuan konten diunggah serempak dalam hitungan detik.</span>
               </li>
-              <li class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#c2410c] shrink-0 mt-1.5"></span>
+              <li class="flex items-start gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-[#c2410c] shrink-0 mt-2"></span>
                 <span><strong>Manipulasi Algoritma:</strong> Membanjiri rekomendasi pencarian publik.</span>
               </li>
             </ul>
@@ -142,13 +142,13 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="flex justify-between items-center text-xs text-zinc-500 pt-6 border-t border-zinc-200 z-10 mono">
+    <footer class="flex justify-between items-center text-[15px] text-zinc-500 pt-5 border-t border-zinc-200 z-10 mono">
       <div class="flex items-center gap-2">
         <span class="font-bold text-zinc-800">@logikanyatech</span>
         <span>•</span>
         <span>Instagram Carousel Series</span>
       </div>
-      <div class="flex items-center gap-1.5 font-semibold text-[#c2410c]">
+      <div class="flex items-center gap-2 font-semibold text-[#c2410c]">
         <span>Lanjut ke jejak forensik pertama</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </div>
