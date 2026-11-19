@@ -40,68 +40,66 @@
   <!-- HEADER / BRANDING (Selaras dengan Slide 1-6) -->
   <header class="flex justify-between items-center z-10">
     <div class="flex items-center gap-3.5">
-      <div class="w-11 h-11 p-1 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+      <div class="w-12 h-12 p-1.5 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
         <img src="../assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
       </div>
-      <span class="font-black text-[26px] tracking-tight text-zinc-900 font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+      <span class="font-black text-[28px] tracking-tight text-zinc-900 font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
     </div>
-    <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wider text-zinc-700 uppercase mono">
+    <div class="bg-zinc-100 border border-zinc-300 px-5 py-2 rounded-full text-[15px] font-bold tracking-wider text-zinc-700 uppercase mono">
       SLIDE 07 / 07
     </div>
   </header>
 
   <!-- BODY CONTENT -->
-  <main class="relative z-10 flex-1 flex flex-col gap-6 py-5">
+  <main class="relative z-10 flex-1 flex flex-col justify-between py-4">
     <!-- Top Text Section (Ramah, Bebas Overclaim, Tanpa Eyebrow Pill) -->
-    <div class="space-y-3.5">
-      <h1 class="text-[52px] font-black leading-[1.14] tracking-tight text-[#18181b] font-heading">
+    <div class="space-y-3">
+      <h1 class="text-[50px] font-black leading-[1.14] tracking-tight text-[#18181b] font-heading">
         Suka Bahasan Teknis Praktis Kayak Gini? <br/>
         <span class="text-[#c2410c]">Yuk Konek di @logikanyatech</span>
       </h1>
-      <p class="text-[23px] text-slate-600 font-normal leading-relaxed">
+      <p class="text-[22px] text-slate-600 font-normal leading-relaxed">
         Berbagi catatan arsitektur sistem dan teknologi tanpa jargon yang bikin pusing.
       </p>
     </div>
 
     <!-- PURE TRANSPARENT SEAMLESS 3D SHOWCASE -->
-    <div class="relative w-full flex-1 min-h-[640px] flex items-center justify-center">
+    <div class="relative w-full h-[520px] flex items-center justify-center overflow-hidden">
       <canvas id="three-canvas" class="w-full h-full block"></canvas>
     </div>
 
     <!-- 1 BAR CTA HORIZONTAL ELEGAN -->
     <div class="flex items-center gap-4 w-full">
       <!-- Tombol Follow Utama (Oranye Lapang) -->
-      <div class="flex-1 p-5 rounded-2xl bg-[#c2410c] text-white flex items-center justify-center gap-3 font-extrabold text-[22px] shadow-md shadow-orange-500/15 font-heading">
-        <i data-lucide="user-plus" class="w-7 h-7"></i>
+      <div class="flex-1 py-4 px-5 rounded-2xl bg-[#c2410c] text-white flex items-center justify-center gap-3 font-extrabold text-[20px] shadow-md shadow-orange-500/15 font-heading">
+        <i data-lucide="user-plus" class="w-6 h-6"></i>
         <span>Follow @logikanyatech</span>
       </div>
 
       <!-- Aksi Ringan 1: Save -->
-      <div class="px-7 py-5 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-[18px] flex items-center gap-2.5 shadow-xs">
-        <i data-lucide="bookmark" class="w-6 h-6 text-[#c2410c]"></i>
+      <div class="px-6 py-4 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-[17px] flex items-center gap-2.5 shadow-xs">
+        <i data-lucide="bookmark" class="w-5 h-5 text-[#c2410c]"></i>
         <span>Simpan</span>
       </div>
 
       <!-- Aksi Ringan 2: Share -->
-      <div class="px-7 py-5 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-[18px] flex items-center gap-2.5 shadow-xs">
-        <i data-lucide="share-2" class="w-6 h-6 text-slate-600"></i>
+      <div class="px-6 py-4 rounded-2xl bg-[#f8fafc] border border-slate-200 text-slate-700 font-bold text-[17px] flex items-center gap-2.5 shadow-xs">
+        <i data-lucide="share-2" class="w-5 h-5 text-slate-600"></i>
         <span>Bagikan</span>
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="flex justify-between items-center text-[15px] text-zinc-500 pt-5 border-t border-zinc-200 z-10 mono">
-    <div class="flex items-center gap-2">
-      <span class="font-bold text-zinc-800">@logikanyatech</span>
-      <span>•</span>
-      <span>Instagram Carousel Series</span>
+  <footer class="flex justify-between items-center text-[19px] text-zinc-600 pt-5 border-t-2 border-zinc-200 z-10 mono">
+    <div class="flex items-center gap-2.5">
+      <span class="font-black text-zinc-900 text-[20px]">@logikanyatech</span>
+      <span class="text-zinc-400">•</span>
+      <span class="text-[18px]">Instagram Carousel Series</span>
     </div>
-    <div class="flex items-center gap-2 font-semibold text-[#c2410c]">
+    <div class="flex items-center gap-2.5 font-bold text-[#c2410c]">
       <span>Terima kasih telah membaca</span>
       <i data-lucide="check-check" class="w-5 h-5 text-[#c2410c]"></i>
-    </div>
-  </footer>
     </div>
   </footer>
 
@@ -109,8 +107,8 @@
   <script>
     (function init3D() {
       const canvas = document.getElementById('three-canvas');
-      const width = canvas.parentElement.clientWidth;
-      const height = canvas.parentElement.clientHeight;
+      const width = 984;
+      const height = 520;
 
       // 1. Scene & Camera
       const scene = new THREE.Scene();

@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1080, height=1920, initial-scale=1.0">
-  <title>Starter Story Teaser (Logikanya.Tech Dual-Photo Standard)</title>
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Starter Story Teaser 4:5 (Logikanya.Tech Standard)</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & Poppins -->
@@ -18,12 +18,18 @@
       margin: 0;
       padding: 0;
       width: 1080px;
-      height: 1920px;
+      height: 1350px;
       overflow: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3, h4, .font-heading {
+    .heading-poppins {
       font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
     }
     .mono {
       font-family: 'Inter', sans-serif;
@@ -34,104 +40,100 @@
   </style>
 </head>
 
-<body class="bg-white text-[#18181b] flex flex-col justify-between px-14 pt-12 pb-10 relative">
-  <!-- Blueprint Square Line Grid Pattern (40x40px) -->
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+<body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
 
-  <!-- TOP HEADER -->
-  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6">
-    <div class="flex items-center gap-4">
-      <div class="w-14 h-14 p-1.5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
-        <img src="./assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
+  <!-- STORY TEASER 4:5 CONTAINER (1080 x 1350) -->
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between px-12 pt-8 pb-7 overflow-hidden blueprint-grid border border-zinc-200">
+
+    <!-- TOP HEADER -->
+    <header class="relative z-10 flex items-center justify-between border-b border-zinc-200 pb-5">
+      <div class="flex items-center gap-3.5">
+        <div class="w-12 h-12 p-1.5 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+          <img src="./assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
+        </div>
+        <span class="font-black text-[28px] tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
       </div>
-      <span class="font-extrabold text-3xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
-    </div>
-    <span class="px-5 py-2.5 rounded-full bg-orange-50 border border-orange-200 text-[#c2410c] text-sm font-bold tracking-wider uppercase">
-      NEW CAROUSEL IN FEED
-    </span>
-  </header>
+      <div class="bg-zinc-100 border border-zinc-300 px-5 py-2 rounded-full text-[15px] font-bold tracking-wider text-zinc-700 uppercase mono">
+        TEASER • CAROUSEL FEED
+      </div>
+    </header>
 
-  <!-- BODY CONTENT (HOOK + DUAL PHOTO SPLIT) -->
-  <main class="relative z-10 flex-1 flex flex-col justify-between py-8">
-    <div class="space-y-4">
-      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-extrabold uppercase tracking-wider">
-        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-        <span>HOOK TOPIK UTAMA</span>
-      </span>
-      <h1 class="text-[64px] font-black leading-[1.12] tracking-tight text-[#18181b]">
-        Judul Teaser Besar, <br/>
-        <span class="text-[#c2410c]">Dua Inovasi Ini</span> <br/>
-        Ubah Standar Industri
-      </h1>
-      <p class="text-[25px] text-slate-600 font-normal leading-relaxed">
-        Penjelasan 1-2 baris yang menggugah rasa ingin tahu audiens untuk membaca slide lengkap di feed.
-      </p>
-    </div>
-
-    <!-- DUAL REAL HARDWARE PHOTOS BERDAMPINGAN -->
-    <div class="grid grid-cols-2 gap-6">
-      <!-- Foto Kiri: Hardware / Komponen 1 -->
-      <div class="relative rounded-[28px] overflow-hidden border border-slate-200 shadow-sm bg-slate-900 h-[560px] flex flex-col justify-between">
-        <img 
-          src="./assets/foto-kiri.jpg" 
-          alt="Foto Komponen Kiri" 
-          class="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] brightness-[0.95]"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/40"></div>
-
-        <!-- Top Badge (Nama Komponen Teknis Resmi) -->
-        <div class="relative z-10 p-5">
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-black/65 backdrop-blur-md text-white text-xs font-black mono border border-white/20">
-            <i data-lucide="cpu" class="w-3.5 h-3.5 text-amber-400"></i>
-            KOMPONEN TEKNIS A
-          </span>
-        </div>
-
-        <!-- Bottom Caption -->
-        <div class="relative z-10 p-5 text-white space-y-1">
-          <h4 class="font-black text-xl text-white">Nama Inovasi A</h4>
-          <p class="text-xs text-slate-200 leading-relaxed">
-            Keterangan peran komponen ini dalam menyelesaikan masalah pokok.
-          </p>
-        </div>
+    <!-- BODY CONTENT -->
+    <main class="relative z-10 flex-1 flex flex-col gap-6 py-4">
+      <div class="space-y-3">
+        <p class="text-[17px] font-semibold text-zinc-500">Kategori Topik • Subtopik</p>
+        <h1 class="text-[50px] font-black leading-[1.14] tracking-tight text-zinc-900 heading-poppins">
+          Judul Teaser yang Menggugah: <br/>
+          <span class="text-[#c2410c]">Satu Baris Penjelasan</span> Kunci Masalah
+        </h1>
+        <p class="text-[22px] text-zinc-600 font-normal leading-relaxed max-w-[980px]">
+          Deskripsi pengantar singkat tanpa basa-basi yang mengajak audiens membaca slide lengkap di feed.
+        </p>
       </div>
 
-      <!-- Foto Kanan: Hardware / Komponen 2 -->
-      <div class="relative rounded-[28px] overflow-hidden border border-slate-200 shadow-sm bg-slate-900 h-[560px] flex flex-col justify-between">
-        <img 
-          src="./assets/foto-kanan.jpg" 
-          alt="Foto Komponen Kanan" 
-          class="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] brightness-[0.98]"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/40"></div>
-
-        <!-- Top Badge (Nama Komponen Teknis Resmi) -->
-        <div class="relative z-10 p-5">
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-black/65 backdrop-blur-md text-white text-xs font-black mono border border-white/20">
-            <i data-lucide="zap" class="w-3.5 h-3.5 text-cyan-400"></i>
-            KOMPONEN TEKNIS B
-          </span>
+      <!-- DUAL PHOTO REAL HARDWARE SPLIT -->
+      <div class="flex-1 grid grid-cols-2 gap-6 min-h-[460px]">
+        <!-- Foto Kiri -->
+        <div class="p-4 bg-zinc-900 rounded-2xl border border-zinc-700 shadow-xl flex flex-col justify-between">
+          <div class="flex items-center justify-between pb-3 px-2 text-zinc-300 text-[15px] border-b border-zinc-800 mono font-semibold">
+            <span class="flex items-center gap-2">
+              <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+              KOMPONEN HARDWARE A
+            </span>
+          </div>
+          <div class="relative w-full flex-1 min-h-[380px] rounded-xl overflow-hidden mt-3 bg-zinc-950">
+            <img src="./assets/foto-kiri.jpg" alt="Foto Komponen Kiri" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 bg-zinc-900/95 backdrop-blur-md border border-zinc-700 p-4 rounded-xl">
+              <p class="text-[17px] font-bold text-zinc-100 mono">PARAMETER TEKNIS 1</p>
+              <p class="text-[14px] text-zinc-300 mt-0.5">Penjelasan fungsi fisik komponen di dunia nyata</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Bottom Caption -->
-        <div class="relative z-10 p-5 text-white space-y-1">
-          <h4 class="font-black text-xl text-white">Nama Inovasi B</h4>
-          <p class="text-xs text-slate-200 leading-relaxed">
-            Keterangan keunggulan komparatif dari teknologi pendamping kedua.
-          </p>
+        <!-- Foto Kanan -->
+        <div class="p-4 bg-zinc-900 rounded-2xl border border-zinc-700 shadow-xl flex flex-col justify-between">
+          <div class="flex items-center justify-between pb-3 px-2 text-zinc-300 text-[15px] border-b border-zinc-800 mono font-semibold">
+            <span class="flex items-center gap-2">
+              <i data-lucide="server" class="w-4 h-4 text-orange-400"></i>
+              KOMPONEN HARDWARE B
+            </span>
+          </div>
+          <div class="relative w-full flex-1 min-h-[380px] rounded-xl overflow-hidden mt-3 bg-zinc-950">
+            <img src="./assets/foto-kanan.jpg" alt="Foto Komponen Kanan" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 bg-zinc-900/95 backdrop-blur-md border border-zinc-700 p-4 rounded-xl">
+              <p class="text-[17px] font-bold text-zinc-100 mono">PARAMETER TEKNIS 2</p>
+              <p class="text-[14px] text-zinc-300 mt-0.5">Penjelasan fungsi fisik komponen pendamping</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <!-- BOTTOM CTA -->
-  <footer class="relative z-10 pt-6 flex flex-col items-center gap-5 border-t border-slate-200">
-    <div class="w-full p-6 rounded-2xl bg-[#c2410c] text-white font-extrabold text-2xl flex items-center justify-center gap-3 shadow-md shadow-orange-500/10">
-      <span>Buka Feed buat Baca 6 Slide Lengkapnya 👉</span>
-    </div>
-    <p class="text-slate-500 text-base mono font-semibold">@logikanyatech • Catatan Teknik &amp; Arsitektur Sistem</p>
-  </footer>
+    <!-- BOTTOM CALL TO ACTION -->
+    <footer class="relative z-10 border-t-2 border-zinc-200 pt-5">
+      <div class="p-5 rounded-2xl bg-zinc-900 text-white flex items-center justify-between shadow-xl border border-zinc-700">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-xl bg-[#c2410c] flex items-center justify-center font-bold text-white shadow-md shrink-0">
+            <i data-lucide="book-open" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-[22px] text-white heading-poppins">Baca Pembahasan Lengkap di Feed</h4>
+            <p class="text-[16px] text-zinc-400 mono mt-0.5">Tersedia sekarang di carousel @logikanyatech</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#c2410c] text-white font-black text-[18px] shadow-sm shrink-0">
+          <span>Buka Feed</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </div>
+      </div>
+    </footer>
 
-  <script>lucide.createIcons();</script>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1080, height=1920, initial-scale=1.0">
-  <title>Story Teaser - Forensik Buzzer Google TAG</title>
+  <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+  <title>Story Teaser (4:5) - Forensik Buzzer Google TAG</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & Poppins -->
@@ -18,12 +18,18 @@
       margin: 0;
       padding: 0;
       width: 1080px;
-      height: 1920px;
+      height: 1350px;
       overflow: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3, h4, .font-heading {
+    .heading-poppins {
       font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
     }
     .mono {
       font-family: 'Inter', sans-serif;
@@ -34,105 +40,101 @@
   </style>
 </head>
 
-<body class="bg-white text-[#18181b] flex flex-col justify-between px-14 pt-12 pb-10 relative">
-  <!-- Blueprint Square Line Grid Pattern (40x40px) -->
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
+<body class="bg-white text-zinc-900 flex justify-center items-center min-h-screen">
 
-  <!-- TOP HEADER -->
-  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6">
-    <div class="flex items-center gap-4">
-      <div class="w-14 h-14 p-1.5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
-        <img src="./assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
-      </div>
-      <span class="font-black text-[30px] leading-tight text-[#18181b] font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
-    </div>
-    <span class="text-sm font-semibold text-zinc-500 uppercase tracking-wider mono">
-      Catatan Forensik Keamanan
-    </span>
-  </header>
+  <!-- STORY TEASER 4:5 CONTAINER (1080 x 1350) -->
+  <div class="w-[1080px] h-[1350px] bg-white relative flex flex-col justify-between px-12 pt-8 pb-7 overflow-hidden blueprint-grid border border-zinc-200">
 
-  <!-- BODY CONTENT (HOOK + DUAL PHOTO SPLIT) -->
-  <main class="relative z-10 flex-1 flex flex-col gap-8 py-6">
-    <div class="space-y-4">
-      <h1 class="text-[64px] font-black leading-[1.12] tracking-tight text-[#18181b] font-heading">
-        28.000 Kanal Dihapus: <br/>
-        <span class="text-[#c2410c]">Cara Algoritma Melacak</span> <br/>
-        Jaringan Akun Botnet
-      </h1>
-      <p class="text-[25px] text-slate-600 font-normal leading-relaxed max-w-[920px]">
-        Laporan resmi Google TAG mengungkap pembersihan puluhan ribu kanal di Indonesia. Simak anatomi teknis cara sistem backend melacak jejak operasinya.
-      </p>
-    </div>
-
-    <!-- Terminal Status Banner -->
-    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-5 text-sm font-mono text-zinc-300 mono flex items-center justify-between shadow-lg">
-      <div class="flex items-center gap-3">
-        <span>Laporan Google TAG Q3 2026:</span>
-        <span class="text-zinc-100 font-bold">28.326 kanal dinonaktifkan</span>
-      </div>
-      <span class="text-emerald-400 font-bold">Status: Enforced</span>
-    </div>
-
-    <!-- DUAL PHOTO REAL HARDWARE SPLIT (HALLMARK COMPLIANT) -->
-    <div class="flex-1 grid grid-cols-2 gap-6">
-      
-      <!-- PHOTO 1: DATA CENTER INFRASTRUCTURE -->
-      <div class="p-4 bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl flex flex-col justify-between">
-        <div class="flex items-center justify-between pb-3 px-2 text-slate-400 text-xs border-b border-slate-800 mono">
-          <span class="flex items-center gap-2">
-            <i data-lucide="server" class="w-4 h-4 text-cyan-400"></i>
-            BACKEND INFRASTRUCTURE
-          </span>
+    <!-- TOP HEADER -->
+    <header class="relative z-10 flex items-center justify-between border-b border-zinc-200 pb-5">
+      <div class="flex items-center gap-3.5">
+        <div class="w-12 h-12 p-1.5 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+          <img src="./assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
         </div>
-        <div class="relative w-full flex-1 min-h-[680px] rounded-2xl overflow-hidden mt-3 bg-slate-950">
-          <img src="./assets/datacenter-servers.jpg" alt="Data Center Servers" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-md border border-slate-700 p-4 rounded-xl">
-            <p class="text-sm font-bold text-slate-200 mono">DETECTION ENGINE CLUSTER</p>
-            <p class="text-xs text-slate-400 mt-1">Pemindaian anomali traffic & Poisson burst timing</p>
+        <span class="font-black text-[28px] tracking-tight text-zinc-900 heading-poppins">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+      </div>
+      <div class="bg-zinc-100 border border-zinc-300 px-5 py-2 rounded-full text-[15px] font-bold tracking-wider text-zinc-700 uppercase mono">
+        TEASER • CAROUSEL FEED
+      </div>
+    </header>
+
+    <!-- BODY CONTENT (HOOK + DUAL REAL HARDWARE PHOTOS) -->
+    <main class="relative z-10 flex-1 flex flex-col gap-6 py-4">
+      <div class="space-y-3">
+        <p class="text-[17px] font-semibold text-zinc-500">Catatan Forensik Keamanan • Google TAG</p>
+        <h1 class="text-[50px] font-black leading-[1.14] tracking-tight text-zinc-900 heading-poppins">
+          28.000 Kanal Dihapus Google: <br/>
+          <span class="text-[#c2410c]">Cara Algoritma Melacak</span> Jaringan Botnet
+        </h1>
+        <p class="text-[22px] text-zinc-600 font-normal leading-relaxed max-w-[980px]">
+          Laporan resmi Google TAG mengungkap pembersihan puluhan ribu kanal di Indonesia. Simak ringkasan anatomi teknis cara backend melacak operasinya.
+        </p>
+      </div>
+
+      <!-- DUAL PHOTO REAL HARDWARE SPLIT (HALLMARK COMPLIANT, NO SLOP STATUS BAR) -->
+      <div class="flex-1 grid grid-cols-2 gap-6 min-h-[460px]">
+        
+        <!-- PHOTO 1: DATA CENTER INFRASTRUCTURE -->
+        <div class="p-4 bg-zinc-900 rounded-2xl border border-zinc-700 shadow-xl flex flex-col justify-between">
+          <div class="flex items-center justify-between pb-3 px-2 text-zinc-300 text-[15px] border-b border-zinc-800 mono font-semibold">
+            <span class="flex items-center gap-2">
+              <i data-lucide="server" class="w-4 h-4 text-cyan-400"></i>
+              BACKEND INFRASTRUCTURE
+            </span>
+            <span class="text-zinc-500">DETECTION ENGINE</span>
+          </div>
+          <div class="relative w-full flex-1 min-h-[380px] rounded-xl overflow-hidden mt-3 bg-zinc-950">
+            <img src="./assets/datacenter-servers.jpg" alt="Data Center Servers" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 bg-zinc-900/95 backdrop-blur-md border border-zinc-700 p-4 rounded-xl">
+              <p class="text-[17px] font-bold text-zinc-100 mono">TRAFFIC TELEMETRY SCAN</p>
+              <p class="text-[14px] text-zinc-300 mt-0.5">Pemindaian anomali traffic & Poisson burst timing</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- PHOTO 2: SERVER RACKS & NETWORK SWITCH -->
-      <div class="p-4 bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl flex flex-col justify-between">
-        <div class="flex items-center justify-between pb-3 px-2 text-slate-400 text-xs border-b border-slate-800 mono">
-          <span class="flex items-center gap-2">
-            <i data-lucide="network" class="w-4 h-4 text-orange-400"></i>
-            BOT FARM TOPOLOGY
-          </span>
-        </div>
-        <div class="relative w-full flex-1 min-h-[680px] rounded-2xl overflow-hidden mt-3 bg-slate-950">
-          <img src="./assets/server-racks.jpg" alt="Server Racks" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-md border border-slate-700 p-4 rounded-xl">
-            <p class="text-sm font-bold text-slate-200 mono">HARDWARE FINGERPRINT AUDIT</p>
-            <p class="text-xs text-slate-400 mt-1">Pelacakan Canvas hash & proxy pool residensial</p>
+        <!-- PHOTO 2: SERVER RACKS & NETWORK SWITCH -->
+        <div class="p-4 bg-zinc-900 rounded-2xl border border-zinc-700 shadow-xl flex flex-col justify-between">
+          <div class="flex items-center justify-between pb-3 px-2 text-zinc-300 text-[15px] border-b border-zinc-800 mono font-semibold">
+            <span class="flex items-center gap-2">
+              <i data-lucide="network" class="w-4 h-4 text-orange-400"></i>
+              HARDWARE FINGERPRINT
+            </span>
+            <span class="text-zinc-500">AUDIT PROXY</span>
+          </div>
+          <div class="relative w-full flex-1 min-h-[380px] rounded-xl overflow-hidden mt-3 bg-zinc-950">
+            <img src="./assets/server-racks.jpg" alt="Server Racks" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 bg-zinc-900/95 backdrop-blur-md border border-zinc-700 p-4 rounded-xl">
+              <p class="text-[17px] font-bold text-zinc-100 mono">PROXY POOL CORRELATION</p>
+              <p class="text-[14px] text-zinc-300 mt-0.5">Pelacakan Canvas hash & subnet proxy residensial</p>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
-  </main>
+      </div>
+    </main>
 
-  <!-- BOTTOM CALL TO ACTION -->
-  <footer class="relative z-10 border-t border-slate-200/90 pt-6">
-    <div class="p-6 rounded-2xl bg-zinc-900 text-white flex items-center justify-between shadow-xl">
-      <div class="flex items-center gap-4">
-        <div class="w-14 h-14 rounded-xl bg-[#c2410c] flex items-center justify-center font-bold text-white shadow-md">
-          <i data-lucide="book-open" class="w-7 h-7"></i>
+    <!-- BOTTOM CALL TO ACTION -->
+    <footer class="relative z-10 border-t-2 border-zinc-200 pt-5">
+      <div class="p-5 rounded-2xl bg-zinc-900 text-white flex items-center justify-between shadow-xl border border-zinc-700">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-xl bg-[#c2410c] flex items-center justify-center font-bold text-white shadow-md shrink-0">
+            <i data-lucide="book-open" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-[22px] text-white heading-poppins">Baca Pembahasan Lengkap 7 Slide</h4>
+            <p class="text-[16px] text-zinc-400 mono mt-0.5">Tersedia sekarang di carousel feed @logikanyatech</p>
+          </div>
         </div>
-        <div>
-          <h4 class="font-extrabold text-2xl text-white font-heading">Baca Pembahasan Lengkap 7 Slide</h4>
-          <p class="text-base text-zinc-400 mono mt-0.5">Tersedia sekarang di carousel feed @logikanyatech</p>
+        <div class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#c2410c] text-white font-black text-[18px] shadow-sm shrink-0">
+          <span>Buka Feed</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
         </div>
       </div>
-      <div class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#c2410c] text-white font-bold text-lg shadow-sm">
-        <span>Buka Feed</span>
-        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-      </div>
-    </div>
-  </footer>
+    </footer>
+
+  </div>
 
   <script>
     lucide.createIcons();
