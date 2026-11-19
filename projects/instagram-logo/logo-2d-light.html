@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1080, initial-scale=1.0">
+  <title>Logo Instagram 2D Light - Logikanya.Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="blueprint-grid relative">
+
+  <!-- VIGNETTE & SUBTLE RADIAL GLOW -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.92)_40%,rgba(248,250,252,0.6)_100%)] pointer-events-none"></div>
+
+  <!-- CENTER LOGO CONTENT (Perfect for Circular Avatar & Square Feed) -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center">
+    
+    <!-- Official Logo Mark -->
+    <div class="w-[420px] h-[482px] flex items-center justify-center drop-shadow-sm">
+      <img src="./assets/logo.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
+    </div>
+
+    <!-- Brand Typography -->
+    <div class="mt-8">
+      <h1 class="text-[76px] font-black text-zinc-900 tracking-[-0.03em] leading-none font-heading">
+        Logikanya<span class="text-[#c2410c]">.Tech</span>
+      </h1>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1080, initial-scale=1.0">
+  <title>Logo Instagram 3D Light - Logikanya.Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="blueprint-grid flex items-center justify-center">
+
+  <!-- VIGNETTE & SUBTLE RADIAL GLOW -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.92)_40%,rgba(248,250,252,0.6)_100%)] pointer-events-none"></div>
+
+  <!-- PURE 3D THREE.JS SHOWCASE CANVAS -->
+  <canvas id="three-canvas" class="w-full h-full block relative z-10"></canvas>
+
+  <script>
+    (function init3DLogoLight() {
+      const canvas = document.getElementById('three-canvas');
+      const width = 1080;
+      const height = 1080;
+
+      // 1. Scene & Camera
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 1000);
+      camera.position.set(0, 0, 15);
+
+      // 2. WebGL Renderer
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance"
+      });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 2, 2));
+      renderer.setClearColor(0x000000, 0);
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.25;
+
+      // 3. Studio Key & Rim Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+      scene.add(ambientLight);
+
+      // Top Key Light
+      const keyLight = new THREE.DirectionalLight(0xffffff, 2.4);
+      keyLight.position.set(6, 12, 10);
+      scene.add(keyLight);
+
+      // Left Fill Light (Soft Slate/Cool Blue)
+      const fillLight = new THREE.DirectionalLight(0xe2e8f0, 1.2);
+      fillLight.position.set(-8, -2, 6);
+      scene.add(fillLight);
+
+      // Terracotta Rim Light
+      const rimLight = new THREE.DirectionalLight(0xc2410c, 2.8);
+      rimLight.position.set(4, -8, -4);
+      scene.add(rimLight);
+
+      // Subtle Center Point Light
+      const centerLight = new THREE.PointLight(0xc2410c, 1.5, 10);
+      centerLight.position.set(0, 0, 4);
+      scene.add(centerLight);
+
+      // 4. Floor Soft Contact Shadow
+      const shadowCanvas = document.createElement('canvas');
+      shadowCanvas.width = 512;
+      shadowCanvas.height = 512;
+      const sctx = shadowCanvas.getContext('2d');
+      const grad = sctx.createRadialGradient(256, 256, 20, 256, 256, 230);
+      grad.addColorStop(0, 'rgba(15, 23, 42, 0.28)');
+      grad.addColorStop(0.45, 'rgba(15, 23, 42, 0.12)');
+      grad.addColorStop(1, 'rgba(15, 23, 42, 0)');
+      sctx.fillStyle = grad;
+      sctx.fillRect(0, 0, 512, 512);
+
+      const shadowTexture = new THREE.CanvasTexture(shadowCanvas);
+      const shadowMaterial = new THREE.MeshBasicMaterial({
+        map: shadowTexture,
+        transparent: true,
+        opacity: 0.8,
+        depthWrite: false
+      });
+      const shadowPlane = new THREE.Mesh(new THREE.PlaneGeometry(10.5, 10.5), shadowMaterial);
+      shadowPlane.rotation.x = -Math.PI / 2;
+      shadowPlane.position.set(0, -3.8, 0);
+      scene.add(shadowPlane);
+
+      // 5. Main 3D Emblem Group
+      const mainGroup = new THREE.Group();
+      scene.add(mainGroup);
+
+      // Set gentle 3D isometric hero tilt
+      mainGroup.rotation.x = 0.08;
+      mainGroup.rotation.y = -0.12;
+      mainGroup.rotation.z = 0.02;
+
+      // A. Monolith Base Plate (Squircle with Bevel)
+      function createRoundedRectShape(w, h, r) {
+        const shape = new THREE.Shape();
+        const x = -w / 2;
+        const y = -h / 2;
+        shape.moveTo(x + r, y);
+        shape.lineTo(x + w - r, y);
+        shape.quadraticCurveTo(x + w, y, x + w, y + r);
+        shape.lineTo(x + w, y + h - r);
+        shape.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        shape.lineTo(x + r, y + h);
+        shape.quadraticCurveTo(x, y + h, x, y + h - r);
+        shape.lineTo(x, y + r);
+        shape.quadraticCurveTo(x, y, x + r, y);
+        return shape;
+      }
+
+      const plateShape = createRoundedRectShape(6.8, 7.8, 0.8);
+      const plateGeom = new THREE.ExtrudeGeometry(plateShape, {
+        depth: 0.55,
+        bevelEnabled: true,
+        bevelSegments: 5,
+        steps: 1,
+        bevelSize: 0.14,
+        bevelThickness: 0.14
+      });
+      plateGeom.center();
+
+      const plateMat = new THREE.MeshPhysicalMaterial({
+        color: 0xffffff,
+        roughness: 0.16,
+        metalness: 0.12,
+        clearcoat: 0.9,
+        clearcoatRoughness: 0.1
+      });
+      const monolithPlate = new THREE.Mesh(plateGeom, plateMat);
+      mainGroup.add(monolithPlate);
+
+      // B. High-Resolution Texture Canvas for Emblem
+      const textCanvas = document.createElement('canvas');
+      textCanvas.width = 2048;
+      textCanvas.height = 2350;
+      const ctx = textCanvas.getContext('2d');
+
+      function drawTexture(logo) {
+        // Base plate surface
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, textCanvas.width, textCanvas.height);
+
+        // Subtle blueprint lines on plate
+        ctx.strokeStyle = 'rgba(226, 232, 240, 0.6)';
+        ctx.lineWidth = 3;
+        for (let x = 0; x < textCanvas.width; x += 64) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, textCanvas.height);
+          ctx.stroke();
+        }
+        for (let y = 0; y < textCanvas.height; y += 64) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(textCanvas.width, y);
+          ctx.stroke();
+        }
+
+        // Elegant inner chamfer border
+        ctx.strokeStyle = 'rgba(194, 65, 12, 0.15)';
+        ctx.lineWidth = 6;
+        ctx.strokeRect(60, 60, textCanvas.width - 120, textCanvas.height - 120);
+
+        // Draw Official Logo
+        if (logo) {
+          const logoW = 1020;
+          const logoH = 1174;
+          const logoX = (textCanvas.width - logoW) / 2;
+          const logoY = 320;
+          ctx.drawImage(logo, logoX, logoY, logoW, logoH);
+        }
+
+        // Draw Brand Typography: Logikanya.Tech
+        ctx.font = '900 170px "Poppins", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        const textY = 1860;
+        const brand = "Logikanya";
+        const dotTech = ".Tech";
+
+        const brandW = ctx.measureText(brand).width;
+        ctx.fillStyle = '#c2410c';
+        const dotTechW = ctx.measureText(dotTech).width;
+
+        const totalW = brandW + dotTechW;
+        const startX = (textCanvas.width - totalW) / 2;
+
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#18181b';
+        ctx.fillText(brand, startX, textY);
+        ctx.fillStyle = '#c2410c';
+        ctx.fillText(dotTech, startX + brandW, textY);
+      }
+
+      drawTexture(null);
+
+      const surfaceTexture = new THREE.CanvasTexture(textCanvas);
+      surfaceTexture.anisotropy = 16;
+      surfaceTexture.needsUpdate = true;
+
+      const surfaceMat = new THREE.MeshStandardMaterial({
+        map: surfaceTexture,
+        roughness: 0.22,
+        metalness: 0.1,
+        polygonOffset: true,
+        polygonOffsetFactor: -1,
+        polygonOffsetUnits: -1
+      });
+
+      const surfacePlane = new THREE.Mesh(
+        new THREE.PlaneGeometry(6.75, 7.75),
+        surfaceMat
+      );
+      surfacePlane.position.z = 0.43;
+      mainGroup.add(surfacePlane);
+
+      // C. Floating 3D Curly Brackets `{` and `}` with Physical Bevel
+      function createBraceShape(isLeft) {
+        const s = new THREE.Shape();
+        const dir = isLeft ? 1 : -1;
+        s.moveTo(0, 1.8);
+        s.quadraticCurveTo(0.3 * dir, 1.8, 0.4 * dir, 1.2);
+        s.lineTo(0.4 * dir, 0.4);
+        s.quadraticCurveTo(0.4 * dir, 0.1, 0.7 * dir, 0);
+        s.quadraticCurveTo(0.4 * dir, -0.1, 0.4 * dir, -0.4);
+        s.lineTo(0.4 * dir, -1.2);
+        s.quadraticCurveTo(0.3 * dir, -1.8, 0, -1.8);
+        s.lineTo(0.12 * dir, -1.8);
+        s.quadraticCurveTo(0.55 * dir, -1.6, 0.55 * dir, -1.1);
+        s.lineTo(0.55 * dir, -0.35);
+        s.quadraticCurveTo(0.55 * dir, -0.05, 0.85 * dir, 0);
+        s.quadraticCurveTo(0.55 * dir, 0.05, 0.55 * dir, 0.35);
+        s.lineTo(0.55 * dir, 1.1);
+        s.quadraticCurveTo(0.55 * dir, 1.6, 0.12 * dir, 1.8);
+        s.closePath();
+        return s;
+      }
+
+      const braceGeomL = new THREE.ExtrudeGeometry(createBraceShape(true), {
+        depth: 0.2,
+        bevelEnabled: true,
+        bevelSize: 0.05,
+        bevelThickness: 0.05
+      });
+      braceGeomL.center();
+
+      const braceGeomR = new THREE.ExtrudeGeometry(createBraceShape(false), {
+        depth: 0.2,
+        bevelEnabled: true,
+        bevelSize: 0.05,
+        bevelThickness: 0.05
+      });
+      braceGeomR.center();
+
+      const braceMat = new THREE.MeshPhysicalMaterial({
+        color: 0xc2410c,
+        roughness: 0.18,
+        metalness: 0.65,
+        clearcoat: 0.8
+      });
+
+      const braceL = new THREE.Mesh(braceGeomL, braceMat);
+      braceL.scale.set(1.4, 1.4, 1.4);
+      braceL.position.set(-3.7, 0.4, 0.5);
+      mainGroup.add(braceL);
+
+      const braceR = new THREE.Mesh(braceGeomR, braceMat);
+      braceR.scale.set(1.4, 1.4, 1.4);
+      braceR.position.set(3.7, 0.4, 0.5);
+      mainGroup.add(braceR);
+
+      // D. Floating Precision Data Cubes
+      const cubeGeom = new THREE.BoxGeometry(0.35, 0.35, 0.35);
+      const cubeMat1 = new THREE.MeshStandardMaterial({
+        color: 0xc2410c,
+        roughness: 0.2,
+        metalness: 0.8
+      });
+      const cubeMat2 = new THREE.MeshStandardMaterial({
+        color: 0x18181b,
+        roughness: 0.3,
+        metalness: 0.7
+      });
+
+      const cube1 = new THREE.Mesh(cubeGeom, cubeMat1);
+      cube1.position.set(-3.6, -2.6, 0.8);
+      cube1.rotation.set(0.4, 0.5, 0.2);
+      mainGroup.add(cube1);
+
+      const cube2 = new THREE.Mesh(cubeGeom, cubeMat2);
+      cube2.position.set(3.6, 2.8, 0.7);
+      cube2.rotation.set(-0.3, 0.6, -0.2);
+      mainGroup.add(cube2);
+
+      // Load official logo and re-render
+      const logoImg = new Image();
+      logoImg.src = './assets/logo.png';
+      logoImg.onload = () => {
+        drawTexture(logoImg);
+        surfaceTexture.needsUpdate = true;
+        renderer.render(scene, camera);
+      };
+
+      // Initial render & render loop
+      renderer.render(scene, camera);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+
+    })();
+  </script>
+
+</body>
+</html>

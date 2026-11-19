@@ -102,9 +102,10 @@ Contoh:
 // Map project slugs to clean folder names
 function getPrettyProjectName(slug) {
   const map = {
-    'data-warehouse': '02 - Data Warehouse (OLTP vs OLAP)',
     'quantum-computing': '01 - Quantum Computing & Photonic Chip',
-    'botnet-forensic': '03 - Forensik Jaringan Buzzer (Google TAG)'
+    'data-warehouse': '02 - Data Warehouse (OLTP vs OLAP)',
+    'botnet-forensic': '03 - Forensik Jaringan Buzzer (Google TAG)',
+    'instagram-logo': '00 - Official Logo Instagram (2D & 3D)'
   };
   if (map[slug]) return map[slug];
   return slug

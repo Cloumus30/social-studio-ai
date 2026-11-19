@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1080, initial-scale=1.0">
+  <title>Logo Instagram 2D Dark - Logikanya.Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background-color: #09090b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+    .blueprint-grid-dark {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(39, 39, 42, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(39, 39, 42, 0.45) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="blueprint-grid-dark relative">
+
+  <!-- SUBTLE ORANGE CORE RADIAL AMBIENCE -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(194,65,12,0.12)_0%,rgba(9,9,11,0.95)_65%)] pointer-events-none"></div>
+
+  <!-- CENTER LOGO CONTENT (Perfect for Circular Avatar & Square Feed) -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center">
+    
+    <!-- Dark Mode Processed Logo Mark (White Braces + Glowing Orange Traces) -->
+    <div id="logo-container" class="w-[420px] h-[482px] flex items-center justify-center drop-shadow-[0_12px_32px_rgba(194,65,12,0.15)]">
+      <!-- Injected via canvas for pixel-perfect dark theme conversion -->
+    </div>
+
+    <!-- Brand Typography -->
+    <div class="mt-8">
+      <h1 class="text-[76px] font-black text-white tracking-[-0.03em] leading-none font-heading drop-shadow-md">
+        Logikanya<span class="text-[#ea580c]">.Tech</span>
+      </h1>
+    </div>
+
+  </div>
+
+  <script>
+    // Process logo image to convert dark charcoal elements into crisp titanium white
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = new Image();
+      img.src = './assets/logo.png';
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        canvas.className = 'w-full h-full object-contain';
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        const idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const d = idata.data;
+        for (let i = 0; i < d.length; i += 4) {
+          const a = d[i+3];
+          if (a > 25) {
+            const r = d[i], g = d[i+1], b = d[i+2];
+            // If dark charcoal/grey (curly braces and IC microchip)
+            if (r < 85 && g < 85 && b < 95) {
+              d[i] = 248;
+              d[i+1] = 250;
+              d[i+2] = 252; // Pure titanium white
+            } else if (r > 120 && g < 130) {
+              // Vibrant copper-orange circuit lines
+              d[i] = 249;
+              d[i+1] = 115;
+              d[i+2] = 22; // #f97316
+            }
+          }
+        }
+        ctx.putImageData(idata, 0, 0);
+        document.getElementById('logo-container').appendChild(canvas);
+      };
+    });
+  </script>
+
+</body>
+</html>
