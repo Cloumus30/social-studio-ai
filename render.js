@@ -138,7 +138,8 @@ async function main() {
 
   const chromePath = getChromePath();
   const launchOptions = {
-    headless: true
+    headless: true,
+    args: ['--allow-file-access-from-files', '--disable-web-security']
   };
   if (chromePath) {
     launchOptions.executablePath = chromePath;

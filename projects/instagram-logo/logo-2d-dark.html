@@ -44,9 +44,9 @@
   <!-- CENTER LOGO CONTENT (Perfect for Circular Avatar & Square Feed) -->
   <div class="relative z-10 flex flex-col items-center justify-center text-center">
     
-    <!-- Dark Mode Processed Logo Mark (White Braces + Glowing Orange Traces) -->
-    <div id="logo-container" class="w-[420px] h-[482px] flex items-center justify-center drop-shadow-[0_12px_32px_rgba(194,65,12,0.15)]">
-      <!-- Injected via canvas for pixel-perfect dark theme conversion -->
+    <!-- Dark Mode Logo Mark (Titanium White Braces + Glowing Orange Traces) -->
+    <div class="w-[420px] h-[482px] flex items-center justify-center drop-shadow-[0_16px_40px_rgba(234,88,12,0.18)]">
+      <img src="./assets/logo-dark.png" alt="Logikanya.Tech Logo" class="w-full h-full object-contain">
     </div>
 
     <!-- Brand Typography -->
@@ -57,44 +57,6 @@
     </div>
 
   </div>
-
-  <script>
-    // Process logo image to convert dark charcoal elements into crisp titanium white
-    window.addEventListener('DOMContentLoaded', () => {
-      const img = new Image();
-      img.src = './assets/logo.png';
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        canvas.className = 'w-full h-full object-contain';
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
-
-        const idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const d = idata.data;
-        for (let i = 0; i < d.length; i += 4) {
-          const a = d[i+3];
-          if (a > 25) {
-            const r = d[i], g = d[i+1], b = d[i+2];
-            // If dark charcoal/grey (curly braces and IC microchip)
-            if (r < 85 && g < 85 && b < 95) {
-              d[i] = 248;
-              d[i+1] = 250;
-              d[i+2] = 252; // Pure titanium white
-            } else if (r > 120 && g < 130) {
-              // Vibrant copper-orange circuit lines
-              d[i] = 249;
-              d[i+1] = 115;
-              d[i+2] = 22; // #f97316
-            }
-          }
-        }
-        ctx.putImageData(idata, 0, 0);
-        document.getElementById('logo-container').appendChild(canvas);
-      };
-    });
-  </script>
 
 </body>
 </html>
