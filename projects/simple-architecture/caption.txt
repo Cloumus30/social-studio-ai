@@ -1,0 +1,28 @@
+Sering kali ketika sebuah startup atau proyek SaaS mulai bertumbuh dan menyentuh angka 10.000 request per menit, ada godaan besar untuk langsung memecah aplikasi jadi belasan microservices, pasang cluster Kubernetes, dan deploy Kafka broker.
+
+Padahal kalau kita hitung secara matematika dasar:
+
+10.000 request / 60 detik = ~167 Request Per Second (RPS).
+
+Angka 167 RPS itu tergolong beban kerja menengah. Runtime bahasa pemrograman modern seperti Go, Node.js (cluster mode), Java, C# .NET, atau Python (FastAPI/Uvicorn worker) sanggup menangani ratusan hingga ribuan request per detik dalam satu mesin tunggal, asalkan aplikasinya stateless dan tidak melakukan komputasi berat yang blocking di main thread.
+
+Berikut rincian arsitektur paling sederhana dan hemat biaya yang terbukti stabil menangani trafik di skala ini:
+
+1. Reverse Proxy di Lapisan Terdepan (Nginx atau Caddy)
+Nginx bertugas menangani SSL termination (sertifikat Let's Encrypt), kompresi data (Gzip/Brotli), rate limiting untuk menahan lonjakan sesaat, dan menyajikan file statis langsung dari disk cache. Komunikasi dari Nginx ke backend cukup menggunakan Unix domain socket lokal agar tidak ada overhead jaringan antar-port.
+
+2. Backend Monolith Berbasis Worker (4 Thread / Process)
+Cukup jalankan monolith aplikasi Anda di satu instance. Manfaatkan in-memory cache sederhana (seperti LRU cache dengan TTL 30-60 detik) untuk endpoint yang membaca data referensi yang jarang berubah. Dengan pola ini, 167 RPS biasanya hanya menghabiskan 20% sampai 30% kapasitas prosesor pada mesin 2 vCPU.
+
+3. Single Instance PostgreSQL di Local NVMe Storage
+Database relasional sering dituduh sebagai biang kerok lambat, padahal masalah sebenarnya ada di query yang unindexed (full table scan) atau connection leak. Di beban 167 RPS, PostgreSQL modern yang berjalan di SSD NVMe dengan konfigurasi shared_buffers yang pas (misal 1 GB) dan indeks B-Tree yang tepat pada foreign key sanggup mengeksekusi query umum dalam waktu 2 sampai 8 milidetik. Batasi connection pool aplikasi di angka 20 sampai 30 koneksi aktif agar database tidak kehabisan thread.
+
+Spesifikasi Server Nyata:
+Setup ini bisa berjalan nyaman di satu Cloud VPS seharga $10 hingga $20 per bulan (2-4 vCPU, 4-8 GB RAM, 50 GB NVMe). Latensi rata-rata P95 tetap berada di bawah 45 milidetik, dengan pemakaian RAM sekitar 2 GB.
+
+Kapan Benar-Benar Perlu Scaling Out?
+Lakukan vertical scaling (naikkan spek RAM dan vCPU) terlebih dahulu sebelum memikirkan arsitektur multi-server. Tambah server atau pecah service hanya jika profiling di environment produksi membuktikan bahwa disk I/O database sudah mencapai batas maksimal hardware atau ada komputasi CPU-bound berat yang tidak bisa dioptimasi lagi di level kode.
+
+Pernah punya pengalaman menangani beban serupa dengan stack sederhana atau justru sempat over-engineering lebih dulu? Tulis pengalaman Anda di kolom komentar.
+
+#arsitektursistem #softwareengineering #backenddeveloper #systemdesign #devops #database #postgresql #golang #nodejs #vps #logikanyatech
