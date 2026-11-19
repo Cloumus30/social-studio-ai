@@ -37,20 +37,17 @@
   <!-- Blueprint Square Line Grid Pattern (40x40px, opacity 0.6) -->
   <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 pointer-events-none"></div>
 
-  <!-- HEADER -->
-  <header class="relative z-10 flex items-center justify-between border-b border-slate-200/90 pb-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mt-16 pt-16">
-    <div class="flex items-center gap-4">
-      <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center font-black text-xl text-white shadow-sm mono">
-        { }
-      </div>
+  <!-- HEADER / BRANDING (Selaras dengan Slide 1-6) -->
+  <header class="flex justify-between items-center z-10 border-b border-zinc-200 pb-6 -mx-16 px-16 -mt-16 pt-16 bg-white/80 backdrop-blur-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-[#c2410c] text-white flex items-center justify-center rounded-lg font-bold text-xl font-heading">L</div>
       <div>
-        <h3 class="font-extrabold text-2xl leading-tight text-[#18181b]">Logikanya<span class="text-[#c2410c]">.Tech</span></h3>
-        <p class="text-xs text-slate-500 mono font-medium">@logikanyatech</p>
+        <span class="font-black text-2xl tracking-tight text-zinc-900 font-heading">Logikanya<span class="text-[#c2410c]">.Tech</span></span>
+        <p class="text-xs text-zinc-500 font-medium tracking-wide uppercase mono">Rekayasa Sistem & Keamanan Data</p>
       </div>
     </div>
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-xs font-bold tracking-wider uppercase text-[#c2410c]">
-      <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-      <span>CATATAN TEKNIK</span>
+    <div class="bg-zinc-100 border border-zinc-300 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-zinc-700 uppercase mono">
+      SLIDE 07 / 07
     </div>
   </header>
 
@@ -58,7 +55,7 @@
   <main class="relative z-10 my-auto flex flex-col justify-between h-[1020px] py-2">
     <!-- Top Text Section (Ramah, Bebas Overclaim, Tanpa Eyebrow Pill) -->
     <div class="space-y-3 pt-2">
-      <h1 class="text-5xl font-black leading-[1.18] tracking-tight text-[#18181b]">
+      <h1 class="text-5xl font-black leading-[1.18] tracking-tight text-[#18181b] font-heading">
         Suka Bedah Rekayasa & Keamanan Sistem Kayak Gini? <br/>
         <span class="text-[#c2410c]">Yuk Konek di @logikanyatech</span>
       </h1>
@@ -75,7 +72,7 @@
     <!-- 1 BAR CTA HORIZONTAL ELEGAN -->
     <div class="flex items-center gap-4 w-full pb-2">
       <!-- Tombol Follow Utama (Oranye Lapang) -->
-      <div class="flex-1 p-5 rounded-2xl bg-[#c2410c] text-white flex items-center justify-center gap-3 font-extrabold text-xl shadow-md shadow-orange-500/15">
+      <div class="flex-1 p-5 rounded-2xl bg-[#c2410c] text-white flex items-center justify-center gap-3 font-extrabold text-xl shadow-md shadow-orange-500/15 font-heading">
         <i data-lucide="user-plus" class="w-6 h-6"></i>
         <span>Follow @logikanyatech</span>
       </div>
@@ -95,11 +92,11 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200/90 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
-    <div class="mono text-sm font-semibold text-slate-500">
+  <footer class="relative z-10 flex items-center justify-between border-t border-slate-200 pt-6 bg-white/80 backdrop-blur-sm -mx-16 px-16 -mb-16 pb-16">
+    <div class="mono text-xs font-semibold text-slate-500">
       SLIDE <span class="text-[#18181b] font-bold">07</span> / 07 • PENUTUP
     </div>
-    <div class="mono text-sm font-bold text-slate-600 flex items-center gap-2">
+    <div class="mono text-xs font-bold text-slate-600 flex items-center gap-2">
       <i data-lucide="check-check" class="w-4 h-4 text-[#c2410c]"></i>
       <span>@logikanyatech</span>
     </div>
@@ -131,26 +128,26 @@
       renderer.toneMappingExposure = 1.25;
 
       // 3. Studio Lighting
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
       scene.add(ambientLight);
 
       // Key Light (Warm White)
-      const keyLight = new THREE.DirectionalLight(0xffffff, 2.6);
+      const keyLight = new THREE.DirectionalLight(0xffffff, 2.8);
       keyLight.position.set(7, 10, 10);
       scene.add(keyLight);
 
       // Fill Light (Soft Cyan Tint)
-      const fillLight = new THREE.DirectionalLight(0x0891b2, 1.2);
+      const fillLight = new THREE.DirectionalLight(0x0891b2, 1.4);
       fillLight.position.set(-8, -4, 6);
       scene.add(fillLight);
 
       // Back Rim Light (Terracotta Orange)
-      const rimLight = new THREE.DirectionalLight(0xc2410c, 3.0);
+      const rimLight = new THREE.DirectionalLight(0xc2410c, 3.2);
       rimLight.position.set(2, -8, -5);
       scene.add(rimLight);
 
       // Center Point Glow
-      const centerPoint = new THREE.PointLight(0xc2410c, 1.8, 12);
+      const centerPoint = new THREE.PointLight(0xc2410c, 2.0, 14);
       centerPoint.position.set(0, 0, 3.5);
       scene.add(centerPoint);
 
@@ -212,13 +209,13 @@
 
       const plateMat = new THREE.MeshStandardMaterial({
         color: 0x18181b,
-        roughness: 0.24,
-        metalness: 0.85
+        roughness: 0.22,
+        metalness: 0.88
       });
       const monolithPlate = new THREE.Mesh(plateGeom, plateMat);
       mainGroup.add(monolithPlate);
 
-      // B. High-Resolution Texture Canvas for Branding & Typography
+      // B. High-Resolution Texture Canvas for Branding & Typography (Clean, Tanpa Slogan/Sub-badge Menumpuk)
       const textCanvas = document.createElement('canvas');
       textCanvas.width = 2048;
       textCanvas.height = 1024;
@@ -235,7 +232,7 @@
       for (let x = 0; x < 2048; x += step) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
-        ctx.lineTo(2048, y);
+        ctx.lineTo(x, 1024);
         ctx.stroke();
       }
       for (let y = 0; y < 1024; y += step) {
@@ -245,29 +242,13 @@
         ctx.stroke();
       }
 
-      // Tech Sub-badge (Top)
-      ctx.font = 'bold 36px "Inter", sans-serif';
-      ctx.fillStyle = '#0891b2';
-      ctx.textAlign = 'center';
-      ctx.fillText('CYBER FORENSIC & SYSTEM ARCHITECTURE', 1024, 250);
-
-      // Brand Title "Logikanya.Tech"
-      ctx.font = '900 134px "Poppins", sans-serif';
+      // Brand Title "Logikanya.Tech" (Besar, Bold, Elegan & Bersih)
+      ctx.font = '900 156px "Poppins", sans-serif';
       ctx.fillStyle = '#ffffff';
-      ctx.fillText('Logikanya', 880, 480);
+      ctx.fillText('Logikanya', 780, 560);
 
       ctx.fillStyle = '#c2410c';
-      ctx.fillText('.Tech', 1400, 480);
-
-      // Slogan Subtitle
-      ctx.font = '600 44px "Poppins", sans-serif';
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillText('REKAYASA SISTEM & KEAMANAN SIBER', 1024, 600);
-
-      // Spec Tags
-      ctx.font = '500 32px "Inter", sans-serif';
-      ctx.fillStyle = '#64748b';
-      ctx.fillText('@logikanyatech  •  TECH INSIGHTS', 1024, 760);
+      ctx.fillText('.Tech', 1420, 560);
 
       const texture = new THREE.CanvasTexture(textCanvas);
       texture.anisotropy = 8;
